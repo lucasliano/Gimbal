@@ -15,6 +15,7 @@ int main()
        TimerEvent();
        Maquina_General();
        Maquina_TransDatos();
+       F_Ejecutando();        //Ejecutando va en paralelo
     }
 
     return 0;

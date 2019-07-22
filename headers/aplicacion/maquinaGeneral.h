@@ -24,10 +24,9 @@
   void Inicializar();
   bool Recalibrar_Confirm();
   void F_Funcionando();
-  void F_Ejecutando();      //f porque es una funcion y no una maquina
+
 
   /*maquinas*/
   void Maquina_General();
-  void Maquina_TransDatos();
-  void Maquina_Calibrando();
   void Maquina_Control();
+  void Maquina_Calibrando();
