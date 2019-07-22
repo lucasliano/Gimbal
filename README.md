@@ -3,8 +3,8 @@ Projecto InfoII
 
 # Autores
 
-Coiro, Mateo
-Golob, Lautaro
-Liaño, Lucas
-Lovallo, Alejo
-Repetto, Facundo
+### Coiro, Mateo
+### Golob, Lautaro
+### Liaño, Lucas
+### Lovallo, Alejo
+### Repetto, Facundo
