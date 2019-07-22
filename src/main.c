@@ -1,15 +1,11 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-
-#include "bibliotecaInfoII.h"
-#include "Gimbal.h"
+#include  "headers/main.h"
 
 extern uint16_t set_Point;
 extern int aux;
 
+//*****************************************************
 int main()
+//*****************************************************
 {
     Inicializar();
     Init_Timers();
