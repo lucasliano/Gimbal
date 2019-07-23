@@ -1,3 +1,11 @@
+/**
+  \file maquinaControl.h
+  \brief Contiene la definición de #defines y rutinas relacionadas con el sistema de control.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \version 1.1
+*/
+
 /*Standar Libraries*/
 #include <stdio.h>
 #include <stdlib.h>
@@ -15,6 +23,6 @@
 /*Declaracion de rutinas*/
   /*funciones*/
   bool F_Calculando();
-  
+
   /*maquinas*/
   bool Maquina_Medir();

@@ -1,15 +1,43 @@
+/**
+  \file maquinaGeneral.c
+  \brief Se encuentra las rutinas mas genericas de las maquinas de estados. Entre ellas, la maquinaGeneral().
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \version 1.1
+*/
+
 /*Bibliotecas propias*/
 #include "headers/aplicacion/maquinaGeneral.h"
 
 
 /*Variables globales*/
 
+
 extern uint16_t timeControl;   //Hago extern pq esta en timers.c
+
+/**
+  \var uint16_t kTime
+  \brief Almacena una constante de control.
+  \details Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control.
+*/
 uint16_t kTime = 1;    //cte de tiempo. Es 1 pq el TIMER_CONTROL es en DEC(100ms)
+
+/**
+  \var uint16_t set_Point
+  \brief Almacena el valor de setpoint deseado.
+  \details none.
+*/
 uint16_t set_Point;
 
 /*Declaracion de rutinas*/
 
+
+/**
+  \fn void Inicializar();
+  \brief Se encarga de ejecutar inicializaciones tanto de funciones a nivel de aplicación como de funciones a nivel de hardware.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void Inicializar()
 //-----------------------------------------------------
@@ -18,6 +46,13 @@ void Inicializar()
   //Inicializar el resto de las cosas, sea display,etc
 }
 
+/**
+  \fn bool Recalibrar_Confirm();
+  \brief Se encarga de revisar si se esta solicitando la recalibración del dispositivo.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \return TRUE en caso de que se solicite. FALSE en el caso contrario.
+*/
 //-----------------------------------------------------
 bool Recalibrar_Confirm()
 //-----------------------------------------------------
@@ -31,6 +66,12 @@ bool Recalibrar_Confirm()
     return res;
 }
 
+/**
+  \fn void Maquina_General();
+  \brief Es la maquina encargada del funcionamiento principal del dispositivo.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void Maquina_General()
 //-----------------------------------------------------
@@ -72,6 +113,12 @@ void Maquina_General()
   }
 }
 
+/**
+  \fn void F_Funcionando();
+  \brief Es la rutina que actualmente ejecuta todo aquello dentro del estado "Funcionando" en la maquina general.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void F_Funcionando()
 //-----------------------------------------------------
@@ -87,6 +134,12 @@ void F_Funcionando()
   Maquina_Control();
 }
 
+/**
+  \fn void Maquina_Control();
+  \brief Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void Maquina_Control()
 //-----------------------------------------------------

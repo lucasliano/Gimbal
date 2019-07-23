@@ -1,3 +1,11 @@
+/**
+  \file maquinaGeneral.h
+  \brief Contiene la definición de #defines y rutinas relacionadas con el funcionamiento de las máquinas de estados. En particular de la máquina maquinaGeneral().
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \version 1.1
+*/
+
 /*Standar Libraries*/
 #include <stdio.h>
 #include <stdlib.h>

@@ -1,3 +1,11 @@
+/**
+  \file tiemrs.h
+  \brief Almacena las definiciones de las rutinas realcionadas con timers a nivel de aplicación.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \version 1.1
+*/
+
 /* Timers*/
 #define TIMER_DEC 1   //100ms
 #define TIMER_SEG 2   //1000ms

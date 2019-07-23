@@ -1,6 +1,23 @@
+/**
+  \file main.c
+  \brief Se encuentra la rutina principal del programa.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \version 1.1
+*/
+
+
+
+
 #include  "headers/main.h"
 
 extern uint16_t set_Point;
+
+/**
+  \var int aux
+  \brief Variable multiuso.
+  \details Se utiliza en la función Maquina_General()
+*/
 extern int aux;
 
 //*****************************************************

@@ -1,3 +1,11 @@
+/**
+  \file timers.c
+  \brief Se encuentran las rutinas relacionadas con los timers.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \version 1.1
+*/
+
 /*
     Alejo leete esto:
       Puse timers que dependan de cada cuanto los actualizas
@@ -16,11 +24,23 @@
 
 
 /*Acumuladores*/
+/**
+  \var uint16_t timeControl
+  \brief Es el acumulador relacionado al TIMER_CONTROL.
+  \details none.
+*/
 uint16_t timeControl = 0;
 
 
 /*Funciones asociadas a los timers*/
 
+
+/**
+  \fn void Init_Timers();
+  \brief Se encarga de llamar por primera vez a los tres timers TIMER_DEC, TIMER_SEG, TIMER_MIN.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void Init_Timers()
 //-----------------------------------------------------
@@ -30,6 +50,12 @@ void Init_Timers()
   TimerStart(TIMER_MIN,1,ActualizarMin,MIN);
 }
 
+/**
+  \fn void ActualizarDec();
+  \brief Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a DEC.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void ActualizarDec()
 //-----------------------------------------------------
@@ -42,6 +68,12 @@ void ActualizarDec()
   TimerStart(TIMER_DEC,1,ActualizarDec,DEC);
 }
 
+/**
+  \fn void ActualizarSeg();
+  \brief Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a SEG.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void ActualizarSeg()
 //-----------------------------------------------------
@@ -54,6 +86,12 @@ void ActualizarSeg()
   TimerStart(TIMER_SEG,1,ActualizarSeg,SEG);
 }
 
+/**
+  \fn void ActualizarMin();
+  \brief Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a MIN.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
 //-----------------------------------------------------
 void ActualizarMin()
 //-----------------------------------------------------
@@ -66,6 +104,14 @@ void ActualizarMin()
   TimerStart(TIMER_MIN,1,ActualizarMin,MIN);
 }
 
+
+/**
+  \fn void SetTimer(uint16_t timer);
+  \brief Rutina encargada de resetear el valor de los acumuladores relacionados con los timers transparentes.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \param Recibe como parámetro un timer transparente, es decir aquellos timers que no nos interesa el valor de la unidad de tiempo. Ejemplo: TIMER_CONTROL
+*/
 //-----------------------------------------------------
 void SetTimer(uint16_t timer)   //Le pasas el timer transparente
 //-----------------------------------------------------
