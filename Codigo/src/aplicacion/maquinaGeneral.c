@@ -3,7 +3,7 @@
   \brief Se encuentra las rutinas mas genericas de las maquinas de estados. Entre ellas, la maquinaGeneral().
   \author Grupo 8 - R2003
   \date 2019.07.23
-  \version 1.1
+  \version 1.2
 */
 
 /*Bibliotecas propias*/
@@ -14,20 +14,8 @@
 
 
 extern uint16_t timeControl;   //Hago extern pq esta en timers.c
-
-/**
-  \var uint16_t kTime
-  \brief Almacena una constante de control.
-  \details Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control.
-*/
-uint16_t kTime = 1;    //cte de tiempo. Es 1 pq el TIMER_CONTROL es en DEC(100ms)
-
-/**
-  \var uint16_t set_Point
-  \brief Almacena el valor de setpoint deseado.
-  \details none.
-*/
-uint16_t set_Point;
+extern uint16_t kTime;    //cte de tiempo. Es 1 pq el TIMER_CONTROL es en DEC(100ms)
+extern uint16_t setPoint;
 
 /*Declaracion de rutinas*/
 
@@ -63,7 +51,7 @@ bool Recalibrar_Confirm()
   {
     res = TRUE;
   }
-    return res;
+  return res;
 }
 
 /**
@@ -78,7 +66,7 @@ void Maquina_General()
 {
   static int estado = E_CALIBRANDO;
     /*
-        set_Point=0;
+        setPoint=0;
         ESTE SET POINT CREO QUE EN REALIDAD LO VA A MODIFICAR
         LA MAQUINA DE CALIBRACION ASI QUE NO LO ESTARIA VIENDO YO
     */

@@ -3,7 +3,7 @@
   \brief Se encuentra la rutina principal del programa.
   \author Grupo 8 - R2003
   \date 2019.07.23
-  \version 1.1
+  \version 1.2
 */
 
 
@@ -11,7 +11,7 @@
 
 #include  "headers/main.h"
 
-extern uint16_t set_Point;
+extern uint16_t setPoint;
 
 /**
   \var int aux

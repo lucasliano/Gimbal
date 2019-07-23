@@ -3,7 +3,7 @@
   \brief Se encuentran las rutinas relacionadas con los timers.
   \author Grupo 8 - R2003
   \date 2019.07.23
-  \version 1.1
+  \version 1.2
 */
 
 /*
@@ -30,7 +30,18 @@
   \details none.
 */
 uint16_t timeControl = 0;
-
+/**
+  \var uint16_t timeBoton
+  \brief Es el acumulador relacionado al TIMER_BOTON.
+  \details none.
+*/
+uint16_t timeBoton = 0;
+/**
+  \var uint16_t timePeriodo
+  \brief Es el acumulador relacionado al TIMER_PERIODO.
+  \details none.
+*/
+uint16_t timePeriodo = 0;
 
 /*Funciones asociadas a los timers*/
 
@@ -61,8 +72,8 @@ void ActualizarDec()
 //-----------------------------------------------------
 {
   //Acá se actualizan todos los acumuladores
-  timeControl = timeControl + 100;
-
+  timeControl += 1;
+  timePeriodo += 1;
 
   //Se vuelve a activar el timer
   TimerStart(TIMER_DEC,1,ActualizarDec,DEC);
@@ -79,7 +90,7 @@ void ActualizarSeg()
 //-----------------------------------------------------
 {
   //Acá se actualizan todos los acumuladores
-
+  timeBoton += 1;
 
 
   //Se vuelve a activar el timer
@@ -124,6 +135,9 @@ void SetTimer(uint16_t timer)   //Le pasas el timer transparente
   {
     case TIMER_CONTROL:
          timeControl = 0;
+         break;
+    case TIMER_BOTON:
+         timeBoton = 0;
          break;
   }
 }

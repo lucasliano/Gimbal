@@ -3,7 +3,7 @@
   \brief Almacena las definiciones de las rutinas realcionadas con timers a nivel de aplicación.
   \author Grupo 8 - R2003
   \date 2019.07.23
-  \version 1.1
+  \version 1.2
 */
 
 /* Timers*/
@@ -13,6 +13,8 @@
 
 /*Nombre de timers transparentes*/
 #define TIMER_CONTROL 1
+#define TIMER_BOTON 2
+#define TIMER_PERIODO 3
 
 
 /*Funciones asociadas a timers*/

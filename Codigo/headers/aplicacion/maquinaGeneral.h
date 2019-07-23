@@ -3,7 +3,7 @@
   \brief Contiene la definición de #defines y rutinas relacionadas con el funcionamiento de las máquinas de estados. En particular de la máquina maquinaGeneral().
   \author Grupo 8 - R2003
   \date 2019.07.23
-  \version 1.1
+  \version 1.2
 */
 
 /*Standar Libraries*/
@@ -15,6 +15,7 @@
 #include "headers/primitivas/bibliotecaInfoII.h"
 #include "headers/aplicacion/timers.h"
 #include "headers/aplicacion/maquinaControl.h"
+#include "headers/aplicacion/maquinaEjecutando.h"
 
 
 /*Maquina principal*/
