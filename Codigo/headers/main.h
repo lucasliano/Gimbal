@@ -1,9 +1,9 @@
 /**
   \file main.h
-  \brief Almacena las definiciones mas genericas que se van a utilizar en el desarrollo del programa. 
+  \brief Almacena las definiciones mas genericas que se van a utilizar en el desarrollo del programa.
   \author Grupo 8 - R2003
   \date 2019.07.23
-  \version 1.1
+  \version 1.2
 */
 
 /*Standar Libraries*/
