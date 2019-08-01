@@ -25,7 +25,7 @@ extern uint16_t periodo;
 */
 void F_Ejecutando()
 {
-  if(timePeriodo >= periodo)
+  if(timePeriodo >= periodo)      //Si el tiempo transcurrido es mayor al tiempo del periodo (en unidad de TIMER_PERIODO) ==>
   {
     actual += output;
     SetTimer(TIMER_PERIODO);
