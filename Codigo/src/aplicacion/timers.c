@@ -124,5 +124,8 @@ void SetTimer(uint16_t timer)   //Le pasas el timer transparente
     case TIMER_BOTON:
          timeBoton = 0;
          break;
+    case TIMER_PERIODO:
+        timePeriodo = 0;
+        break;
   }
 }

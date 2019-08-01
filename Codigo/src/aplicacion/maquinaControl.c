@@ -45,7 +45,7 @@ uint16_t duty;
   \brief Almacena cual es el periodo maximo del PWM del motor.
   \details none.
 */
-uint16_t periodo = 2; //La unidad de tiempo depende del TIMER_PERIODO
+uint16_t periodo = 2;  //La unidad de tiempo depende del TIMER_PERIODO
 
 /**
   \var uint16_t kTime
@@ -96,6 +96,7 @@ bool Maquina_Medir()
   switch (estado)
   {
     case E_PAUSA:
+    
       if(hayBoton() == TRUE)
       {
         estado = E_PRESIONANDO;
@@ -103,7 +104,9 @@ bool Maquina_Medir()
       }
       return FALSE;
       break;
+
     case E_PRESIONANDO:
+
       if(hayBoton() == FALSE || timeBoton >= limite)
       {
         actual += timeBoton * escala;
@@ -112,6 +115,7 @@ bool Maquina_Medir()
       }
       return FALSE;
       break;
+
     default:
       estado = E_PAUSA;
       return FALSE;
