@@ -6,19 +6,6 @@
   \version 1.2
 */
 
-/*
-    Alejo leete esto:
-      Puse timers que dependan de cada cuanto los actualizas
-      y entonces junto todos los timers que se actualicen
-      cada 1 seg, o cada 1 dec , etc.
-
-      Y lo que hago es hacer variables globales que
-      vayan acumulando. Cuando quieras hacer un reset, solo
-      le pasas el identificador y atr.
-
-      Fijate si entendes lo que hice, y que te parece.
-*/
-
 /*Bibliotecas propias*/
 #include "headers/aplicacion/timers.h"
 
@@ -91,8 +78,6 @@ void ActualizarSeg()
 {
   //Acá se actualizan todos los acumuladores
   timeBoton += 1;
-
-
   //Se vuelve a activar el timer
   TimerStart(TIMER_SEG,1,ActualizarSeg,SEG);
 }
