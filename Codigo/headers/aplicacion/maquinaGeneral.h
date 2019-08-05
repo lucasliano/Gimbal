@@ -31,7 +31,7 @@
 /*Declaracion de rutinas*/
   /*funciones*/
   void Inicializar();
-  bool Recalibrar_Confirm();
+  int Recalibrar_Confirm();
   void F_Funcionando();
 
 

@@ -19,8 +19,8 @@
 
 /*Declaracion de rutinas*/
   /*funciones*/
-  bool F_Calculando();
-  bool hayBoton();
+  int F_Calculando();
+  int hayBoton();
 
   /*maquinas*/
-  bool Maquina_Medir();
+  int Maquina_Medir();

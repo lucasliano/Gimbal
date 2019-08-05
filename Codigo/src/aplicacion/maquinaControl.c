@@ -90,13 +90,13 @@ extern uint16_t timeBoton;  //Acumulador del boton
   \date 2019.07.23
   \return TRUE si se pudo realizar la medición, FALSE si hubo algun fallo.
 */
-bool Maquina_Medir()
+int Maquina_Medir()
 {
   static int estado = E_PAUSA;
   switch (estado)
   {
     case E_PAUSA:
-    
+
       if(hayBoton() == TRUE)
       {
         estado = E_PRESIONANDO;
@@ -129,9 +129,9 @@ bool Maquina_Medir()
   \date 2019.07.23
   \return FALSE mientras se este calculando. TRUE cuando se haya terminado de calcular.
 */
-bool F_Calculando()
+int F_Calculando()
 {
-  static bool res;  //Si se lo implementa como máquina de estados es necesario que esto se modifique.
+  static int res;  //Si se lo implementa como máquina de estados es necesario que esto se modifique.
   res = FALSE;
 
   uint16_t dif;
@@ -151,7 +151,7 @@ bool F_Calculando()
   \date 2019.07.23
   \return FALSE si no hay ninguno presionado, y TRUE si alguno se presiono o esta siendo presionado.
 */
-bool hayBoton()     //Es la misma funcion que Recalibrar_Confirm() hasta ahora!
+int hayBoton()     //Es la misma funcion que Recalibrar_Confirm() hasta ahora!
 {
   int res = FALSE;
   uint8_t tecla = GetKey();

@@ -42,7 +42,7 @@ void Inicializar()
   \return TRUE en caso de que se solicite. FALSE en el caso contrario.
 */
 //-----------------------------------------------------
-bool Recalibrar_Confirm()
+int Recalibrar_Confirm()
 //-----------------------------------------------------
 {
   int res = FALSE;

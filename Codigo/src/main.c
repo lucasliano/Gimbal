@@ -6,10 +6,7 @@
   \version 1.2
 */
 
-
-
-
-#include  "headers/main.h"
+#include "headers/main.h"
 
 extern uint16_t setPoint;
 
