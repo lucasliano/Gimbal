@@ -1,4 +1,10 @@
 # Gimbal
 Projecto InfoII
 
-Estoy probando hacer un push
+# Autores
+
+### Coiro, Mateo
+### Golob, Lautaro
+### Liaño, Lucas
+### Lovallo, Alejo
+### Repetto, Facundo
