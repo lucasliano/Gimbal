@@ -1,0 +1,18 @@
+Para poder bajar el proyecto hay que hacer lo siguiente:
+
+1. Agarar el Proyecto.zip y importarlo desde el MCU en un Workspace LOCAL!!!!. Esto quiere decir, el workspace NO puede 
+	estar en la carpeta de github.
+
+2. Una vez cargado el proyecto en tu workspace local, como lo unico que va a variar del proyecto son las carpetas "src"
+	y "inc", entonces arrastras esas carpetas desde el directorio de github (Es decir, el directorio de este archivo)
+	hacia el workspace LOCAL de tu mcuxpress.
+
+3. Te codeas la vida
+
+4. Cuando quieras subir cambios, lo que vas a tener que hacer es copiar las carpetas del workspace local al directorio de
+	github y clickeas "reemplazar". 
+
+5. Abrir GitHub desktop y haces el push. 
+
+
+Es simple. Es CLARO. :)
