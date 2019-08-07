@@ -118,10 +118,10 @@ int Maquina_Medir()
       if(tecla == SW7 || tecla == SW4 || timeBoton >= limite)
       {
     	float perturbacion = timeBoton * escala;
-    	if(tecla == SW4)
-    	{
-    		perturbacion = perturbacion * -1;
-    	}
+      	if(tecla == SW4)
+      	{
+      		perturbacion = perturbacion * -1;
+      	}
         actual += perturbacion;
         estado = E_PAUSA;
         return TRUE;      //Solo devueve TRUE cuando se haya soltado el boton
