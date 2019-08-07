@@ -44,7 +44,7 @@ int main()
     {
        TimerEvent();
        Maquina_General();
-       Maquina_TransDatos();
+       Maquina_TransDatos();  //No implementada
        F_Ejecutando();        //Ejecutando va en paralelo
     }
 
@@ -55,4 +55,3 @@ void Maquina_TransDatos()
 {
 
 }
-

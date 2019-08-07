@@ -147,11 +147,13 @@ int F_Calculando()
   static int res;  //Si se lo implementa como máquina de estados es necesario que esto se modifique.
   res = FALSE;
 
+
   float dif;
   dif = setPoint - actual;
-  output = kp * (dif/(kreac));	//kreac simula el tiempo que tardaría en realizarse la accion completamente
-  res = TRUE;
+  output = kp * (dif/(kreac));	//kreac se opone al control
 
+
+  res = TRUE;
   /* Siempre devuelve TRUE hasta ahora. */
   return res;
 }
