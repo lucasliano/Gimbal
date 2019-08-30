@@ -8,6 +8,10 @@
 
 /*Bibliotecas propias*/
 #include "maquinaControl.h"
+#include "Aplicacion/maquinaEjecutando.h"
+#include "Aplicacion/maquinaGeneral.h"
+#include "Aplicacion/timers.h"
+#include "main.h"
 
 
 /*Variables globales*/
@@ -45,14 +49,14 @@ uint16_t duty;
   \brief Almacena cual es el periodo maximo del PWM del motor.
   \details none.
 */
-uint16_t periodo = 5;
+uint16_t periodo = 1;
 
 /**
   \var float kTime
   \brief Almacena una constante de control.
   \details Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control.
 */
-float kTime = 20;
+float kTime = 9;
 /*
  * Curva Normal: Ktime < = 5*periodo
  * Oscilacion Decreciente: 5*perido < kTime < 10*periodo
@@ -82,7 +86,7 @@ float kd = 0;
 float ki = 0;
 
 uint16_t limite = 5;    //limite en segundos para el boton para SIMULACION
-int escala = 13;       //Escala de la perturbacion solo para SIMULACION
+int escala = 18;       //Escala de la perturbacion solo para SIMULACION
 float kreac = 5;		//SOLO PARA LA SIMULACION
 
 extern uint16_t timeBoton;  //Acumulador del boton
@@ -118,11 +122,22 @@ int Maquina_Medir()
       if(tecla == SW7 || tecla == SW4 || timeBoton >= limite)
       {
     	float perturbacion = timeBoton * escala;
-      	if(tecla == SW4)
-      	{
-      		perturbacion = perturbacion * -1;
-      	}
-        actual += perturbacion;
+    	if(tecla == SW4)
+    	{
+    		perturbacion = perturbacion * -1;
+    	}
+    	if(actual + perturbacion < 90 && actual + perturbacion > -90)
+    	{
+    		actual += perturbacion;
+    	}else{
+    		if(actual + perturbacion >= 90)
+    		{
+    			actual = 90;
+    		}else{
+    			actual = -90;
+    		}
+    	}
+
         estado = E_PAUSA;
         return TRUE;      //Solo devueve TRUE cuando se haya soltado el boton
       }

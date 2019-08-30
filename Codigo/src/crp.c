@@ -1,4 +1,9 @@
-//*****************************************************************************
+
+#include "../inc/Aplicacion/maquinaControl.h"
+#include "../inc/Aplicacion/maquinaEjecutando.h"
+#include "../inc/Aplicacion/maquinaGeneral.h"
+#include "../inc/Aplicacion/timers.h"
+#include "../inc/main.h"
 // crp.c
 //
 // Source file to create CRP word expected by LPCXpresso IDE linker

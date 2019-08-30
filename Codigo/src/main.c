@@ -1,4 +1,3 @@
-
 #ifdef __USE_CMSIS
 #include "LPC17xx.h"
 #endif
@@ -29,6 +28,8 @@ extern float actual;
   \details Se utiliza en la función Maquina_General()
 */
 extern int aux;
+extern uint16_t timeControl;  //Ver si es necesario.. creo que no.. Hay que probar
+
 
 //*****************************************************
 int main()
@@ -47,6 +48,8 @@ int main()
 
     return 0;
 }
+
+
 
 void Maquina_TransDatos()
 {

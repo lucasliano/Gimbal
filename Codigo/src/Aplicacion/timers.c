@@ -132,8 +132,8 @@ void ReiniciarTimer(uint16_t timer)   //Le pasas el timer transparente
          timeBoton = 0;
          break;
     case TIMER_PERIODO:
-        timePeriodo = 0;
-        break;
+         timePeriodo = 0;
+         break;
     case TIMER_LCD:
     	timeLCD = 0;
 		break;

@@ -13,3 +13,4 @@
   /*funciones*/
   void F_Ejecutando();
   int tostring(char*, int);
+  void ActualizarValorPWM();

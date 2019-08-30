@@ -8,6 +8,10 @@
 
 /*Bibliotecas propias*/
 #include "maquinaEjecutando.h"
+#include "maquinaControl.h"
+#include "maquinaGeneral.h"
+#include "timers.h"
+#include "main.h"
 
 /*Variables globales*/
 extern uint16_t timePeriodo;
@@ -16,6 +20,7 @@ extern float output;
 extern uint16_t periodo;
 extern uint16_t timeLCD;
 
+float PWM;
 /*Declaracion de rutinas*/
 
 /**
@@ -29,6 +34,10 @@ void F_Ejecutando()
   if(timePeriodo >= periodo)      //Si el tiempo transcurrido es mayor al tiempo del periodo (en unidad de TIMER_PERIODO) ==>
   {
     actual += output;
+
+    PWM = (actual - (-90)) * (2350 - 450) / (90 - (-90)) + 450;	//Calculo de mapeo entre -90/90 a 450/2350
+    ActualizarValorPWM();
+
     ReiniciarTimer(TIMER_PERIODO);
   }
 
@@ -37,20 +46,25 @@ void F_Ejecutando()
 	  char str[6];
 
 	  LCD_Display("POS:",DSP0,0);
-	  LCD_Display("OUT:",DSP1,0);
+	  LCD_Display("PWM:",DSP1,0);
 
 	  tostring(str,(int)actual);			//Esto me imprime la posición
 	  LCD_Display(str,DSP0,4);
 
 
-	  tostring(str,(int)output);			//Esto imprime la correccion de posicion
+	  tostring(str,(int)PWM);			//Esto imprime la correccion de posicion
 	  LCD_Display(str,DSP1,4);
 
 	  ReiniciarTimer(TIMER_LCD);
   }
 }
 
-
+void ActualizarValorPWM()
+{
+	PWM_MR1 = (uint32_t) PWM;
+	PWM_MCR = 1 << 1;
+	PWM_LER = (1<<1);
+}
 
 /**
   \fn void tostring();
@@ -115,5 +129,3 @@ int tostring(char* str, int num)
     }
     return 0;
 }
-
-

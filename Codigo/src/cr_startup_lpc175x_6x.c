@@ -1,4 +1,9 @@
-//*****************************************************************************
+
+#include "../inc/Aplicacion/maquinaControl.h"
+#include "../inc/Aplicacion/maquinaEjecutando.h"
+#include "../inc/Aplicacion/maquinaGeneral.h"
+#include "../inc/Aplicacion/timers.h"
+#include "../inc/main.h"
 // LPC175x_6x Microcontroller Startup code for use with LPCXpresso IDE
 //
 // Version : 150706

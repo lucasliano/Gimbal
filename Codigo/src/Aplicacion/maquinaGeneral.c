@@ -8,6 +8,10 @@
 
 /*Bibliotecas propias*/
 #include "maquinaGeneral.h"
+#include "maquinaControl.h"
+#include "maquinaEjecutando.h"
+#include "timers.h"
+#include "main.h"
 
 /*Variables globales*/
 
@@ -43,6 +47,9 @@ void Inicializar()
   InicializarSysTick();
   InicializarRGB();
   InicializarPLL();
+
+  Init_GPIO_PWM();
+  Init_PWM();
   //Inicializar el resto de las cosas, sea display,etc
 
 }
