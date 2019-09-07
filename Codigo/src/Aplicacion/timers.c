@@ -6,7 +6,11 @@
   \version 1.2
 */
 
-/*Bibliotecas propias*/
+/*Bibliotecas Propias*/
+#include "maquinaControl.h"
+#include "maquinaEjecutando.h"
+#include "maquinaGeneral.h"
+#include "main.h"
 #include "timers.h"
 
 
