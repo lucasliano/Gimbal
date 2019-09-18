@@ -6,7 +6,7 @@
 #include "interfaz.h"
 #include "ui_interfaz.h"
 
-
+#include <QDebug>
 
 Interfaz::Interfaz(QWidget *parent) :
     QMainWindow(parent),
@@ -20,11 +20,11 @@ Interfaz::Interfaz(QWidget *parent) :
         ui->pitch1->setValue(pitch);
 
         //Cosas de comunicacion
-        Port = NULL;    //indica que el objeto puerto no esta creado;
+        Port = nullptr;    //indica que el objeto puerto no esta creado;
         Portname = "";
         EnumerarPuertos();
-        HabilitarBotones(false);
-
+        //HabilitarBotones(false);
+        HabilitarBotones(true);
     }
 
 Interfaz::~Interfaz()
@@ -44,10 +44,12 @@ void Interfaz::on_noseup_clicked()
     }
 
     //Cosas de la comunicacion
-    QString dato;
+    //QString dato;
+    QByteArray dato;
     dato.setNum(pitch);
-    GenerarTrama(&dato,0);
-    EnviarDatos(dato.toUtf8());
+    GenerarTrama(&dato , 0);
+    EnviarDatos(dato);
+
 }
 
 void Interfaz::on_nosedown_clicked()
@@ -114,10 +116,10 @@ void Interfaz::on_calibrar_clicked()
     ui->pitch1->setValue(0);
 
     //Cosas de la comunicacion
-    QString dato;
+    QByteArray dato;
     dato.setNum(pitch);
     GenerarTrama(&dato,0);
-    EnviarDatos(dato.toUtf8());
+    EnviarDatos(dato);
 
 
 }
@@ -131,7 +133,7 @@ void Interfaz::EnumerarPuertos()
     if(ports.size() == 0)
     {
         QMessageBox::critical(this,"Error","No hay puertos disponibles!");
-        HabilitarBotones(false);
+        //HabilitarBotones(false);
 
     }else{
         for (int i = 0; i < ports.size(); i++)
@@ -187,51 +189,64 @@ void Interfaz::on_comboBoxPort_currentIndexChanged(int index)
 void Interfaz::on_btnUpdate_clicked()
 {
     //Cosas de comunicacion
-    Port = NULL;    //indica que el objeto puerto no esta creado;
+    Port = nullptr;    //indica que el objeto puerto no esta creado;
     Portname = "";
     EnumerarPuertos();
 }
 
-void Interfaz::EnviarDatos(const char* buff)
+void Interfaz::EnviarDatos(QByteArray buff)
 {
-    QByteArray aux;
-    char* datos;
-
-    aux.append(buff);
-    datos = aux.data();
+   // QMessageBox::critical(this,"recibi esto de la trama",buff);
 
     if(Port)
     {
+       qint64 i;
+       i = Port->write(buff);
 
-       while((*buff) != '\0')
-       {
-           QByteArray auxiliar;
-           auxiliar.append((*buff));
-           auxiliar.append('\0');
+       qDebug() << i << buff;
 
-           Port->write(auxiliar);
-           QMessageBox::information(this,"Enviando","Se envió el caracter '" + auxiliar +"'");
-           buff = buff + 1;
+       //QByteArray numero;
+       //numero.setNum(i);
+       //QMessageBox::critical(this,"bytes enviados",numero);
+
+       buff.clear();
 
        }
-
-    }
     else
     {
-        QMessageBox::critical(this,"Error", QString::fromLatin1("Hay problemas con el envío de datos"));
+        QMessageBox::critical(this,"Error", QString::fromLatin1("Hay problemas con el envio de datos"));
     }
 }
 
-void Interfaz::GenerarTrama(QString* buff, const int tipo)
+void Interfaz::GenerarTrama(QByteArray* buff, const int tipo)
 {
-    //Acá se genera la trama que nos interesa.. como por el momento
-    //sol enviamos caracteres, entonces no nos interesa.
+
+
+
+    switch (tipo)
+        {
+            case 0:
+                buff->prepend("PIT");
+                break;
+            case 1:
+                buff->prepend("RLL");
+                break;
+            case 2:
+                buff->prepend("YAW");
+                break;
+            default:
+                buff->prepend("@");
+                break;
+        }
+
+    buff->prepend('#');
+    buff->append("@");
 }
 
 void Interfaz::Recibiendo()
 {
     QByteArray aux;
-    aux.resize(Port->bytesAvailable());
+    aux.resize(int(Port->bytesAvailable()));
     aux = Port->readAll();
     aux.append('\0');
     QMessageBox::critical(this,"Error", aux);
@@ -251,19 +266,21 @@ void Interfaz::on_pushButtonConectar_clicked()
         {
             QMessageBox::critical(this,"Error","No se puede abrir el puerto " + Port->portName());
             delete Port;
-            Port = NULL;
+            Port = nullptr;
         }
         else
         {
+            //QMessageBox::critical(this,"Error",Port->portName());
+            ui->statusBar->showMessage("Conectado", 1000);
             HabilitarBotones(true);
             ui->pushButtonConectar->setText("Desconectar");
-            connect(Port,SIGNAL(readyRead()),this,SLOT(Recibiendo() )); //quien y que manda,receptor y slot(una funcion)
+            connect(Port,SIGNAL(readyRead()),this,SLOT(Recibiendo())); //quien y que manda,receptor y slot(una funcion)
         }
     }
     else
     {
         delete Port;
-        Port = NULL;
+        Port = nullptr;
         ui->pushButtonConectar->setText("Conectar");
     }
 }
@@ -271,8 +288,17 @@ void Interfaz::on_pushButtonConectar_clicked()
 void Interfaz::on_btnEnviar_clicked()
 {
     //Cosas de la comunicacion
-    QString dato;
+    QByteArray dato;
+    QByteArray dato1;
+
     dato.setNum(pitch);
+    dato1.setNum(roll);
+
     GenerarTrama(&dato,0);
-    EnviarDatos(dato.toUtf8());
+    GenerarTrama(&dato1,1);
+
+
+    EnviarDatos(dato);
+    EnviarDatos(dato1);
+
 }

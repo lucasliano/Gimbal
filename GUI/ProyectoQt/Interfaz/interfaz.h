@@ -51,8 +51,8 @@ private:
     int roll;
     void EnumerarPuertos();
     void HabilitarBotones(bool);
-    void EnviarDatos(const char*);
-    void GenerarTrama(QString*, const int);
+    void EnviarDatos(QByteArray);
+    void GenerarTrama(QByteArray*,const int);
 
 };
 
