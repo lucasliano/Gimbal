@@ -4,8 +4,8 @@
         <nombre>M_Control</nombre>
         <autores/>
         <creacion>21-07-2019 20:52:48</creacion>
-        <modificacion>21-07-2019 22:18:10</modificacion>
-        <carpeta>C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Documentacion/Otros/Diagrama Maquinas/Genericas</carpeta>
+        <modificacion>07-08-2019 03:25:11</modificacion>
+        <carpeta>C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Documentacion/Otros/Diagrama Maquinas/Reales</carpeta>
     </general>
     <configuracion>
         <hardware/>
@@ -27,7 +27,7 @@
             </diagrama>
             <transiciones>
                 <tr0>
-                    <idEvento>(timeControl>=kTime) &amp;&amp; (M_Medir()==TRUE)</idEvento>
+                    <idEvento>(timeControl>=kTime) || (M_Medir()==TRUE)</idEvento>
                     <idAcciones></idAcciones>
                     <idProxEstado>estado1</idProxEstado>
                     <midPos>-48,-28</midPos>
@@ -81,11 +81,11 @@
         <ev0>(timeControl&lt;kTime)</ev0>
         <ev1>(timeControl>=kTime)</ev1>
         <ev2>M_Medir</ev2>
-        <ev3>(timeControl>=kTime) &amp;&amp; (M_Medir()==TRUE)</ev3>
-        <ev4>(timeControl&lt;kTime) || (M_Medir()==FALSE)</ev4>
-        <ev5>F_Calculando</ev5>
-        <ev6>(F_Calculando()==TRUE)</ev6>
-        <ev7>(F_Calculando()==FALSE)</ev7>
+        <ev3>(timeControl&lt;kTime) || (M_Medir()==FALSE)</ev3>
+        <ev4>F_Calculando</ev4>
+        <ev5>(F_Calculando()==TRUE)</ev5>
+        <ev6>(F_Calculando()==FALSE)</ev6>
+        <ev7>(timeControl>=kTime) || (M_Medir()==TRUE)</ev7>
     </eventos>
     <acciones>
         <acc0>TimerStart(TIMER_CONTROL)</acc0>

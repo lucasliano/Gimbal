@@ -6,7 +6,7 @@
 #include "interfaz.h"
 #include "ui_interfaz.h"
 
-
+#include <QDebug>
 
 Interfaz::Interfaz(QWidget *parent) :
     QMainWindow(parent),
@@ -34,7 +34,7 @@ Interfaz::~Interfaz()
 }
 
 void Interfaz::on_noseup_clicked()
-{ 
+{
     //Cosas de la interfaz - Mateo
     if(pitch <= 44)
     {
@@ -68,7 +68,7 @@ void Interfaz::on_nosedown_clicked()
 }
 
 void Interfaz::on_noseright_clicked()
-{    
+{
     //Cosas de la interfaz - Mateo
     if(roll <= 44)
     {
@@ -196,16 +196,18 @@ void Interfaz::on_btnUpdate_clicked()
 
 void Interfaz::EnviarDatos(QByteArray buff)
 {
-    QMessageBox::critical(this,"recibi esto de la trama",buff);
+   // QMessageBox::critical(this,"recibi esto de la trama",buff);
 
     if(Port)
     {
        qint64 i;
        i = Port->write(buff);
 
-       QByteArray numero;
-       numero.setNum(i);
-       QMessageBox::critical(this,"bytes enviados",numero);
+       qDebug() << i << buff;
+
+       //QByteArray numero;
+       //numero.setNum(i);
+       //QMessageBox::critical(this,"bytes enviados",numero);
 
        buff.clear();
 
@@ -268,7 +270,8 @@ void Interfaz::on_pushButtonConectar_clicked()
         }
         else
         {
-            QMessageBox::critical(this,"Error",Port->portName());
+            //QMessageBox::critical(this,"Error",Port->portName());
+            ui->statusBar->showMessage("Conectado", 1000);
             HabilitarBotones(true);
             ui->pushButtonConectar->setText("Desconectar");
             connect(Port,SIGNAL(readyRead()),this,SLOT(Recibiendo())); //quien y que manda,receptor y slot(una funcion)

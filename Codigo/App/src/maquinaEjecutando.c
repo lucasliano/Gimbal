@@ -8,6 +8,10 @@
 
 /*Bibliotecas propias*/
 #include "maquinaEjecutando.h"
+#include "maquinaControl.h"
+#include "maquinaGeneral.h"
+#include "timers.h"
+#include "main.h"
 
 
 /*Variables globales*/
@@ -67,7 +71,12 @@ void ActualizarDisplay()
 	  }
 }
 
-
+void ActualizarValorPWM()
+{
+	PWM_MR1 = (uint32_t) PWM;
+	PWM_MCR = 1 << 1;
+	PWM_LER = (1<<1);
+}
 
 
 /**

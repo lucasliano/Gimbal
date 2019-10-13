@@ -8,6 +8,10 @@
 
 /*Bibliotecas propias*/
 #include "maquinaGeneral.h"
+#include "maquinaControl.h"
+#include "maquinaEjecutando.h"
+#include "timers.h"
+#include "main.h"
 
 /*Variables globales*/
 

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proyecto>
+    <general>
+        <nombre>Maquina_Medir</nombre>
+        <autores></autores>
+        <creacion>07-08-2019 03:26:00</creacion>
+        <modificacion>07-08-2019 03:29:46</modificacion>
+        <carpeta>C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Documentacion/Otros/Diagrama Maquinas/Para entrega LEDS</carpeta>
+    </general>
+    <configuracion>
+        <hardware/>
+        <target/>
+    </configuracion>
+    <recursos>
+        <archivosC/>
+        <archivosH/>
+    </recursos>
+    <maquina>
+        <estado0>
+            <diagrama>
+                <nombre>PAUSA</nombre>
+                <color>#e0ffff</color>
+                <pos_x>-66</pos_x>
+                <pos_y>-90</pos_y>
+                <ancho>110</ancho>
+                <alto>65</alto>
+            </diagrama>
+            <transiciones>
+                <tr0>
+                    <idEvento>(tecla==SW7)</idEvento>
+                    <idAcciones>TimerStart(TIMER_BOTON)</idAcciones>
+                    <idProxEstado>estado1</idProxEstado>
+                    <midPos>89,-37</midPos>
+                    <textPos>0,-38</textPos>
+                </tr0>
+            </transiciones>
+        </estado0>
+        <estado1>
+            <diagrama>
+                <nombre>PRESIONANDO</nombre>
+                <color>#e0ffff</color>
+                <pos_x>143</pos_x>
+                <pos_y>92</pos_y>
+                <ancho>110</ancho>
+                <alto>65</alto>
+            </diagrama>
+            <transiciones>
+                <tr0>
+                    <idEvento>(tecla==SW4) || (tecla==SW7)|| (timeBoton>=limite)</idEvento>
+                    <idAcciones>actual += perturbacion</idAcciones>
+                    <idProxEstado>estado0</idProxEstado>
+                    <midPos>-20,40</midPos>
+                    <textPos>-372,0</textPos>
+                </tr0>
+            </transiciones>
+        </estado1>
+    </maquina>
+    <estadoInicial>
+        <pos_x>-165</pos_x>
+        <pos_y>-204.5</pos_y>
+        <idAcciones></idAcciones>
+        <idProxEstado>estado0</idProxEstado>
+        <midPos>-134.4,-142.2</midPos>
+        <textPos>0,-23</textPos>
+    </estadoInicial>
+    <eventos>
+        <ev0>(tecla==SW7)</ev0>
+        <ev1>(tecla==SW4) || (tecla==SW7)|| (timeBoton>=limite)</ev1>
+    </eventos>
+    <acciones>
+        <acc0>TimerStart(TIMER_BOTON)</acc0>
+        <acc1>actual += perturbacion</acc1>
+    </acciones>
+    <variables>
+        <var0>tecla</var0>
+        <var1>timeBoton</var1>
+    </variables>
+</proyecto>
