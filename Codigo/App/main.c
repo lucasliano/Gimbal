@@ -31,14 +31,22 @@ int main()
 //*****************************************************
 {
     Inicializar();
+
+    //Apaga el buzzer
+    SetPINSEL(0,28,0);
+    SetDIR(0,28,0);
+    SetPIN(0,28,0);
+    //-----------------
+
+
     Init_Timers();
 
     while(1)
     {
-       TimerEvent();			//Se encarga de hacer funcionar la maquinaria de Timers
-       Maquina_General();		//Maquina mas importante
-       Maquina_TransDatos();  	//No implementada
-       F_Ejecutando();        	//Ejecutando va en paralelo
+       TimerEvent();			//Se encarga de hacer funcionar la maquinaria de Timers.
+       Maquina_General();		//Maquina mas importante.
+       Maquina_TransDatos();  	//Se encarga de la comunicacion Serie.
+       F_Ejecutando();        	//Ejecutando va en paralelo.
     }
 
     return 0;
@@ -46,7 +54,4 @@ int main()
 
 
 
-void Maquina_TransDatos()
-{
 
-}

@@ -8,10 +8,6 @@
 
 /*Bibliotecas propias*/
 #include "maquinaControl.h"
-#include "Aplicacion/maquinaEjecutando.h"
-#include "Aplicacion/maquinaGeneral.h"
-#include "Aplicacion/timers.h"
-#include "main.h"
 
 
 

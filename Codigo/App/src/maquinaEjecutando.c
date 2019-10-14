@@ -8,10 +8,6 @@
 
 /*Bibliotecas propias*/
 #include "maquinaEjecutando.h"
-#include "maquinaControl.h"
-#include "maquinaGeneral.h"
-#include "timers.h"
-#include "main.h"
 
 
 /*Variables globales*/
@@ -22,6 +18,7 @@ extern uint16_t periodo;
 extern uint16_t timeLCD;
 extern float PWM;
 
+extern char bufferRx[BUFFER_SIZE];
 
 /**
   \fn void F_Ejecutando();
@@ -56,7 +53,7 @@ void ActualizarDisplay()
 	if(timeLCD >= 1)				//Esto es cada cuanto actualizo el LCD (En unidades de TIMER_LCD)
 	  {
 		  char str[6];
-
+/**
 		  LCD_Display("POS:",DSP0,0);
 		  LCD_Display("PWM:",DSP1,0);
 
@@ -67,16 +64,16 @@ void ActualizarDisplay()
 		  tostring(str,(int)PWM);			//Esto imprime la correccion de posicion
 		  LCD_Display(str,DSP1,4);
 
+**/
+
+		  LCD_Display("DATO:",DSP0,0);
+		  LCD_Display(bufferRx,DSP1,0);
+
 		  ReiniciarTimer(TIMER_LCD);
 	  }
 }
 
-void ActualizarValorPWM()
-{
-	PWM_MR1 = (uint32_t) PWM;
-	PWM_MCR = 1 << 1;
-	PWM_LER = (1<<1);
-}
+
 
 
 /**

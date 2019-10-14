@@ -22,4 +22,3 @@
 
 /*Definicion de rutinas*/
 void F_Ejecutando();       //f porque es una funcion y no una maquina
-void Maquina_TransDatos();
