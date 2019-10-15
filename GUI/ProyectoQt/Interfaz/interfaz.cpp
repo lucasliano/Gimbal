@@ -8,6 +8,11 @@
 
 #include <QDebug>
 
+#define PITCH 0
+#define ROLL 1
+#define YAW 2
+
+
 Interfaz::Interfaz(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Interfaz)
@@ -220,24 +225,28 @@ void Interfaz::EnviarDatos(QByteArray buff)
 
 void Interfaz::GenerarTrama(QByteArray* buff, const int tipo)
 {
-
-
-
+    if(!buff->startsWith('-'))
+    {
+        buff->prepend('0');                             //Si no es negativo, le ponemos 0
+        if(buff->length() == 2) buff->prepend('0');     //Si son solo 2 caracteres, le metemos otro
+    }else {
+        if(buff->length() == 2) buff->insert(1,'0');
+    }
     switch (tipo)
-        {
-            case 0:
-                buff->prepend("PIT");
-                break;
-            case 1:
-                buff->prepend("RLL");
-                break;
-            case 2:
-                buff->prepend("YAW");
-                break;
-            default:
-                buff->prepend("@");
-                break;
-        }
+    {
+        case 0:
+            buff->prepend("PIT");
+            break;
+        case 1:
+            buff->prepend("RLL");
+            break;
+        case 2:
+            buff->prepend("YAW");
+            break;
+        default:
+            buff->prepend("@");
+            break;
+    }
 
     buff->prepend('#');
     buff->append("@");
@@ -294,8 +303,8 @@ void Interfaz::on_btnEnviar_clicked()
     dato.setNum(pitch);
     dato1.setNum(roll);
 
-    GenerarTrama(&dato,0);
-    GenerarTrama(&dato1,1);
+    GenerarTrama(&dato,PITCH);
+    GenerarTrama(&dato1,ROLL);
 
 
     EnviarDatos(dato);
