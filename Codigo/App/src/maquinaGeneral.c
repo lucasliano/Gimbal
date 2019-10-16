@@ -46,6 +46,7 @@ void Inicializar()
 
   Init_GPIO_PWM();
   Init_PWM();
+  initComSerie();
   //Inicializar el resto de las cosas, sea display,etc
 
 }

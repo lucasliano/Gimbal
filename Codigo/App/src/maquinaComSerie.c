@@ -2,7 +2,8 @@
 
 
 //Variables Globales
-char bufferRx[BUFFER_SIZE] = "XXXXXXXXX";
+CircularBuffer bufferRx;
+char bufferRx1[BUFFER_SIZE];
 
 void Maquina_TransDatos()
 {
@@ -11,52 +12,79 @@ void Maquina_TransDatos()
 
 	static int estado = ESPERANDO_INICIO;
 
-	static int i = 0;				//Esto cuenta en que pos del bufferRx estas.
-	static int contador = 0;		//Esto cuenta caracteres recibidos (TIPO).
+	static KeyType mensaje[MSG_SIZE];
+	static int i = 0;				//Esto cuenta en que pos del mensaje estas.
 
+	//======================================================
+	//======================================================
+	//TODO: LLevar a la interrupcion
 	if(dato == -1)
 	{
 		return;		//Si no hay dato sale
 	}
+	CircularBufferEnque(&bufferRx, (KeyType) dato);
+	//======================================================
+	//======================================================
 
+	if(CircularBufferIsEmpty(&bufferRx))		//Si esta vacío el buffer entonces salimos
+	{
+		return;
+	}
+
+
+	//TODO: Revisar porque levante el mensaje cada 2 envíos.. Creo que esta relacionado con que en ESPERANDO_TIPO si i>=4 resetea
+	CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
 
 	switch(estado)
 	{
 		case ESPERANDO_INICIO:
-			if(dato == '#')
+			if(mensaje[i] == '#')
 			{
-				bufferRx[i] = dato;
-				contador = 0;
+				i++;
 				estado = ESPERANDO_TIPO;
-				actualizarPosBuffer(&i);
 			}
 			break;
 		case ESPERANDO_TIPO:
-			if(contador < 3 && dato != '@' && dato != '#')
+			if(i < 4 && mensaje[i] != '@' && mensaje[i] != '#')
 			{
-				bufferRx[i] = dato;
-				contador++;
-				actualizarPosBuffer(&i);
+				i++;
 			}else{
-				if(contador == 3){
+				if(i == 4){		//TODO: Ver bien.. Siempre va a salir a RECIBIENDO DATOS.. Hay que ver una 2da condición. (suggested: && mensaje[i] != '@' && mensaje[i] != '#')
+					i++;
 					estado = RECIBIENDO_DATOS;
 					return;
 				}
+				for(int j = 0; j < MSG_SIZE; j++) mensaje[j] = 0;
+				i = 0;
 				estado = ESPERANDO_INICIO;
 			}
 			break;
 		case RECIBIENDO_DATOS:
 			if(dato == '@')
 			{
-				bufferRx[i] = dato;
+				CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
+				i++;
+
+				strcpy((char*) bufferRx1, (char*) mensaje);
+
+				//analizarTrama(&mensaje);
+
 				estado = ESPERANDO_INICIO;
-				actualizarPosBuffer(&i);
 			}else{
-				bufferRx[i] = dato;
-				actualizarPosBuffer(&i);
+				if(i < MSG_SIZE - 1)	//Llenar hasta que te pases
+				{
+					CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
+					i++;
+				}else{
+					for(int j = 0; j < MSG_SIZE; j++) mensaje[j] = 0;
+					i = 0;
+					estado = ESPERANDO_INICIO;
+				}
 			}
 			break;
 		default:
+			for(int j = 0; j < MSG_SIZE; j++) mensaje[j] = 0;
+			i = 0;
 			estado = RECIBIENDO_DATOS;
 			return;
 	}
@@ -67,13 +95,25 @@ void Maquina_TransDatos()
 }
 
 
-void actualizarPosBuffer(int* var)
+void initComSerie()
 {
-	//Actualiza la pos del buffer x cada dato que se recibio
-	(*var)++;
-	if( (*var) >= BUFFER_SIZE)
+	CircularBufferInit(&bufferRx);
+}
+
+
+void analizarTrama(KeyType* trama)
+{
+	if (strcmp(trama, "PIT") == 0)
 	{
-		(*var) = 0;
+	  // do something
+	}
+	else if (strcmp(trama, "ROL") == 0)
+	{
+	  // do something else
+	}
+	/* more else if clauses */
+	else /* default: */
+	{
 	}
 }
 

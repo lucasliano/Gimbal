@@ -18,7 +18,8 @@ extern uint16_t periodo;
 extern uint16_t timeLCD;
 extern float PWM;
 
-extern char bufferRx[BUFFER_SIZE];
+extern char bufferRx1[BUFFER_SIZE];
+extern CircularBuffer bufferRx;
 
 /**
   \fn void F_Ejecutando();
@@ -50,24 +51,36 @@ void F_Ejecutando()
 */
 void ActualizarDisplay()
 {
+	static _Bool isClean = 0;
 	if(timeLCD >= 1)				//Esto es cada cuanto actualizo el LCD (En unidades de TIMER_LCD)
 	  {
-		  char str[6];
 /**
-		  LCD_Display("POS:",DSP0,0);
-		  LCD_Display("PWM:",DSP1,0);
+		  char str[6];
 
-		  tostring(str,(int)actual);			//Esto me imprime la posición
-		  LCD_Display(str,DSP0,4);
+		  LCD_Display("POS:", DSP0, 0);
+		  LCD_Display("PWM:", DSP1, 0);
+
+		  tostring(str,(int)actual);		//Esto me imprime la posición
+		  LCD_Display(str, DSP0, 4);
 
 
-		  tostring(str,(int)PWM);			//Esto imprime la correccion de posicion
-		  LCD_Display(str,DSP1,4);
-
+		  tostring(str,(int)PWM);			//Esto imprime la corrección de posicion
+		  LCD_Display(str, DSP1, 4);
 **/
 
-		  LCD_Display("DATO:",DSP0,0);
-		  LCD_Display(bufferRx,DSP1,0);
+
+		  if(isClean)//Esto lo hacemos para borrarlos carateres que estan buggeados
+		  {
+
+			  LCD_Display((char*) bufferRx1, DSP1,0);
+			  isClean = !isClean;
+		  }else{
+			  LCD_Display("              ",DSP1,0);
+			  isClean = !isClean;
+		  }
+
+		  LCD_Display("MENSAJE:",DSP0,0);
+
 
 		  ReiniciarTimer(TIMER_LCD);
 	  }
@@ -114,6 +127,7 @@ int tostring(char* str, int num)
         len++;
         n /= 10;
     }
+
     for (i = 0; i < len; i++)
     {
         rem = num % 10;
@@ -128,13 +142,13 @@ int tostring(char* str, int num)
     		str[i+1]=' ';
     	}
     }
+
     str[6]='\0';
 
     if(flag == 1)
     {
     	str[0] = '-';
-    }else
-    {
+    }else{
     	 str[0]= ' ';
     }
     return 0;
