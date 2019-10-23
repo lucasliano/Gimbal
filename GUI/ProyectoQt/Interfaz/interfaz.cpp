@@ -17,19 +17,20 @@ Interfaz::Interfaz(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Interfaz)
     {
-        //Cosas de interfaz
+        //Inicialización
         ui->setupUi(this);
         roll = 0;
         pitch = 0;
+        yaw = 0;
         ui->roll2->setValue(roll);
         ui->pitch1->setValue(pitch);
 
-        //Cosas de comunicacion
+        //Inicialización de la comunicación
         Port = nullptr;    //indica que el objeto puerto no esta creado;
         Portname = "";
         EnumerarPuertos();
-        //HabilitarBotones(false);
-        HabilitarBotones(true);
+        HabilitarBotones(false);
+        //HabilitarBotones(true);
     }
 
 Interfaz::~Interfaz()
@@ -41,49 +42,63 @@ Interfaz::~Interfaz()
 void Interfaz::on_noseup_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(pitch <= 44)
+    if(pitch <= 40)
     {
         pitch = pitch + 5;
         ui->impresion->setText("Moviste el gimbal hacia arriba");
-        ui->pitch1->setValue(pitch);
-    }
 
+    }else
+    {
+        pitch = 45;
+    }
+    ui->pitch1->setValue(pitch);
     //Cosas de la comunicacion
-    //QString dato;
+
     QByteArray dato;
-    dato.setNum(pitch);
+    dato.append(pitch+128);
     GenerarTrama(&dato , 0);
     EnviarDatos(dato);
+
 
 }
 
 void Interfaz::on_nosedown_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(pitch >= -44)
+    if(pitch >= -40)
     {
         pitch = pitch - 5;
         ui->impresion->setText("Moviste el gimbal hacia abajo");
-        ui->pitch1->setValue(pitch);
+
+    }else
+    {
+        pitch = -45;
     }
 
+    ui->pitch1->setValue(pitch);
     //Cosas de la comunicacion
-
-
+    QByteArray dato;
+    dato.append(pitch+128);
+    GenerarTrama(&dato , 0);
+    EnviarDatos(dato);
 }
 
 void Interfaz::on_noseright_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(roll <= 44)
+    if(roll <= 40)
     {
         roll = roll + 5;
         ui->impresion->setText("Moviste el gimbal hacia la derecha");
-        ui->roll2->setValue(roll);
-    }
 
+    }
+    ui->roll2->setValue(roll);
     //Cosas de la comunicacion
 
+    QByteArray dato;
+    dato.append(roll+128);
+    GenerarTrama(&dato , 1);
+    EnviarDatos(dato);
 }
 
 void Interfaz::on_noseleft_clicked()
@@ -95,10 +110,13 @@ void Interfaz::on_noseleft_clicked()
         ui->impresion->setText("Moviste el gimbal hacia la izquierda");
         ui->roll2->setValue(roll);
     }
-
+    ui->roll2->setValue(roll);
     //Cosas de la comunicacion
 
-
+    QByteArray dato;
+    dato.append(roll+128);
+    GenerarTrama(&dato , 1);
+    EnviarDatos(dato);
 }
 
 void Interfaz::on_modo1_clicked()
@@ -116,16 +134,27 @@ void Interfaz::on_calibrar_clicked()
     //Cosas de la interfaz - Mateo
     pitch=0;
     roll=0;
+    yaw=0;
     ui->yaw->setValue(0);
     ui->roll2->setValue(0);//reseteo los valores a 0 cuando se aprieta calibrar
     ui->pitch1->setValue(0);
 
     //Cosas de la comunicacion
     QByteArray dato;
-    dato.setNum(pitch);
+    dato.clear();
+    dato.append(pitch+128);
     GenerarTrama(&dato,0);
     EnviarDatos(dato);
 
+    dato.clear();
+    dato.append(roll+128);
+    GenerarTrama(&dato,0);
+    EnviarDatos(dato);
+
+    dato.clear();
+    dato.append(yaw+128);
+    GenerarTrama(&dato,0);
+    EnviarDatos(dato);
 
 }
 
@@ -165,10 +194,14 @@ void Interfaz::HabilitarBotones(bool info)
 void Interfaz::on_pitch1_editingFinished()
 {
     //Cosas de la interfaz - Mateo
-    if(ui->pitch1->value() <= 44 && ui->pitch1->value() >= -44)
+    if(ui->pitch1->value() <= 45 && ui->pitch1->value() >= -45)
     {
-        pitch = ui->pitch1->value();
+        pitch = (char) ui->pitch1->value();
         ui->impresion->setText("Moviste el gimbal en el pitch");
+        QByteArray dato;
+        dato.append(pitch+128);
+        GenerarTrama(&dato,0);
+        EnviarDatos(dato);
     }else {
         ui->pitch1->setValue(pitch);
     }
@@ -176,14 +209,35 @@ void Interfaz::on_pitch1_editingFinished()
 
 void Interfaz::on_roll2_editingFinished()
 {
-    //Cosas de la interfaz - Mateo
-    if(ui->roll2->value() <= 44 && ui->roll2->value() >= -44)
+    //Cosas de la interfaz
+    if(ui->roll2->value() <= 45 && ui->roll2->value() >= -45)
     {
-        roll = ui->roll2->value();
+        roll = (char) ui->roll2->value();
         ui->impresion->setText("Moviste el gimbal en el roll");
+        QByteArray dato;
+        dato.append(roll+128);
+        GenerarTrama(&dato,1);
+        EnviarDatos(dato);
     }else {
         ui->roll2->setValue(roll);
     }
+}
+
+void Interfaz::on_yaw_valueChanged(const QString &arg1)
+{
+    if(ui->yaw->value() <= 45 && ui->yaw->value() >= -45)
+    {
+        yaw = (char) ui->yaw->value();
+        ui->impresion->setText("Moviste el gimbal en el yaw");
+        QByteArray dato;
+        dato.append(yaw+128);
+        GenerarTrama(&dato,2);
+        EnviarDatos(dato);
+
+    }else {
+        ui->yaw->setValue(yaw);
+    }
+
 }
 
 void Interfaz::on_comboBoxPort_currentIndexChanged(int index)
@@ -201,7 +255,6 @@ void Interfaz::on_btnUpdate_clicked()
 
 void Interfaz::EnviarDatos(QByteArray buff)
 {
-   // QMessageBox::critical(this,"recibi esto de la trama",buff);
 
     if(Port)
     {
@@ -210,21 +263,24 @@ void Interfaz::EnviarDatos(QByteArray buff)
 
        qDebug() << i << buff;
 
-       //QByteArray numero;
-       //numero.setNum(i);
-       //QMessageBox::critical(this,"bytes enviados",numero);
-
        buff.clear();
 
        }
     else
     {
         QMessageBox::critical(this,"Error", QString::fromLatin1("Hay problemas con el envio de datos"));
+        pitch = 0;
+        roll = 0;
+        yaw = 0;
+        ui->yaw->setValue(0);
+        ui->roll2->setValue(0);//reseteo los valores a 0 cuando se aprieta calibrar
+        ui->pitch1->setValue(0);
     }
 }
 
 void Interfaz::GenerarTrama(QByteArray* buff, const int tipo)
 {
+    /**
     if(!buff->startsWith('-'))
     {
         buff->prepend('0');                             //Si no es negativo, le ponemos 0
@@ -232,6 +288,7 @@ void Interfaz::GenerarTrama(QByteArray* buff, const int tipo)
     }else {
         if(buff->length() == 2) buff->insert(1,'0');
     }
+    **/
     switch (tipo)
     {
         case 0:
@@ -279,7 +336,6 @@ void Interfaz::on_pushButtonConectar_clicked()
         }
         else
         {
-            //QMessageBox::critical(this,"Error",Port->portName());
             ui->statusBar->showMessage("Conectado", 1000);
             HabilitarBotones(true);
             ui->pushButtonConectar->setText("Desconectar");
@@ -299,15 +355,24 @@ void Interfaz::on_btnEnviar_clicked()
     //Cosas de la comunicacion
     QByteArray dato;
     QByteArray dato1;
+    QByteArray dato2;
 
-    dato.setNum(pitch);
-    dato1.setNum(roll);
+    dato.clear();
+    dato1.clear();
+    dato2.clear();
+
+
+    dato.append(pitch+128);
+    dato1.append(roll+128);
+    dato2.append(yaw+128);
 
     GenerarTrama(&dato,PITCH);
     GenerarTrama(&dato1,ROLL);
-
+    GenerarTrama(&dato2,YAW);
 
     EnviarDatos(dato);
     EnviarDatos(dato1);
-
+    EnviarDatos(dato2);
 }
+
+
