@@ -51,10 +51,9 @@ void F_Ejecutando()
 */
 void ActualizarDisplay()
 {
-	static _Bool isClean = 0;
 	if(timeLCD >= 1)				//Esto es cada cuanto actualizo el LCD (En unidades de TIMER_LCD)
 	  {
-/**
+
 		  char str[6];
 
 		  LCD_Display("POS:", DSP0, 0);
@@ -66,23 +65,15 @@ void ActualizarDisplay()
 
 		  tostring(str,(int)PWM);			//Esto imprime la corrección de posicion
 		  LCD_Display(str, DSP1, 4);
+
+
+
+/**
+		LCD_Display((char*) bufferRx1, DSP1,0);
+
+		LCD_Display("MENSAJE:",DSP0,0);
 **/
-
-
-		  if(isClean)//Esto lo hacemos para borrarlos carateres que estan buggeados
-		  {
-
-			  LCD_Display((char*) bufferRx1, DSP1,0);
-			  isClean = !isClean;
-		  }else{
-			  LCD_Display("              ",DSP1,0);
-			  isClean = !isClean;
-		  }
-
-		  LCD_Display("MENSAJE:",DSP0,0);
-
-
-		  ReiniciarTimer(TIMER_LCD);
+		ReiniciarTimer(TIMER_LCD);
 	  }
 }
 

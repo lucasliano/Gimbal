@@ -1,23 +1,36 @@
+/**
+  \file maquinaComSerie.c
+  \brief Se encuentran las rutinas relacionadas al funcionamiento de la comunicacion serie a nivel de aplicación.
+  \author Grupo 8 - R2003
+  \date 2019.10.14
+  \version 1.2
+*/
+
 #include "maquinaComSerie.h"
 
+extern float setPoint;
 
 //Variables Globales
 CircularBuffer bufferRx;
 char bufferRx1[BUFFER_SIZE];
+static KeyType mensaje[MSG_SIZE];
 
 void Maquina_TransDatos()
 {
 	/*===========================RECEPCIÓN=============================*/
-	int16_t dato = UART0_PopRX();
+
 
 	static int estado = ESPERANDO_INICIO;
 
-	static KeyType mensaje[MSG_SIZE];
-	static int i = 0;				//Esto cuenta en que pos del mensaje estas.
+
+	static int i = 0;					//Esto cuenta en que pos del mensaje estas.
 
 	//======================================================
 	//======================================================
 	//TODO: LLevar a la interrupcion
+
+	int16_t dato = UART0_PopRX();
+
 	if(dato == -1)
 	{
 		return;		//Si no hay dato sale
@@ -49,7 +62,7 @@ void Maquina_TransDatos()
 			{
 				i++;
 			}else{
-				if(i == 4){		//TODO: Ver bien.. Siempre va a salir a RECIBIENDO DATOS.. Hay que ver una 2da condición. (suggested: && mensaje[i] != '@' && mensaje[i] != '#')
+				if(i == 4 && mensaje[i] != '@' && mensaje[i] != '#'){		//TODO: Ver bien.. Siempre va a salir a RECIBIENDO DATOS.. Hay que ver una 2da condición. (suggested: && mensaje[i] != '@' && mensaje[i] != '#')
 					i++;
 					estado = RECIBIENDO_DATOS;
 					return;
@@ -62,18 +75,18 @@ void Maquina_TransDatos()
 		case RECIBIENDO_DATOS:
 			if(dato == '@')
 			{
-				CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
+				//CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
 				i++;
 
 				strcpy((char*) bufferRx1, (char*) mensaje);
 
-				//analizarTrama(&mensaje);
-
+				analizarTrama(mensaje);
+				i = 0;
 				estado = ESPERANDO_INICIO;
 			}else{
 				if(i < MSG_SIZE - 1)	//Llenar hasta que te pases
 				{
-					CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
+				//	CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
 					i++;
 				}else{
 					for(int j = 0; j < MSG_SIZE; j++) mensaje[j] = 0;
@@ -103,11 +116,11 @@ void initComSerie()
 
 void analizarTrama(KeyType* trama)
 {
-	if (strcmp(trama, "PIT") == 0)
+	if (strncmp((char*) trama, "#PIT", 4) == 0)
 	{
-	  // do something
+		setPoint = (float)(trama[4] - 128);
 	}
-	else if (strcmp(trama, "ROL") == 0)
+	else if (strncmp((char*) trama, "#RLL", 4) == 0)
 	{
 	  // do something else
 	}

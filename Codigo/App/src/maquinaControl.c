@@ -46,14 +46,14 @@ uint16_t duty;
   \brief Almacena cual es el periodo maximo del PWM del motor.
   \details none.
 */
-uint16_t periodo = 2;
+uint16_t periodo = 1;
 
 /**
   \var float kTime
   \brief Almacena una constante de control.
   \details Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control.
 */
-float kTime = 15;
+float kTime = 2;
 /*
  * Curva Normal: Ktime < = 5*periodo
  * Oscilacion Decreciente: 5*perido < kTime < 10*periodo
