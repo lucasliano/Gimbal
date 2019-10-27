@@ -1,8 +1,13 @@
+/**
+  \file maquinaComSerie.h
+  \brief Contiene la definición de #defines y rutinas relacionadas con el funcionamiento de funciones relacionados a la comunicación Serie a nivel de App.
+  \author Grupo 8 - R2003
+  \date 2019.10.14
+  \version 1.2
+*/
 
-
-//------------Defines--------------------
-#define BUFFER_SIZE 10
-
+//------------Defines-------------------
+#define MSG_SIZE 15
 
 //-----------Estados--------------------
 #define ESPERANDO_INICIO 0
@@ -11,6 +16,9 @@
 
 
 //------------Funciones------------------
+void Maquina_TransDatos(void);
+void initComSerie(void);
+void analizarTrama(KeyType* trama);
 
-void actualizarPosBuffer(int* );
-void Maquina_TransDatos();
+
+

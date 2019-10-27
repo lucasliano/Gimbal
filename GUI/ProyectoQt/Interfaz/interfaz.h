@@ -43,12 +43,15 @@ private slots:
 
     void on_btnEnviar_clicked();
 
+    void on_yaw_valueChanged(const QString &arg1);
+
 private:
     Ui::Interfaz *ui;
     QString Portname;
     QSerialPort *Port;
-    int pitch;
-    int roll;
+    char pitch;
+    char roll;
+    char yaw;
     void EnumerarPuertos();
     void HabilitarBotones(bool);
     void EnviarDatos(QByteArray);
