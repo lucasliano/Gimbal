@@ -1,10 +1,8 @@
-#include "interfaz.h"
 #include <QApplication>
 #include <QSplashScreen>
 #include <QTimer>
-#include "bienvenidos.h"
 #include "interfaz.h"
-#include "comserie.h"
+
 
 
 int main(int argc, char *argv[])

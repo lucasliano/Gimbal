@@ -1,12 +1,12 @@
+#include <QDebug>
 #include <QSettings>
 #include <QValidator>
 #include <QMessageBox>
 #include <QByteArray>
-#include "comserie.h"
 #include "interfaz.h"
 #include "ui_interfaz.h"
 
-#include <QDebug>
+
 
 #define PITCH 0
 #define ROLL 1
@@ -31,6 +31,8 @@ Interfaz::Interfaz(QWidget *parent) :
         EnumerarPuertos();
         HabilitarBotones(false);
         //HabilitarBotones(true);
+
+
     }
 
 Interfaz::~Interfaz()
@@ -376,3 +378,8 @@ void Interfaz::on_btnEnviar_clicked()
 }
 
 
+
+void Interfaz::on_btnPlot_clicked()
+{
+    frmGrafico.show();
+}
