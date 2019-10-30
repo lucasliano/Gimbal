@@ -12,6 +12,8 @@
 #define ROLL 1
 #define YAW 2
 
+#define LIMITE 55
+
 
 Interfaz::Interfaz(QWidget *parent) :
     QMainWindow(parent),
@@ -44,14 +46,14 @@ Interfaz::~Interfaz()
 void Interfaz::on_noseup_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(pitch <= 40)
+    if(pitch <= LIMITE)
     {
         pitch = pitch + 5;
         ui->impresion->setText("Moviste el gimbal hacia arriba");
 
     }else
     {
-        pitch = 45;
+        pitch = (LIMITE+5);
     }
     ui->pitch1->setValue(pitch);
     //Cosas de la comunicacion
@@ -67,14 +69,14 @@ void Interfaz::on_noseup_clicked()
 void Interfaz::on_nosedown_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(pitch >= -40)
+    if(pitch >= -LIMITE)
     {
         pitch = pitch - 5;
         ui->impresion->setText("Moviste el gimbal hacia abajo");
 
     }else
     {
-        pitch = -45;
+        pitch = -(LIMITE+5);
     }
 
     ui->pitch1->setValue(pitch);
@@ -88,7 +90,7 @@ void Interfaz::on_nosedown_clicked()
 void Interfaz::on_noseright_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(roll <= 40)
+    if(roll <= LIMITE)
     {
         roll = roll + 5;
         ui->impresion->setText("Moviste el gimbal hacia la derecha");
@@ -106,7 +108,7 @@ void Interfaz::on_noseright_clicked()
 void Interfaz::on_noseleft_clicked()
 {
     //Cosas de la interfaz - Mateo
-    if(roll >= -40)
+    if(roll >= -LIMITE)
     {
         roll = roll - 5;
         ui->impresion->setText("Moviste el gimbal hacia la izquierda");
@@ -196,7 +198,7 @@ void Interfaz::HabilitarBotones(bool info)
 void Interfaz::on_pitch1_editingFinished()
 {
     //Cosas de la interfaz - Mateo
-    if(ui->pitch1->value() <= 45 && ui->pitch1->value() >= -45)
+    if(ui->pitch1->value() <= (LIMITE+5) && ui->pitch1->value() >= -(LIMITE+5))
     {
         pitch = (char) ui->pitch1->value();
         ui->impresion->setText("Moviste el gimbal en el pitch");
@@ -212,7 +214,7 @@ void Interfaz::on_pitch1_editingFinished()
 void Interfaz::on_roll2_editingFinished()
 {
     //Cosas de la interfaz
-    if(ui->roll2->value() <= 45 && ui->roll2->value() >= -45)
+    if(ui->roll2->value() <= (LIMITE+5) && ui->roll2->value() >= -(LIMITE+5))
     {
         roll = (char) ui->roll2->value();
         ui->impresion->setText("Moviste el gimbal en el roll");
@@ -227,7 +229,7 @@ void Interfaz::on_roll2_editingFinished()
 
 void Interfaz::on_yaw_valueChanged(const QString &arg1)
 {
-    if(ui->yaw->value() <= 45 && ui->yaw->value() >= -45)
+    if(ui->yaw->value() <= (LIMITE+5) && ui->yaw->value() >= -(LIMITE+5))
     {
         yaw = (char) ui->yaw->value();
         ui->impresion->setText("Moviste el gimbal en el yaw");
