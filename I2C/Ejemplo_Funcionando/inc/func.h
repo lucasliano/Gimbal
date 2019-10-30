@@ -28,19 +28,29 @@ typedef unsigned char uint8_t;
 
 
 //*********************Cosas de I2C*******************************************************************************
-#define		I2SCLH		( ( __RW uint32_t  * ) 0x4001C010 )
-#define		I2C1SCLH	I2SCLH[1]
-#define		I2SCLL		( ( __RW uint32_t  * ) 0x4001C014 )
-#define		I2C1SCLL	I2SCLL[1]
-#define		I2CONSET	( ( __RW uint32_t  * ) 0x4001C000 )
-#define		I2C1CONSET	I2CONSET[1]
-#define		I2CONCLR	( ( __RW uint32_t  * ) 0x4001C018 )
-#define		I2C1CONCLR	I2CONCLR[1]
-#define		I2STAT		( ( __RW uint32_t  * ) 0x4001C004 )
-#define		I2C1STAT	I2STAT[1]
-#define		I2DAT		( ( __RW uint32_t  * ) 0x4001C008 )
-#define		I2C1DAT		I2DAT[1]
+#define		I2SCLH		( ( __RW uint32_t  * ) 0x4001C010UL)
+#define		I2C1SCLHP	( ( __RW uint32_t  * ) 0x4005C010UL)
+#define		I2C1SCLH	I2C1SCLHP[0]
 
+#define		I2SCLL		( ( __RW uint32_t  * ) 0x4001C014UL)
+#define		I2C1SCLLP	( ( __RW uint32_t  * ) 0x4005C014UL)
+#define		I2C1SCLL I2C1SCLLP[0]
+
+#define		I2CONSET	( ( __RW uint32_t  * ) 0x4001C000UL)
+#define		I2C1CONSETP	( ( __RW uint32_t  * ) 0x4005C000UL)
+#define		I2C1CONSET I2C1CONSETP[0]
+
+#define		I2CONCLR	( ( __RW uint32_t  * ) 0x4001C018UL)
+#define		I2C1CONCLRP	( ( __RW uint32_t  * ) 0x4005C018UL)
+#define 	I2C1CONCLR I2C1CONCLRP[0]
+
+#define		I2STAT		( ( __RW uint32_t  * ) 0x4001C004UL)
+#define		I2C1STATP	( ( __RW uint32_t  * ) 0x4005C004UL)
+#define		I2C1STAT I2C1STATP[0]
+
+#define		I2DAT		( ( __RW uint32_t  * ) 0x4001C008UL)
+#define		I2C1DATP		( ( __RW uint32_t  * ) 0x4005C008UL)
+#define		I2C1DAT I2C1DATP[0]
 //Estos son posiciones del registro I2C1CONSET
 
 #define	I2EN 6		//Habilita el funcionamiento I2C

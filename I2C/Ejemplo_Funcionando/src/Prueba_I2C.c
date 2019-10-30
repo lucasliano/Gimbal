@@ -26,9 +26,14 @@ int main(void) {
 
 	while(1)
 	{
+		uint32_t i=0;
 		//Esto solamente me estaría guardando en dato lo que lea cuando lo lea :D
-		uint8_t dato;
-		readI2C(&dato, I2C_RX_BUFF_SIZE);
+		uint8_t dato[]={0xAA, 0xAA,0xAA};
+		//readI2C(dato, I2C_RX_BUFF_SIZE);
+	//	I2C1CONSET = (1 << 5);
+	//	I2C1DAT = 0xAA;
+	//	for(i=0;i<10000000;i++);
+		writeI2C(0x41, W, dato, 3, 0);
 	}
 }
 
@@ -183,33 +188,38 @@ int writeI2C(uint8_t addr, uint8_t modo, uint8_t* data, uint8_t sizet, uint8_t s
 
 void initI2C()
 {
+
+	PCONP |= 1 << 19; 			//Energizar I2C1
+	// Le asigno el clock completo (como tengo inicializado el PLL --> 100 Mhz)
+
+	PCLKSEL1 &= ~(3 << 6);		//Asegura 00 en la posicion correspondiente a I2C0 de PCLKSEL1
+	PCLKSEL1 |= 1 << 6;			//Pone 01 en la posicion correspondiente a I2C0 de PCLKSEL1
+
 	//-----------Configuración Pines--------------------
 
 	//SDA	(P0.19 - Expansión 5)
 		SetPINSEL(P0,19,3);			//Habilitas el pin como SDA1
+		//SetDIR(P0,19,1);			//Salida
 		SetPINMODE(P0,19,2);		//Configuras el pin como 'neither pull-up nor pull-down'
 		SetPINMODE_OD(P0,19,1);		//Configuro el pin como Open Drain
 	//SCL	(P0.20 - Expansión 10)
 		SetPINSEL(P0,20,3);			//Habilitas el pin como SCL1
+		//SetDIR(P0,20,1);			//Salida
 		SetPINMODE(P0,20,2);		//Configuras el pin como 'neither pull-up nor pull-down'
 		SetPINMODE_OD(P0,20,1);		//Configuro el pin como Open Drain
 
+		I2C1SCLH =  500;	//Pongo un duty cycle de 50%
+		I2C1SCLL =  500;	//La frecuencia de salida va a seguir la siguiente formula
+
 	//-----------Configuración Registros I2C-------------
-		PCONP |= 1 << 19; 			//Energizar I2C1
+		ISER0 |= 1 << 11;			//Esto habilita la interrupción de I2C1
 
-		// Le asigno el clock completo (como tengo inicializado el PLL --> 100 Mhz)
 
-		PCLKSEL1 &= ~(3 << 6);		//Asegura 00 en la posicion correspondiente a I2C0 de PCLKSEL1
-		PCLKSEL1 |= 1 << 6;			//Pone 01 en la posicion correspondiente a I2C0 de PCLKSEL1
-
-		I2C1SCLH = (uint8_t) 500;	//Pongo un duty cycle de 50%
-		I2C1SCLL = (uint8_t) 500;	//La frecuencia de salida va a seguir la siguiente formula
 									//f = PCLKI2C/(I2C1SCLH + I2C1SCLL)
 									//Con nuestros valores: f = 100Mhz/(500+500) = 100Mhz/1000 = 100Khz
 
-		ISER0 |= 1 << 11;			//Esto habilita la interrupción de I2C1
 
-		I2C1CONSET |= (1 << I2EN);	//Pongo en 1 el único valor para que funcione como Master Transmitter
+		I2C1CONSET = (1 << I2EN);	//Pongo en 1 el único valor para que funcione como Master Transmitter
 		//Creo que como es SET no hace falta :I2C1CONSET &= ~(31 << AA);	//Aseguro que todos los registros que nos interesan tengan 0
 
 
