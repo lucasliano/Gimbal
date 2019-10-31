@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include <qcustomplot.h>
@@ -23,12 +24,13 @@ public:
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout;
     QCustomPlot *customPlot;
+    QPushButton *btnScreen;
 
     void setupUi(QWidget *Plotting)
     {
         if (Plotting->objectName().isEmpty())
             Plotting->setObjectName(QString::fromUtf8("Plotting"));
-        Plotting->resize(1024, 720);
+        Plotting->resize(1037, 720);
         centralWidget = new QWidget(Plotting);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         centralWidget->setGeometry(QRect(10, 10, 991, 691));
@@ -39,6 +41,9 @@ public:
 
         verticalLayout->addWidget(customPlot);
 
+        btnScreen = new QPushButton(Plotting);
+        btnScreen->setObjectName(QString::fromUtf8("btnScreen"));
+        btnScreen->setGeometry(QRect(1004, 0, 31, 261));
 
         retranslateUi(Plotting);
 
@@ -48,6 +53,7 @@ public:
     void retranslateUi(QWidget *Plotting)
     {
         Plotting->setWindowTitle(QApplication::translate("Plotting", "Form", nullptr));
+        btnScreen->setText(QString());
     } // retranslateUi
 
 };

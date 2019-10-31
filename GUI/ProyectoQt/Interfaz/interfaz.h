@@ -15,7 +15,10 @@ class Interfaz : public QMainWindow
 
 public:
     explicit Interfaz(QWidget *parent = nullptr);
-    Plotting frmGrafico;
+    Plotting *frmGrafico;
+    double pitch = 0;
+    double roll = 0;
+    double yaw = 0;
     ~Interfaz();
 
 private slots:
@@ -57,13 +60,16 @@ private:
     Ui::Interfaz *ui;
     QString Portname;
     QSerialPort *Port;
-    char pitch;
-    char roll;
-    char yaw;
+
+    char setpointPitch;
+    char setpointRoll;
+    char setpointYaw;
+
     void EnumerarPuertos();
     void HabilitarBotones(bool);
     void EnviarDatos(QByteArray);
     void GenerarTrama(QByteArray*,const int);
+    void AnalizarTrama(QByteArray buff);
 
 };
 

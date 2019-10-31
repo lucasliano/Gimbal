@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1024</width>
+    <width>1037</width>
     <height>720</height>
    </rect>
   </property>
@@ -27,6 +27,19 @@
      <widget class="QCustomPlot" name="customPlot" native="true"/>
     </item>
    </layout>
+  </widget>
+  <widget class="QPushButton" name="btnScreen">
+   <property name="geometry">
+    <rect>
+     <x>1004</x>
+     <y>0</y>
+     <width>31</width>
+     <height>261</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <customwidgets>
