@@ -31,6 +31,7 @@ QT_BEGIN_NAMESPACE
 class Ui_Interfaz
 {
 public:
+    QAction *actionPlotting_Angles;
     QWidget *centralWidget;
     QGroupBox *groupBox;
     QPushButton *noseup;
@@ -58,6 +59,7 @@ public:
     QGroupBox *groupBox_6;
     QLabel *label_5;
     QProgressBar *bateria;
+    QPushButton *btnPlot;
     QMenuBar *menuBar;
     QMenu *menuInterfaz;
     QToolBar *mainToolBar;
@@ -69,6 +71,8 @@ public:
             Interfaz->setObjectName(QString::fromUtf8("Interfaz"));
         Interfaz->resize(678, 471);
         Interfaz->setDocumentMode(false);
+        actionPlotting_Angles = new QAction(Interfaz);
+        actionPlotting_Angles->setObjectName(QString::fromUtf8("actionPlotting_Angles"));
         centralWidget = new QWidget(Interfaz);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         groupBox = new QGroupBox(centralWidget);
@@ -178,6 +182,9 @@ public:
         bateria->setObjectName(QString::fromUtf8("bateria"));
         bateria->setGeometry(QRect(20, 40, 118, 23));
         bateria->setValue(100);
+        btnPlot = new QPushButton(centralWidget);
+        btnPlot->setObjectName(QString::fromUtf8("btnPlot"));
+        btnPlot->setGeometry(QRect(14, 330, 81, 81));
         Interfaz->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(Interfaz);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -208,6 +215,7 @@ public:
     void retranslateUi(QMainWindow *Interfaz)
     {
         Interfaz->setWindowTitle(QApplication::translate("Interfaz", "Interfaz", nullptr));
+        actionPlotting_Angles->setText(QApplication::translate("Interfaz", "Plotting Angles", nullptr));
         groupBox->setTitle(QApplication::translate("Interfaz", "Controls", nullptr));
         noseup->setText(QApplication::translate("Interfaz", "Nose Up", nullptr));
         noseright->setText(QApplication::translate("Interfaz", "Nose Right", nullptr));
@@ -229,6 +237,7 @@ public:
         btnUpdate->setText(QApplication::translate("Interfaz", "Actualizar Puertos", nullptr));
         groupBox_6->setTitle(QApplication::translate("Interfaz", "Extra-Info", nullptr));
         label_5->setText(QApplication::translate("Interfaz", "Battery power", nullptr));
+        btnPlot->setText(QApplication::translate("Interfaz", "Graficar", nullptr));
         menuInterfaz->setTitle(QApplication::translate("Interfaz", "Principal", nullptr));
     } // retranslateUi
 

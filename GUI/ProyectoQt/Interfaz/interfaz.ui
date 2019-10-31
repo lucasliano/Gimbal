@@ -415,6 +415,19 @@
      </property>
     </widget>
    </widget>
+   <widget class="QPushButton" name="btnPlot">
+    <property name="geometry">
+     <rect>
+      <x>14</x>
+      <y>330</y>
+      <width>81</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Graficar</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -450,6 +463,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionPlotting_Angles">
+   <property name="text">
+    <string>Plotting Angles</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

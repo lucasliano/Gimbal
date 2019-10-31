@@ -1,7 +1,10 @@
 #ifndef INTERFAZ_H
 #define INTERFAZ_H
 #include <QMainWindow>
-#include "comserie.h"
+#include <QDialog>
+#include <QtSerialPort/QSerialPort>
+#include <QtSerialPort/QSerialPortInfo>
+#include "plotting.h"
 namespace Ui {
 class Interfaz;
 }
@@ -12,6 +15,10 @@ class Interfaz : public QMainWindow
 
 public:
     explicit Interfaz(QWidget *parent = nullptr);
+    Plotting *frmGrafico;
+    double pitch = 0;
+    double roll = 0;
+    double yaw = 0;
     ~Interfaz();
 
 private slots:
@@ -45,17 +52,24 @@ private slots:
 
     void on_yaw_valueChanged(const QString &arg1);
 
+    void on_btnPlot_clicked();
+
+
+
 private:
     Ui::Interfaz *ui;
     QString Portname;
     QSerialPort *Port;
-    char pitch;
-    char roll;
-    char yaw;
+
+    char setpointPitch;
+    char setpointRoll;
+    char setpointYaw;
+
     void EnumerarPuertos();
     void HabilitarBotones(bool);
     void EnviarDatos(QByteArray);
     void GenerarTrama(QByteArray*,const int);
+    void AnalizarTrama(QByteArray buff);
 
 };
 
