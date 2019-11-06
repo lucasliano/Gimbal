@@ -15,6 +15,7 @@
 #define LIMITE 55
 
 
+
 Interfaz::Interfaz(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::Interfaz)
@@ -26,7 +27,7 @@ Interfaz::Interfaz(QWidget *parent) :
         setpointYaw = 0;
         ui->roll2->setValue(setpointRoll);
         ui->pitch1->setValue(setpointPitch);
-
+        for(int i = 0; i < BUFFERSIZE; i++) bufferRx[i] = " ";
         //Inicialización de la comunicación
         Port = nullptr;    //indica que el objeto puerto no esta creado;
         Portname = "";
@@ -338,6 +339,9 @@ void Interfaz::Recibiendo()
     aux.append('\0');
     AnalizarTrama(aux);
     QMessageBox::critical(this,"Mensaje Recibido:", aux);
+
+
+
 }
 
 void Interfaz::on_pushButtonConectar_clicked()

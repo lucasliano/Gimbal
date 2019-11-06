@@ -5,6 +5,8 @@
 #include <QtSerialPort/QSerialPort>
 #include <QtSerialPort/QSerialPortInfo>
 #include "plotting.h"
+
+#define BUFFERSIZE 50
 namespace Ui {
 class Interfaz;
 }
@@ -19,6 +21,7 @@ public:
     double pitch = 0;
     double roll = 0;
     double yaw = 0;
+    char bufferRx[BUFFERSIZE];
     ~Interfaz();
 
 private slots:
