@@ -15,6 +15,14 @@ CircularBuffer bufferRx;
 char bufferRx1[BUFFER_SIZE];
 static KeyType mensaje[MSG_SIZE];
 
+
+
+/**
+  \fn void Maquina_TransDatos();
+  \brief Es la maquina encargada del funcionamiento principal de la transmision de datos vía UART.
+  \author Grupo 8 - R2003
+  \date 2019.10.15
+*/
 void Maquina_TransDatos()
 {
 	/*===========================RECEPCIÓN=============================*/
@@ -35,6 +43,7 @@ void Maquina_TransDatos()
 	{
 		return;		//Si no hay dato sale
 	}
+
 	CircularBufferEnque(&bufferRx, (KeyType) dato);
 	//======================================================
 	//======================================================
@@ -45,7 +54,6 @@ void Maquina_TransDatos()
 	}
 
 
-	//TODO: Revisar porque levante el mensaje cada 2 envíos.. Creo que esta relacionado con que en ESPERANDO_TIPO si i>=4 resetea
 	CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
 
 	switch(estado)
@@ -62,7 +70,8 @@ void Maquina_TransDatos()
 			{
 				i++;
 			}else{
-				if(i == 4 && mensaje[i] != '@' && mensaje[i] != '#'){		//TODO: Ver bien.. Siempre va a salir a RECIBIENDO DATOS.. Hay que ver una 2da condición. (suggested: && mensaje[i] != '@' && mensaje[i] != '#')
+				if(i == 4 && mensaje[i] != '@' && mensaje[i] != '#')
+				{
 					i++;
 					estado = RECIBIENDO_DATOS;
 					return;
@@ -75,7 +84,6 @@ void Maquina_TransDatos()
 		case RECIBIENDO_DATOS:
 			if(dato == '@')
 			{
-				//CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
 				i++;
 
 				strcpy((char*) bufferRx1, (char*) mensaje);
@@ -86,7 +94,6 @@ void Maquina_TransDatos()
 			}else{
 				if(i < MSG_SIZE - 1)	//Llenar hasta que te pases
 				{
-				//	CircularBufferDeque(&bufferRx, (KeyType*) &mensaje[i]);
 					i++;
 				}else{
 					for(int j = 0; j < MSG_SIZE; j++) mensaje[j] = 0;
@@ -108,17 +115,35 @@ void Maquina_TransDatos()
 }
 
 
+/**
+  \fn void initComSerie();
+  \brief Funcion encargada de la inicialización a nivel de aplicacion de la comunicacion serie (NO INCLUYE HW).
+  \author Grupo 8 - R2003
+  \date 2019.10.15
+*/
 void initComSerie()
 {
 	CircularBufferInit(&bufferRx);
 }
 
 
+/**
+  \fn void analizarTrama(KeyType* trama);
+  \brief Función encargada de analizar el contenido de las tramas aceptadas por Maquina_TransDatos().
+  \author Grupo 8 - R2003
+  \date 2019.10.15
+*/
 void analizarTrama(KeyType* trama)
 {
 	if (strncmp((char*) trama, "#PIT", 4) == 0)
 	{
 		setPoint = (float)(trama[4] - 128);
+
+
+		//TODO:Sacar esto
+			reenviar(setPoint);
+
+
 	}
 	else if (strncmp((char*) trama, "#RLL", 4) == 0)
 	{
@@ -127,6 +152,7 @@ void analizarTrama(KeyType* trama)
 	/* more else if clauses */
 	else /* default: */
 	{
+
 	}
 }
 

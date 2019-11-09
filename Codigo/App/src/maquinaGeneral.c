@@ -12,7 +12,7 @@
 /*Variables globales*/
 
 /**
-  \var tecla;
+  \var uint8_t tecla;
   \brief Almacena la última tecla presionada.
   \author Grupo 8 - R2003
   \date 2019.07.23
