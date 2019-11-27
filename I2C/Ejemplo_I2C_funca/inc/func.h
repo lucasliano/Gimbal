@@ -1,11 +1,26 @@
+#ifndef FUNC_H_
+#define FUNC_H_
+
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#include "Regs_LPC176x.h"
+#include "systick.h"
+#include "timers.h"
+
 //**********************Tipos de datos****************************************************************************
 #define		__R		volatile const
 #define		__W		volatile
 #define		__RW		volatile
 
 typedef unsigned int uint32_t;
+typedef int int32_t;
 typedef unsigned short uint16_t;
+typedef short int16_t;
 typedef unsigned char uint8_t;
+typedef char int8_t;
 
 //**************************Puertos y pines***********************************************************************
 #define 	P0			0
@@ -46,6 +61,9 @@ typedef unsigned char uint8_t;
 #define		I2C1MASK3		 	(* ( ( __RW uint32_t  * ) 0x4005C03CUL ))
 
 
+
+
+//------------------Cosas del ejemplo---------------------------------
 //Estos son posiciones del registro I2C1CONSET
 
 #define	I2EN 6		//Habilita el funcionamiento I2C
@@ -54,26 +72,45 @@ typedef unsigned char uint8_t;
 #define	SI 3		//Interrupcion
 #define	AA 2		//ACK	(Si se pusiera en 1, entonces estaria funcionando en parte como Slave)
 
-//------------------Cosas del ejemplo---------------------------------
+
+
 //Tamaño buffers
 #define I2C_TX_BUFF_SIZE	10
 #define I2C_RX_BUFF_SIZE	30
 //Estados de I2C
-#define I2C_IDLE	0
-#define I2C_BUSY	1
-#define I2C_DATAV	2
-#define I2C_FAILED	3
+#define I2C_IDLE			0
+#define I2C_BUSY			1
+#define I2C_DATAV			2
+#define I2C_FAILED			3
 //Modos de Master
-#define W 0
-#define R 1
-#define DW 2	//Dummy_write - Solo escribo la direccion y dsps me quedo a la espera de una lectura
+#define W 					0
+#define R 					1
+#define DW 					2	//Dummy_write - Solo escribo la direccion y dsps me quedo a la espera de una lectura
 
 
+
+
+//Drivers
 void initI2C();
 void MyInitPLL(void);
 void SetPINSEL( uint8_t puerto , uint8_t pin ,uint8_t funcion );
 void SetPINMODE( uint8_t port , uint8_t pin ,uint8_t modo);
 void SetPINMODE_OD(uint8_t puerto , uint8_t pin ,uint8_t funcion);
 void myDelay(uint16_t ms);
-uint8_t readI2C(uint8_t* data, uint8_t size);
-int writeI2C(uint8_t addr, uint8_t modo, uint8_t* data, uint8_t sizet, uint8_t sizer);
+int8_t readI2C_driver(uint8_t* data, uint8_t size);
+int8_t writeI2C_driver(uint8_t addr, uint8_t modo, uint8_t* data, uint8_t sizet, uint8_t sizer);
+
+//Primitivas
+int8_t singleReadI2C(uint8_t addr, uint8_t RA, uint8_t* data);					//Guarda el dato del registro RA en DATA[0] del disposito con direccion ADDR
+int8_t singleWriteI2C(uint8_t addr, uint8_t RA, uint8_t data);					//Escribe DATA en RA del disposito con direccion ADDR
+int8_t burstReadI2C(uint8_t addr, uint8_t* RA, uint8_t* data, uint8_t size);	//Guarda el dato del registro RA[i] en DATA[i] del dispositivo con direccion ADDR
+int8_t burstWriteI2C(uint8_t addr, uint8_t* RA, uint8_t* data, uint8_t size);	//Escribe DATA[i] en el registro RA[i] del dispositivo con direccion ADDR
+
+
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* SYSTICK_H_ */
+

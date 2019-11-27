@@ -454,15 +454,15 @@ typedef struct
 #define		CTIME2		RTC[7]
 
 //!< Time counter registers
-#define		SEC			RTC[8]
-#define		MIN			RTC[9]
-#define		HOUR		RTC[10]
-#define		DOM			RTC[11]
-#define		DOW			RTC[12]
-#define		DOY			RTC[13]
-#define		MONTH		RTC[14]
-#define		YEAR		RTC[15]
-#define		CALIBRATION	RTC[16]
+//#define		SEC			RTC[8]
+//#define		MIN			RTC[9]
+//#define		HOUR		RTC[10]
+//#define		DOM			RTC[11]
+//#define		DOW			RTC[12]
+//#define		DOY			RTC[13]
+//#define		MONTH		RTC[14]
+//#define		YEAR		RTC[15]
+//#define		CALIBRATION	RTC[16]
 
 //!< General purpose registers
 #define		GPREG0		RTC[17]
