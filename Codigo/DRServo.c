@@ -1,27 +1,33 @@
 #incldue "Aplicacion.h"
-extern uint8_t flagServoON;
-extern uint8_t flagServoOFF;
+extern uint8_t flagServo;
 
 void SystickHandler(void)
 {
-   flagServoON=0;
-   flagServoOFF=0;
+   flagServo=0;
+   if(flagServo==0)
+   {
+     setPin(macro,ON);
+   }
    if(flagServo<DUTY)
    {
-      flagServoON++;
+      flagServo++;
    }
    if(flagServoON>=DUTY)
    {
-      flagServoOFF++;
-      flagServoON=0;
+      setPin(macro,OFF);
    }
-   if(flagServoOFF<ELOTROTIEMPO)
+   if(flagServo<20MS)
    {
-      flagServoOFF++;
+      flagServo++;
    }
-   if(flagServoOFF>=ELOTROTIEMPO)
+   if(flagServoOFF>=20MS)
    {
-      flagServoOFF=0;
-      flagServoON++;
+      flagServo=0;
    }
 }
+//Asumo que duty es menor que el tiempo de 20ms
+
+/*Para la segunda parte que me pedis que consulte por
+el estado en el que se encuentra el duty, yo haria
+una maquina de estados pero no se si ahi adentro del
+systick es posible de hacer*/
