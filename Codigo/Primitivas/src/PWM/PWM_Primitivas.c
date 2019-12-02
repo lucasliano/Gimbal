@@ -22,4 +22,22 @@ void Init_GPIO_PWM(void)
 void UpdatePWM(void){
 	ActualizarValorPWM();
 }
+/**
+ * ActualizarServo
+ * @param  tiempo [en microsegundos]
+ * @param  nservo [el numero de servo (1 o 2)]
+ * @return        [-1 error,0 todo ok]
+ */
+int8_t ActualizarServo(uint8_t nServo,uint8_t tiempo)
+{
+		if(tiempo<1000 || tiempo>2000)
+		{
+			//eror
+			return -1;
+		}
+		else{
+			PROXIMODUTY[nServo] = tiempo;
+			return 0;
+		}
 
+}
