@@ -28,6 +28,8 @@ void UpdatePWM(void){
  * @param  nservo [el numero de servo (1 o 2)]
  * @return        [-1 error,0 todo ok]
  */
+
+extern uint8_t proximoDuty[2];
 int8_t ActualizarServo(uint8_t nServo,uint8_t tiempo)
 {
 		if(tiempo<1000 || tiempo>2000)
@@ -36,7 +38,7 @@ int8_t ActualizarServo(uint8_t nServo,uint8_t tiempo)
 			return -1;
 		}
 		else{
-			PROXIMODUTY[nServo] = tiempo;
+			proximoDuty[nServo] = tiempo;
 			return 0;
 		}
 

@@ -1,31 +1,60 @@
-#incldue "Aplicacion.h"
-extern uint8_t flagServo;
+#include "Aplicacion.h"
+uint8_t flagServo;
+uint8_t proximoDuty[2];
 
 void SystickHandler(void)
 {
-   flagServo=0;
-   if(flagServo==0)
+   uint8_t static dutyI=1500;
+   uint8_t static dutyII=1500;
+   flagServoI=0;
+   flagServoII=0;
+
+   if(flagServoI==0)
    {
-     setPin(macro,ON);
+     setPin(macro1,ON);
    }
    /*if(flagServo<DUTY)
    {
       flagServo++;
    }*/
-   if(flagServoON>=DUTY)
+   if(flagServoI>=dutyI)
    {
-      setPin(macro,OFF);
+      setPin(macro1,OFF);
    }
   /* if(flagServo<20MS)
    {
       flagServo++;
    }*/
-   if(flagServoOFF>=20MS)
+   if(flagServoI>=20MS)
    {
-      flagServo=0;
-      DUTY = PROXIMODUTY;
+      flagServoI=0;
+      dutyI = proximoDuty[0];
    }
+//SERVOII
+if(flagServoII==0)
+{
+  setPin(macro2,ON);
+}
+/*if(flagServo<DUTY)
+{
    flagServo++;
+}*/
+if(flagServoII>=dutyII)
+{
+   setPin(macro2,OFF);
+}
+/* if(flagServo<20MS)
+{
+   flagServo++;
+}*/
+if(flagServoII>=20MS)
+{
+   flagServoII=0;
+   dutyII = proximoDuty[1];
+}
+
+   flagServoI++;
+   flagServoII++;
 }
 //Asumo que duty es menor que el tiempo de 20ms
 
