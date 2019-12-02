@@ -13,18 +13,12 @@ void SystickHandler(void)
    {
      setPin(macro1,ON);
    }
-   /*if(flagServo<DUTY)
-   {
-      flagServo++;
-   }*/
+
    if(flagServoI>=dutyI)
    {
       setPin(macro1,OFF);
    }
-  /* if(flagServo<20MS)
-   {
-      flagServo++;
-   }*/
+  
    if(flagServoI>=20MS)
    {
       flagServoI=0;
