@@ -28,9 +28,9 @@ private slots:
 private:
     Ui::Plotting *ui;
     //QCustomPlot* customPlot;
-    double pitch;
-    double roll;
-    double yaw;
+//    double pitch;
+//    double roll;
+//    double yaw;
 
     //Esto es del ejemplo
     QString demoName;

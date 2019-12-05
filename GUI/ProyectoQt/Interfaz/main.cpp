@@ -3,7 +3,9 @@
 #include <QTimer>
 #include "interfaz.h"
 
-
+double pitch = 0;
+double roll = 0;
+double yaw = 0;
 
 int main(int argc, char *argv[])
 {

@@ -7,6 +7,7 @@
 #include "plotting.h"
 
 #define BUFFERSIZE 50
+
 namespace Ui {
 class Interfaz;
 }
@@ -18,9 +19,9 @@ class Interfaz : public QMainWindow
 public:
     explicit Interfaz(QWidget *parent = nullptr);
     Plotting *frmGrafico;
-    double pitch = 0;
-    double roll = 0;
-    double yaw = 0;
+//    double pitch = 0;
+//    double roll = 0;
+//    double yaw = 0;
     char bufferRx[BUFFERSIZE];
     ~Interfaz();
 

@@ -6,7 +6,9 @@
 #include "interfaz.h"
 #include "ui_interfaz.h"
 
-
+extern double pitch;
+extern double roll;
+extern double yaw;
 
 #define PITCH 0
 #define ROLL 1
@@ -308,24 +310,35 @@ void Interfaz::GenerarTrama(QByteArray* buff, const int tipo)
 void Interfaz::AnalizarTrama(QByteArray buff)
 {
     QByteArray aux;
-    aux.append(buff.mid(1,3));
+    if(buff.size() > 3) aux.append(buff.mid(1,3));
     if(aux == "PIT")
     {
-        char aux2;
-        aux2 = buff.at(4);
-        pitch = (aux2 - 128);
+        unsigned char aux2;
+        if( buff.size() > 4)
+        {
+            aux2 = (unsigned char) buff.at(4);
+            pitch = (aux2 - 128);
+            qDebug() << "POS: " << pitch;
+        }
+
     }
     else if (aux == "ROL")
     {
-        char aux2;
-        aux2 = buff.at(4);
-        roll = (aux2 - 128);
+        unsigned char aux2;
+        if( buff.size() > 4)
+        {
+            aux2 = (unsigned char) buff.at(4);
+            roll = (aux2 - 128);
+        }
     }
     else if (aux == "YAW")
     {
-        char aux2;
-        aux2 = buff.at(4);
-        yaw = (aux2 - 128);
+        unsigned char aux2;
+        if( buff.size() > 4)
+        {
+            aux2 = (unsigned char) buff.at(4);
+            yaw = (aux2 - 128);
+        }
     }else if (aux == "DEB")
     {
         qDebug() << "Mensaje Analizado" << buff.mid(4, buff.size());
@@ -340,7 +353,7 @@ void Interfaz::Recibiendo()
     aux.resize(int(Port->bytesAvailable()));
     aux = Port->readAll();
     AnalizarTrama(aux);
-    qDebug() << "Mensaje Recibido" << aux;
+  //  qDebug() << "Mensaje Recibido" << aux;
 
 
 
@@ -407,19 +420,19 @@ void Interfaz::on_btnEnviar_clicked()
 
 void Interfaz::on_btnPlot_clicked()
 {
-    //----------Para probar------------
-    QByteArray aux = "@PITA#";
-    AnalizarTrama(aux);
-    aux.clear();
-    aux.append("@ROLG#");
-    AnalizarTrama(aux);
-    aux.clear();
-    aux.append("@YAWP#");
-    AnalizarTrama(aux);
-    aux.clear();
-    aux.append("@DEBdaleBOCA#");
-    AnalizarTrama(aux);
-    //---------------------------------
+//    //----------Para probar------------
+//    QByteArray aux = "@PITA#";
+//    AnalizarTrama(aux);
+//    aux.clear();
+//    aux.append("@ROLG#");
+//    AnalizarTrama(aux);
+//    aux.clear();
+//    aux.append("@YAWP#");
+//    AnalizarTrama(aux);
+//    aux.clear();
+//    aux.append("@DEBdaleBOCA#");
+//    AnalizarTrama(aux);
+//    //---------------------------------
     frmGrafico = new Plotting(nullptr, pitch, roll, yaw);
     frmGrafico->show();
 }

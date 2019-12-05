@@ -6,6 +6,11 @@
 #include <QMessageBox>
 #include <QMetaEnum>
 
+extern double pitch;
+extern double roll;
+extern double yaw;
+
+
 Plotting::Plotting(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Plotting)
@@ -28,10 +33,9 @@ Plotting::Plotting(QWidget *parent, double p, double r, double y):
     setupRealtimeDataDemo(ui->customPlot);
     setWindowTitle("Angulos de Euler");
     ui->customPlot->replot();
-    pitch = p;
-    qDebug() << pitch;
-    roll = r;
-    yaw = y;
+//    pitch = p;
+//    roll = r;
+//    yaw = y;
 }
 
 Plotting::~Plotting()
@@ -103,6 +107,8 @@ void Plotting::realtimeDataSlot()
     lastPointKey = key;
   }
   **/
+
+
   if (key-lastPointKey > 0.002) // at most add point every 2 ms
   {
       //Pitch
