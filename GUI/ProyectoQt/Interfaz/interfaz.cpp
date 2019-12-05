@@ -196,6 +196,8 @@ void Interfaz::HabilitarBotones(bool info)
     ui->roll2->setEnabled(info);
     ui->modo1->setEnabled(info);
     ui->modo2->setEnabled(info);
+    ui->btnEnviar->setEnabled(info);
+    ui->btnPlot->setEnabled(info);
 }
 
 void Interfaz::on_pitch1_editingFinished()
