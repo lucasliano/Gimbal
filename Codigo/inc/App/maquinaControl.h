@@ -18,6 +18,7 @@ extern "C" {
 /*Bibliotecas propias*/
 #include "all.h"
 
+
 /*Maquina_Control*/
 #define E_MIDIENDO 9
 #define E_CALCULANDO 10
@@ -26,14 +27,19 @@ extern "C" {
 #define E_PAUSA 1
 #define E_PRESIONANDO 2
 
+
+/*Sistema de Control*/
+#define ANTIWINDUP_THRESHOLD 10
+
 /*Declaracion de rutinas*/
   /*funciones*/
- int  F_Calculando();
- int  hayBoton();
+	int  F_Calculando();
+	int  hayBoton();
+	void Controlador_PID(void);
 
   /*maquinas*/
-  int Maquina_Medir();
-  void Maquina_Control();
+	int Maquina_Medir();
+	void Maquina_Control();
 
 
 #ifdef __cplusplus

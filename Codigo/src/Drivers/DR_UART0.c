@@ -141,7 +141,7 @@ void UART0_IRQHandler (void)
 void UART0_Inicializacion ( uint32_t baudios )
 {
 	//!< 1.- Registro PCONP - bit 3 en 1 prende la UART:
-	PCONP |= 0x01<<3;
+	PCONP |= 0x01	<<	3;
 
 	//!< 2.- Registro PCLKSEL0 - bits 6 y 7 en 0 seleccionan que el clk de la UART0 sea CCLK/4:
 	PCLKSEL0 &= ~(0x03<<6);			//!< con un CCLOK=100Mhz, nos queda PCLOCK=25Mhz

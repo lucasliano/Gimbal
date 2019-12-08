@@ -18,42 +18,42 @@
   \brief Almacena el valor de la posición actual del gimbal (solo para leds).
   \details none.
 */
-float actual = 0;
+double actual = 0;
 
 /**
-  \var float set_Point
+  \var float setPoint
   \brief Almacena el valor de setpoint deseado.
   \details none.
 */
-float setPoint = 0;
+double setPoint = 0;
 
 /**
   \var float output
   \brief Almacena el valor de salida del sistema.
   \details none.
 */
-float output;
+double output = 0;
 
-/**
-  \var uint16_t duty
-  \brief Almacena el valor correspondiente al ciclo de trabajo del motor.
-  \details none.
-*/
-uint16_t duty;
+///**
+//  \var uint16_t duty
+//  \brief Almacena el valor correspondiente al ciclo de trabajo del motor.
+//  \details none.
+//*/
+//uint16_t duty;
 
 /**
   \var uint16_t periodo
   \brief Almacena cual es el periodo maximo del PWM del motor.
   \details none.
 */
-uint16_t periodo = 1;
+uint16_t kPeriodo = 1 * DECIMAS;
 
 /**
   \var float kTime
   \brief Almacena una constante de control.
   \details Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control.
 */
-float kTime = 2;
+float kTime = 1 * DECIMAS;
 /*
  * Curva Normal: Ktime < = 5*periodo
  * Oscilacion Decreciente: 5*perido < kTime < 10*periodo
@@ -82,98 +82,16 @@ float kd = 0;
 */
 float ki = 0;
 
+
+
 uint16_t limite = 5;    //limite en segundos para el boton para SIMULACION
 int escala = 18;       //Escala de la perturbacion solo para SIMULACION
-float kreac = 5;		//SOLO PARA LA SIMULACION
+//float kreac = 5;		//SOLO PARA LA SIMULACION
 
-extern uint16_t timeBoton;  //Acumulador del boton
-extern uint8_t tecla; //Valor de la tecla apretada
-extern uint16_t timeControl;   //Hago extern pq esta en timers.c
-
+extern uint16_t timeBoton;  	//Acumulador del boton
+extern uint16_t timeControl;   	//Hago extern pq esta en timers.c
+extern EulerAngles euler;		//Angulos de Euler
 /*Declaracion de rutinas*/
-
-/**
-  \fn int Maquina_Medir();
-  \brief Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con LEDS.
-  \author Grupo 8 - R2003
-  \date 2019.07.23
-  \return TRUE si se pudo realizar la medición, FALSE si hubo algun fallo.
-*/
-int Maquina_Medir()
-{
-	//Hay que modificar acá
-
-
-
-
-//  static int estado = E_PAUSA;
-//  switch (estado)
-//  {
-//    case E_PAUSA:
-//
-//      if(tecla == SW7)
-//      {
-//        estado = E_PRESIONANDO;
-//        ReiniciarTimer(TIMER_BOTON);
-//      }
-//      return FALSE;
-//      break;
-//
-//    case E_PRESIONANDO:
-//
-//      if(tecla == SW7 || tecla == SW4 || timeBoton >= limite)
-//      {
-//    	float perturbacion = timeBoton * escala;
-//    	if(tecla == SW4)
-//    	{
-//    		perturbacion = perturbacion * -1;
-//    	}
-//    	if(actual + perturbacion < 90 && actual + perturbacion > -90)
-//    	{
-//    		actual += perturbacion;
-//    	}else{
-//    		if(actual + perturbacion >= 90)
-//    		{
-//    			actual = 90;
-//    		}else{
-//    			actual = -90;
-//    		}
-//    	}
-//
-//        estado = E_PAUSA;
-//        return TRUE;      //Solo devueve TRUE cuando se haya soltado el boton
-//      }
-//      return FALSE;
-//      break;
-//
-//    default:
-//      estado = E_PAUSA;
-//      return FALSE;
-//  }
-	return TRUE;
-}
-
-/**
-  \fn int F_Calculando();
-  \brief Se encarga de realizar los caluclos pertinentes al sistema de control.
-  \author Grupo 8 - R2003
-  \date 2019.07.23
-  \return FALSE mientras se este calculando. TRUE cuando se haya terminado de calcular.
-*/
-int F_Calculando()
-{
-  static int res = FALSE;  //Si se lo implementa como máquina de estados es necesario que esto se modifique.
-  float dif;
-
-
-  dif = setPoint - actual;
-  output = kp * (dif/(kreac));	//kreac se opone al control
-
-
-  res = TRUE;
-  /* Siempre devuelve TRUE hasta ahora. */
-  return res;
-}
 
 
 /**
@@ -197,7 +115,7 @@ void Maquina_Control()
   {
       case E_MIDIENDO:
         /*Transicion*/
-        if(timeControl >= kTime || Maquina_Medir() == TRUE)
+        if(Maquina_Medir() == TRUE)				//Siempre va a poder medir, porque solo actualiza los valores de las variables globales con filtros!
         {
           estado = E_CALCULANDO;
         }
@@ -207,18 +125,85 @@ void Maquina_Control()
 
       case E_CALCULANDO:
         /*Transicion*/
-        if(F_Calculando() == TRUE)
-        {
-          ReiniciarTimer(TIMER_CONTROL);
-          estado = E_MIDIENDO;
-        }
+    	if( GetTimer(TIMER_CONTROL) == 0)		//Si ya expiro el TIMER_CONTROL
+    	{
+    		if(F_Calculando() == TRUE)			//F_Calculando no tiene porque ser bloqueante (aunque lo va a ser, salvo que lo optimice dsps)
+			{
+			  SetTimer(TIMER_CONTROL, kTime);	//Reseteo el timer de control
+			}
+    	}
+    	//Siempre volvemos a intentar medir
+    	estado = E_MIDIENDO;
 
         /*Auto-Transicion*/
         break;
 
       default:
-        ReiniciarTimer(TIMER_CONTROL);
+    	SetTimer(TIMER_CONTROL, kTime);	//Reseteo el timer de control
         estado = E_MIDIENDO;
 
   }
+}
+
+
+
+/**
+  \fn int Maquina_Medir();
+  \brief Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con LEDS.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \return TRUE si se pudo realizar la medición, FALSE si hubo algun fallo.
+*/
+int Maquina_Medir()
+{
+	//Acá es donde se tienen que hacer los filtros epicos que necesitan capacidad de computo
+
+	ActualizarAngulos();	//Actualizo los angulos de Euler.. Se fueron midiendo desde el systick
+
+	return TRUE;
+}
+
+/**
+  \fn int F_Calculando();
+  \brief Se encarga de realizar los caluclos pertinentes al sistema de control.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \return FALSE mientras se este calculando. TRUE cuando se haya terminado de calcular.
+*/
+int F_Calculando()
+{
+	int salidaDeFuncion = FALSE;  	//Si se lo implementa como máquina de estados es necesario que esto se modifique.
+
+	Controlador_PID();
+
+	salidaDeFuncion = TRUE;
+	/* Siempre devuelve TRUE hasta ahora. */
+	return salidaDeFuncion;
+}
+
+
+
+
+void Controlador_PID( void )
+{
+	static double Integral = 0;		//Guarda el valor integral del sistema
+	static double errorAnterior = 0;	//Guarda el valor anterior del error
+	double error;
+	double Proporcional = 0;
+	double Derivativo = 0;
+	double deltaError = 0;
+
+	error = setPoint - euler.pitch;						//Calculo de error
+	deltaError = (error - errorAnterior);				//Calculo de la pendiente del D
+
+	Proporcional = error * kp;							//P
+	Integral = Integral + (error * ki * kTime);			//I		-		Integra en el periodo
+	Derivativo = ( deltaError * kd ) / kTime;			//D		-		Deriva en el periodo
+
+	errorAnterior = error;								//Actualizo el valor anterior, para calcular la prox pendiente
+	if (error > ANTIWINDUP_THRESHOLD) Integral = 0;		//I		-		Anti-WindUp
+
+	output = Proporcional + Integral + Derivativo;		//Calculo la salida del Control H()
+
+
 }

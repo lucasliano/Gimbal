@@ -1,59 +1,52 @@
-/*******************************************************************************************************************************//**
- *
- * @file		DR_Timers.c
- * @brief		Descripcion del modulo
- * @date		9 de jun. de 2017
- * @author		Ing. Marcelo Trujillo
- *
- **********************************************************************************************************************************/
+/**
+  \file DR_timers.h
+  \brief Almacena todas las declaraciones correspondientes a la maquinaria de timers a nivel de drivers.
+  \author Grupo 8 - R2003
+  \date 2019.11.24
+  \version 1.2
+*/
 
-/***********************************************************************************************************************************
- *** INCLUDES
- **********************************************************************************************************************************/
 #include "all.h"
 
-/***********************************************************************************************************************************
- *** DEFINES PRIVADOS AL MODULO
- **********************************************************************************************************************************/
 
-/***********************************************************************************************************************************
- *** MACROS PRIVADAS AL MODULO
- **********************************************************************************************************************************/
 
-/***********************************************************************************************************************************
- *** TIPOS DE DATOS PRIVADOS AL MODULO
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** TABLAS PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** VARIABLES GLOBALES PUBLICAS
- **********************************************************************************************************************************/
 volatile 	uint32_t Tmr_Run[ N_TIMERS ];
 volatile 	uint8_t  TMR_Events[ N_TIMERS ];
 void 	 	(* TMR_handlers [N_TIMERS]) (void);
 volatile 	uint8_t  TMR_StandBy[ N_TIMERS ];
 volatile 	uint8_t  Tmr_Base[ N_TIMERS ];
 
-/***********************************************************************************************************************************
- *** VARIABLES GLOBALES PRIVADAS AL MODULO
- **********************************************************************************************************************************/
 
-/***********************************************************************************************************************************
- *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
- /***********************************************************************************************************************************
- *** FUNCIONES PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
- /***********************************************************************************************************************************
- *** FUNCIONES GLOBALES AL MODULO
- **********************************************************************************************************************************/
 /**
-	\fn void Timer_Check(void)
+  \fn void donothing( void );
+  \brief No hace nada. Se utiliza en el timer del delay, para que la rutina asociada a la interrupción no haga nada :D
+  \author Grupo 8 - R2003
+  \date 2019.11.6
+*/
+void donothing( void )
+{
+
+}
+
+
+/**
+  \fn void myDelay(uint16_t ms);
+  \brief Rutina bloqueante que genera un delay de la cantidad indicada de milisegundos
+  \author Grupo 8 - R2003
+  \date 2019.11.6
+*/
+void myDelay(uint16_t ms)						//Nota, le pifia por algunos ms... me tira 4,71seg cuando deberian ser 5seg
+{
+	TimerStart(TIMER_DELAY, ms, donothing , MS );
+	while(GetTimer(TIMER_DELAY) != 0);
+	TimerStop(TIMER_DELAY);
+}
+
+
+
+
+/**
+	\fn void AnalizarTimers(void)
 	\brief Decremento periodico de los contadores
  	\details Decrementa los contadores de los timers en ejecucion. Debe ser llamada periodicamente con la base de tiempos
 	\return void
@@ -61,7 +54,7 @@ volatile 	uint8_t  Tmr_Base[ N_TIMERS ];
 void AnalizarTimers(void)
 {
 	uint32_t i;
-	for(i=0; i< N_TIMERS ; i++)
+	for(i = 0; i < N_TIMERS ; i++)
 	{
 		if(Tmr_Run[ i ])
 		{
@@ -73,10 +66,11 @@ void AnalizarTimers(void)
 			}
 		}
 	}
+
 }
 
 /**
-	\fn void Timer_Event(void)
+	\fn void TimerEvent(void)
 	\brief Chequeo de timers vencidos
  	\details Llama a los callbacks de los timers vencidos. Debe llamarse desde el lazo principal del programa
 	\return void

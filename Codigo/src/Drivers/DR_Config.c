@@ -9,7 +9,7 @@
 
 
 
-/********************************************************************************
+/**
 	\fn  long map(long x, long in_min, long in_max, long out_min, long out_max);
 	\brief Mapea linealmente valores.
  	\param long x: Valor a evaluar (IN)
@@ -18,6 +18,8 @@
  	\param long out_min:	Valor minimo de salida
  	\param long out_max:	Valor máximo de salida
 	\return long: Retorna el valor del mapping
+	\author Grupo 8 - R2003
+  	\date 2019.11.6
 */
 long map(long x, long in_min, long in_max, long out_min, long out_max)
 {
@@ -26,14 +28,13 @@ long map(long x, long in_min, long in_max, long out_min, long out_max)
 
 
 
-/********************************************************************************
-	\fn  void SetPINSEL (uint8_t puerto , uint8_t pin, uint8_t sel);
-	\brief Selección de modo de los puertos (4 modos).
- 	\param [in] puerto: port a configurar
- 	\param [in] pin:	pin del port a configurar
- 	\param [in] funcion:	selección de la funcion que tendra el pin  [0 - 3]
-	\return void
+/**
+  \fn void SetPINSEL( uint8_t puerto , uint8_t pin ,uint8_t funcion );
+  \brief Se encarga de modificar el valor del registro PINSEL.
+  \author Grupo 8 - R2003
+  \date 2019.11.6
 */
+//-----------------------------------------------------
 void SetPINSEL( uint8_t puerto , uint8_t pin ,uint8_t funcion )
 {
 	puerto = puerto * 2 + pin / 16;
@@ -42,15 +43,13 @@ void SetPINSEL( uint8_t puerto , uint8_t pin ,uint8_t funcion )
 	PINSEL[ puerto ] = PINSEL[ puerto ] | ( funcion << pin );
 }
 
-/********************************************************************************
-	\fn  void SetPINMODE( uint8_t port , uint8_t pin ,uint8_t modo)
-	\brief Selección de modo de los puertos cuando trabajan como entradas
-	\author & date: Informatica II
- 	\param [in] puerto: port a configurar
- 	\param [in] pin:	pin del port a configurar
- 	\param [in] funcion:	selección de la funcion que tendra el pin  [0 - 3]
-	\return void
+/**
+  \fn void SetPINMODE( uint8_t port , uint8_t pin ,uint8_t modo);
+  \brief Se encarga de modificar el valor del registro PINMODE.
+  \author Grupo 8 - R2003
+  \date 2019.11.6
 */
+//-----------------------------------------------------
 void SetPINMODE( uint8_t port , uint8_t pin ,uint8_t modo)
 {
 	port = port * 2 + pin / 16;
@@ -59,15 +58,13 @@ void SetPINMODE( uint8_t port , uint8_t pin ,uint8_t modo)
 	PINMODE[ port ] = PINMODE[ port ] | ( modo << pin );
 }
 
-/********************************************************************************
-	\fn  void SetPINMODE_OD( uint8_t puerto , uint8_t pin ,uint8_t modo)
-	\brief Selección de modo de los puertos cuando trabajan como salidas
-	\author & date: Lucas Liaño
- 	\param [in] puerto: port a configurar
- 	\param [in] pin:	pin del port a configurar
- 	\param [in] funcion:	selección de la funcion que tendra el pin  [0 - 1]
-	\return void
+/**
+  \fn void SetPINMODE_OD(uint8_t puerto , uint8_t pin ,uint8_t funcion);
+  \brief Se encarga de modificar el valor del registro PINMODE_OD.
+  \author Grupo 8 - R2003
+  \date 2019.11.6
 */
+//-----------------------------------------------------
 void SetPINMODE_OD(uint8_t puerto , uint8_t pin ,uint8_t funcion)
 {
 	PINMODE_OD[puerto] &= ~(1 << pin);	 		//Aseguo un 0

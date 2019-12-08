@@ -12,12 +12,12 @@
 /*Variables globales*/
 
 /**
-  \var uint8_t tecla;
-  \brief Almacena la última tecla presionada.
+  \var int8_t recalibrarFlag;
+  \brief Almacena un valor correspondiente a si se debe recalibrar o no el sistema.
   \author Grupo 8 - R2003
   \date 2019.07.23
 */
-uint8_t tecla;
+int8_t recalibrarFlag = FALSE;
 
 
 extern uint16_t timeControl;   //Hago extern pq esta en timers.c
@@ -30,47 +30,6 @@ extern float output;
 
 
 /**
-  \fn void Inicializar();
-  \brief Se encarga de ejecutar inicializaciones tanto de funciones a nivel de aplicación como de funciones a nivel de hardware.
-  \author Grupo 8 - R2003
-  \date 2019.07.23
-*/
-//-----------------------------------------------------
-void Inicializar()
-//-----------------------------------------------------
-{
-	//=======Esto tiene que ir siempre arriba==========
-	MyInitPLL();
-	InicializarSysTick();
-	//=================================================
-
-	InicializarLCD();
-	initComSerie();
-	Init_PWM();
-
-}
-
-/**
-  \fn int Recalibrar_Confirm();
-  \brief Se encarga de revisar si se esta solicitando la recalibración del dispositivo.
-  \author Grupo 8 - R2003
-  \date 2019.07.23
-  \return TRUE en caso de que se solicite. FALSE en el caso contrario.
-*/
-//-----------------------------------------------------
-int Recalibrar_Confirm()
-//-----------------------------------------------------
-{
-  //Esto capaz tenga que ser un flag activado por puerto serie, aunque no descarto poner un pulsador!
-  int res = FALSE;
-//  if (tecla == SW1)    //Tecla 1
-//  {
-//    res = TRUE;
-//  }
-  return res;
-}
-
-/**
   \fn void Maquina_General();
   \brief Es la maquina encargada del funcionamiento principal del dispositivo.
   \author Grupo 8 - R2003
@@ -80,7 +39,6 @@ int Recalibrar_Confirm()
 void Maquina_General()
 //-----------------------------------------------------
 {
-//	tecla = GetKey();		//Recalibracion por UART si o si
 	static int estado = E_CALIBRANDO;
 
 	int aux;
@@ -88,20 +46,12 @@ void Maquina_General()
 	{
 	  case E_CALIBRANDO:
 
-
-		aux = Maquina_Calibrando(); //ingreso a la submaquina de estado calibrando
+		output = 0;						//Se pide que el gimbal arranque centrado
+		aux = Maquina_Calibrando(); 	//ingreso a la submaquina de estado calibrando
 		//Transiciones:
 		if(aux == TRUE)
 		{
 			estado = E_FUNCIONANDO;
-
-			//Acá hay un error, porque no se inicia el timer primero!
-			ReiniciarTimer(TIMER_CONTROL);  	//Ponemos en 0 el timer de control. Esto se tendria que hacer
-											//Adentro de E_FUNCIONANDO
-
-			actual = 0;//Esto se va
-			output = 0;						//Se pide que el gimbal arranque centrado
-
 		}
 
 		//Auto-transicion
@@ -120,6 +70,45 @@ void Maquina_General()
 		break;
 	//  default: DESARRROLLARLO!!
 	}
+}
+
+/**
+  \fn void Inicializar();
+  \brief Se encarga de ejecutar inicializaciones tanto de funciones a nivel de aplicación como de funciones a nivel de hardware.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+*/
+//-----------------------------------------------------
+void Inicializar_HW()
+//-----------------------------------------------------
+{
+	//=======Esto tiene que ir siempre arriba==========
+	MyInitPLL();
+	InicializarSysTick();
+	//=================================================
+
+
+	initI2C();
+	initComSerie();
+	Init_PWM();
+//	InicializarLCD();
+
+}
+
+/**
+  \fn int Recalibrar_Confirm();
+  \brief Se encarga de revisar si se esta solicitando la recalibración del dispositivo.
+  \author Grupo 8 - R2003
+  \date 2019.07.23
+  \return TRUE en caso de que se solicite. FALSE en el caso contrario.
+*/
+//-----------------------------------------------------
+int8_t Recalibrar_Confirm()
+//-----------------------------------------------------
+{
+  int8_t res = recalibrarFlag;
+  if(recalibrarFlag == TRUE) recalibrarFlag = FALSE;	//Si hay que recalibrar, cambio el flag a FALSE
+  return res;
 }
 
 /**
@@ -145,7 +134,7 @@ void F_Funcionando()
 
 
 /**
-  \fn void Maquina_Calibrando();
+  \fn int Maquina_Calibrando();
   \brief Es la maquina de estados que se encarga de calibrar el sistema.
   \author Grupo 8 - R2003
   \date 2019.07.23
@@ -153,6 +142,7 @@ void F_Funcionando()
 //-----------------------------------------------------
 int Maquina_Calibrando()
 {
+//	CalibrarIMU();
 	//Tener en cuenta que no tiene que ser bloqueante!
 	return TRUE;
 }

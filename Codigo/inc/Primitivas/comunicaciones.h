@@ -19,14 +19,15 @@ extern "C" {
 #define RLL 1
 #define YAW 2
 #define DEB 3
+#define OUT 4
 
 //============DEFINES IMPORTANTES===========================
 #define CANT_MAX_ENVIO_UART 50
+#define FRECUENCIA_PLOT_MS	10
 
 
 void reenviar(uint8_t dato);
 char enviarUART(uint8_t* dato, uint8_t size, uint8_t type);
-
 
 #ifdef __cplusplus
 }

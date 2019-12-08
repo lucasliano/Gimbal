@@ -15,11 +15,6 @@ extern "C" {
 #endif
 
 
-/*Standar Libraries*/
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
 /*Bibliotecas propias*/
 #include "all.h"
 

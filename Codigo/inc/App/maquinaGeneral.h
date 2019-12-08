@@ -30,8 +30,8 @@ extern "C" {
 
 /*Declaracion de rutinas*/
   /*funciones*/
-  void Inicializar();
-  int  Recalibrar_Confirm();
+  void Inicializar_HW();
+  int8_t  Recalibrar_Confirm();
   void F_Funcionando();
 
 

@@ -8,6 +8,8 @@
 
 #include "all.h"
 
+extern float actual;
+
 
 /**
   \fn void reenviar(uint8_t dato);
@@ -68,6 +70,15 @@ char enviarUART(uint8_t* dato, uint8_t size, uint8_t type)
 					UART0_PushTX('Y');
 					UART0_PushTX('A');
 					UART0_PushTX('W');
+					for(int i = 0; i < size; i++) UART0_PushTX(dato[i]);
+					UART0_PushTX('@');
+					salida = 0;
+					break;
+				case OUT:
+					UART0_PushTX('#');
+					UART0_PushTX('O');
+					UART0_PushTX('U');
+					UART0_PushTX('T');
 					for(int i = 0; i < size; i++) UART0_PushTX(dato[i]);
 					UART0_PushTX('@');
 					salida = 0;

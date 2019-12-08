@@ -1,64 +1,22 @@
-/*******************************************************************************************************************************//**
-#include <timers.h>
- *
- * @file		PR_Timers.c
- * @brief		Maquinaria de timers
- * @date		2 de jun. de 2017
- * @author		Ing. Marcelo Trujillo
- *
- **********************************************************************************************************************************/
+/**
+  \file PR_timers.c
+  \brief Se desarrollan las funciones relacionadas a la maquinaria de timers a nivel de primitivas.
+  \author Grupo 8 - R2003
+  \date 2019.11.24
+  \version 1.2
+*/
 
-/***********************************************************************************************************************************
- *** INCLUDES
- **********************************************************************************************************************************/
 #include "all.h"
 
-/***********************************************************************************************************************************
- *** DEFINES PRIVADOS AL MODULO
- **********************************************************************************************************************************/
 
-#define 	DECIMAS			40
-#define 	SEGUNDOS		10
-#define 	MINUTOS			60
-
-/***********************************************************************************************************************************
- *** MACROS PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** TIPOS DE DATOS PRIVADOS AL MODULO
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** TABLAS PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** VARIABLES GLOBALES PUBLICAS
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** VARIABLES GLOBALES PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
-/***********************************************************************************************************************************
- *** PROTOTIPO DE FUNCIONES PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
- /***********************************************************************************************************************************
- *** FUNCIONES PRIVADAS AL MODULO
- **********************************************************************************************************************************/
-
- /***********************************************************************************************************************************
- *** FUNCIONES GLOBALES AL MODULO
- **********************************************************************************************************************************/
 /**
-	\fn void TimerStart(uint8_t event, timer_t t, void (*handler)(void))
+	\fn void TimerStart(uint8_t event, uint32_t t, void (*handler)(void), uint8_t base)
 	\brief Inicia un timer
  	\details Inicia el timer \a e al transcurrir el tiempo especificado por \a t se llama a la funcion apuntada por \a handler
- 	\param [in] event Numero de evento entre 0 y 31
- 	\param [in] t Tiempo del evento. Dependiente de la base de tiempos
- 	\param [in] handler Callback del evento
+ 	\param uint8_t event: Numero de evento entre 0 y 31
+ 	\param uint32_t t: Tiempo del evento. Dependiente de la base de tiempos
+ 	\param void (*handler)(void): Callback del evento
+ 	\param uint8_t base: Base de tiempo (SEG, MS, etc.)
 	\return void
 */
 void TimerStart(uint8_t event, uint32_t time, Timer_Handler handler , uint8_t base )
@@ -69,21 +27,27 @@ void TimerStart(uint8_t event, uint32_t time, Timer_Handler handler , uint8_t ba
 			time *= DECIMAS;
 			break;
 		case SEG:
-			time *= ( SEGUNDOS * DECIMAS );
+			time *= SEGUNDOS;
 			break;
 		case MIN:
-			time *= ( MINUTOS * SEGUNDOS * DECIMAS );
+			time *= MINUTOS;
+			break;
+		case MS:
+			time *= MILISEGUNDOS;
+			break;
+		case US:
+			time *= DECIMA_MILISEGUNDOS;
 			break;
 	}
 
 	Tmr_Base[event] = base;
 
-	if(time != 0)	//el tiempo no es 0, lo cargo
+	if(time != 0)	//si el tiempo no es 0, lo cargo
 	{
 		Tmr_Run[event] = time;
 		TMR_Events[event] = 0;
 	}
-	else	//el tiempo es cero, el timer vence automáticamente
+	else	//si el tiempo es cero, el timer vence automáticamente
 	{
 		Tmr_Run[event] = 0;
 		TMR_Events[event] = 1;
@@ -92,7 +56,7 @@ void TimerStart(uint8_t event, uint32_t time, Timer_Handler handler , uint8_t ba
 }
 
 /**
-	\fn void SetTimer( uint8_t event , timer_t t )
+	\fn void SetTimer( uint8_t event , uint32_t t )
 	\brief Inicia un timer
  	\details Reinicia el timer con el valor t (no lo resetea)
  	\param [in] event Numero de evento entre 0 y 31
@@ -107,10 +71,16 @@ void SetTimer( uint8_t event, uint32_t time )
 			time *= DECIMAS;
 			break;
 		case SEG:
-			time *= ( SEGUNDOS * DECIMAS );
+			time *= SEGUNDOS;
 			break;
 		case MIN:
-			time *= ( MINUTOS * SEGUNDOS * DECIMAS );
+			time *= MINUTOS;
+			break;
+		case MS:
+			time *= MILISEGUNDOS;
+			break;
+		case US:
+			time *= DECIMA_MILISEGUNDOS;
 			break;
 	}
 	Tmr_Run[event] = time;
@@ -129,16 +99,24 @@ uint32_t GetTimer( uint8_t event )
 
 	switch ( Tmr_Base[event] )
 	{
+		case MS:
+			time /= MILISEGUNDOS;
+			break;
+		case US:
+			time /= DECIMA_MILISEGUNDOS;
+			break;
 		case DEC:
 			time /= DECIMAS;
 			break;
 		case SEG:
-			time /= ( SEGUNDOS * DECIMAS );
+			time /= SEGUNDOS;
 			break;
 		case MIN:
-			time /= ( MINUTOS * SEGUNDOS * DECIMAS );
+			time /= MINUTOS;
 			break;
+
 	}
+
 	return time;
 }
 
@@ -156,7 +134,7 @@ void StandByTimer( uint8_t event , uint8_t accion)
 }
 
 /**
-	\fn void Timer_Stop(Eventos e)
+	\fn void TimerStop(Eventos e)
 	\brief Detiene un timer
  	\details Detiene el timer \a e
  	\param [in] e Numero de evento entre 0 y 31
@@ -172,7 +150,7 @@ void TimerStop(uint8_t event)
 }
 
 /**
-	\fn void Timer_Close(void)
+	\fn void TimerClose(void)
 	\brief Detiene los timers
  	\details Detiene todos los timers
 	\return void
@@ -184,4 +162,3 @@ void TimerClose(void)
 	for( i=0 ; i < N_TIMERS ; i++ )
 		TimerStop( i );
 }
-

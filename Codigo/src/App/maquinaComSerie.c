@@ -9,6 +9,7 @@
 #include "all.h"
 
 extern float setPoint;
+extern int8_t recalibrarFlag;
 
 //Variables Globales
 CircularBuffer bufferRx;
@@ -151,7 +152,7 @@ void analizarTrama(KeyType* trama)
 	}
 	else if (strncmp((char*) trama, "#REC", 4) == 0)
 	{
-	  //Acá hay que recalibrar
+		recalibrarFlag = TRUE;
 	}
 	else /* default: */
 	{
@@ -160,5 +161,7 @@ void analizarTrama(KeyType* trama)
 		//Descartamos trama o avisamos que nos llego algo rancio :D
 	}
 }
+
+
 
 

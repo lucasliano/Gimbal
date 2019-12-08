@@ -320,6 +320,10 @@ void Interfaz::AnalizarTrama(QByteArray buff)
         {
             aux2 = (unsigned char) buff.at(4);
             pitch = (aux2 - 128);
+            if(pitch == -55)
+            {
+                qDebug() << "RANCIO: " << pitch;
+            }
             qDebug() << "POS: " << pitch;
         }
 

@@ -30,7 +30,6 @@ void initComSerie(void);
 void analizarTrama(KeyType* trama);
 
 
-
 #ifdef __cplusplus
 }
 #endif
