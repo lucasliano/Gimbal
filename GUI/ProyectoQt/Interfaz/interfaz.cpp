@@ -9,7 +9,9 @@
 extern double pitch;
 extern double roll;
 extern double yaw;
-
+extern double out;
+extern QByteArray bufferCircular;
+extern int index;
 #define PITCH 0
 #define ROLL 1
 #define YAW 2
@@ -35,7 +37,12 @@ Interfaz::Interfaz(QWidget *parent) :
         Portname = "";
         EnumerarPuertos();
         HabilitarBotones(false);
-        //HabilitarBotones(true);
+
+        bufferCircular.resize(100);
+        index = 0;
+        // setup a timer that repeatedly calls MainWindow::realtimeDataSlot:
+        connect(&Timer, SIGNAL(timeout()), this, SLOT(verificarTrama()));
+        Timer.start(10); // Interval 0 means to refresh as fast as possible
 
 
     }
@@ -52,7 +59,6 @@ void Interfaz::on_noseup_clicked()
     if(setpointPitch <= LIMITE)
     {
         setpointPitch = setpointPitch + 5;
-        ui->impresion->setText("Moviste el gimbal hacia arriba");
 
     }else
     {
@@ -75,7 +81,6 @@ void Interfaz::on_nosedown_clicked()
     if(setpointPitch >= -LIMITE)
     {
         setpointPitch = setpointPitch - 5;
-        ui->impresion->setText("Moviste el gimbal hacia abajo");
 
     }else
     {
@@ -96,7 +101,6 @@ void Interfaz::on_noseright_clicked()
     if(setpointRoll <= LIMITE)
     {
         setpointRoll = setpointRoll + 5;
-        ui->impresion->setText("Moviste el gimbal hacia la derecha");
 
     }
     ui->roll2->setValue(setpointRoll);
@@ -114,7 +118,6 @@ void Interfaz::on_noseleft_clicked()
     if(setpointRoll >= -LIMITE)
     {
         setpointRoll = setpointRoll - 5;
-        ui->impresion->setText("Moviste el gimbal hacia la izquierda");
         ui->roll2->setValue(setpointRoll);
     }
     ui->roll2->setValue(setpointRoll);
@@ -128,12 +131,12 @@ void Interfaz::on_noseleft_clicked()
 
 void Interfaz::on_modo1_clicked()
 {
-    ui->impresion->setText("Cambiaste al modo 1");
+
 }
 
 void Interfaz::on_modo2_clicked()
 {
-    ui->impresion->setText("Cambiaste al modo 2");
+
 }
 
 void Interfaz::on_calibrar_clicked()
@@ -148,6 +151,13 @@ void Interfaz::on_calibrar_clicked()
 
     //Cosas de la comunicacion
     QByteArray dato;
+
+    //Lo pongo en modo calibracion
+    dato.clear();
+    GenerarTrama(&dato,3);
+    EnviarDatos(dato);
+
+    //Actualizo los datos
     dato.clear();
     dato.append(setpointPitch+128);
     GenerarTrama(&dato,0);
@@ -155,13 +165,14 @@ void Interfaz::on_calibrar_clicked()
 
     dato.clear();
     dato.append(setpointRoll+128);
-    GenerarTrama(&dato,0);
+    GenerarTrama(&dato,1);
     EnviarDatos(dato);
 
     dato.clear();
     dato.append(setpointYaw+128);
-    GenerarTrama(&dato,0);
+    GenerarTrama(&dato,2);
     EnviarDatos(dato);
+
 
 }
 
@@ -206,7 +217,6 @@ void Interfaz::on_pitch1_editingFinished()
     if(ui->pitch1->value() <= (LIMITE+5) && ui->pitch1->value() >= -(LIMITE+5))
     {
         setpointPitch = (char) ui->pitch1->value();
-        ui->impresion->setText("Moviste el gimbal en el pitch");
         QByteArray dato;
         dato.append(setpointPitch+128);
         GenerarTrama(&dato,0);
@@ -222,7 +232,6 @@ void Interfaz::on_roll2_editingFinished()
     if(ui->roll2->value() <= (LIMITE+5) && ui->roll2->value() >= -(LIMITE+5))
     {
         setpointRoll = (char) ui->roll2->value();
-        ui->impresion->setText("Moviste el gimbal en el roll");
         QByteArray dato;
         dato.append(setpointRoll+128);
         GenerarTrama(&dato,1);
@@ -237,7 +246,6 @@ void Interfaz::on_yaw_valueChanged(const QString &arg1)
     if(ui->yaw->value() <= (LIMITE+5) && ui->yaw->value() >= -(LIMITE+5))
     {
         setpointYaw = (char) ui->yaw->value();
-        ui->impresion->setText("Moviste el gimbal en el yaw");
         QByteArray dato;
         dato.append(setpointYaw+128);
         GenerarTrama(&dato,2);
@@ -269,9 +277,6 @@ void Interfaz::EnviarDatos(QByteArray buff)
     {
        qint64 i;
        i = Port->write(buff);
-
-       //qDebug() << i << buff;
-
        buff.clear();
 
        }
@@ -300,6 +305,9 @@ void Interfaz::GenerarTrama(QByteArray* buff, const int tipo)
         case 2:
             buff->prepend("YAW");
             break;
+        case 3:
+            buff->prepend("REC");
+            break;
         default:
             buff->prepend("@");
             break;
@@ -320,15 +328,15 @@ void Interfaz::AnalizarTrama(QByteArray buff)
         {
             aux2 = (unsigned char) buff.at(4);
             pitch = (aux2 - 128);
-            if(pitch == -55)
-            {
-                qDebug() << "RANCIO: " << pitch;
-            }
-            qDebug() << "POS: " << pitch;
+//            if(pitch > 50)
+//            {
+//                qDebug() << "CACA";
+//            }
+//            qDebug() << "POS: " << buff;
         }
 
     }
-    else if (aux == "ROL")
+    else if (aux == "RLL")
     {
         unsigned char aux2;
         if( buff.size() > 4)
@@ -345,6 +353,15 @@ void Interfaz::AnalizarTrama(QByteArray buff)
             aux2 = (unsigned char) buff.at(4);
             yaw = (aux2 - 128);
         }
+    }
+    else if (aux == "OUT")
+    {
+        unsigned char aux2;
+        if( buff.size() > 4)
+        {
+            aux2 = (unsigned char) buff.at(4);
+            out = (aux2 - 128);
+        }
     }else if (aux == "DEB")
     {
         qDebug() << "Mensaje Analizado" << buff.mid(4, buff.size());
@@ -358,10 +375,95 @@ void Interfaz::Recibiendo()
     QByteArray aux;
     aux.resize(int(Port->bytesAvailable()));
     aux = Port->readAll();
-    AnalizarTrama(aux);
-  //  qDebug() << "Mensaje Recibido" << aux;
 
+    if((index + aux.size()) >= 100)
+    {
+        /**Si me paso del tamaño que yo sete*/
+        index=0;
+        bufferCircular.clear();
+    }else {
+        //No sobreescribo ahi?
+        bufferCircular.append(aux);
+        index+=aux.size();
+    }
+}
 
+void Interfaz::verificarTrama()
+{
+   static int auxIndex = 0;
+   static int estado = 0;
+   QByteArray buffRecTrama;
+
+   buffRecTrama.resize(index - auxIndex);
+   buffRecTrama.clear();
+
+   for(int j = auxIndex; j < index; j++)
+   {
+       char dato = bufferCircular.at(j);
+       static int i = 0;
+
+       switch(estado)
+       {
+           case 0:
+               if(dato == '#')
+               {
+                   buffRecTrama.append(dato);
+                   i++;
+                   estado = 1;
+               }
+               break;
+           case 1:
+               if(i < 4 && dato != '@' && dato != '#')
+               {
+                   buffRecTrama.append(dato);
+                   i++;
+               }
+               else
+               {
+                   if(i == 4 && dato != '@' && dato != '#')
+                   {
+                       buffRecTrama.append(dato);
+                       i++;
+                       estado = 2;
+                       //return;
+                   }
+                   else
+                   {
+                       buffRecTrama.clear();
+                       i = 0;
+                       estado = 0;
+                   }
+               }
+               break;
+           case 2:
+               if(dato == '@')
+               {
+                   buffRecTrama.append(dato);
+                   i++;
+//                   qDebug() << buffRecTrama;
+                   AnalizarTrama(buffRecTrama);
+                   i = 0;
+                   estado = 0;
+               }else{
+                   if(i < 4 - 1)	//Llenar hasta que te pases
+                   {
+                       i++;
+                   }else{
+                       buffRecTrama.clear();
+                       i = 0;
+                       estado = 0;
+                   }
+               }
+               break;
+           default:
+               buffRecTrama.clear();
+               i = 0;
+               estado = 0;
+               return;
+       }
+
+   }
+   auxIndex = index;
 
 }
 
@@ -391,6 +493,7 @@ void Interfaz::on_pushButtonConectar_clicked()
     }
     else
     {
+        HabilitarBotones(false);
         delete Port;
         Port = nullptr;
         ui->pushButtonConectar->setText("Conectar");

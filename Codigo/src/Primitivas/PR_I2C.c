@@ -69,12 +69,6 @@ int8_t singleWriteI2C(uint8_t addr, uint8_t RA, uint8_t data)
 	buffEnvio[1] = data;
 	if(writeI2C_driver(addr, W, buffEnvio, 2, 0) == 0)			//Modificamos el registro..
 	{
-//		myDelay(10);
-//		if(singleReadI2C(addr, RA, aux) != -1)					//Leemos el registro que modificamos
-//		{
-//			if(aux[0] == data)									//Si se puede realizar la lectura, entonces comparamos el valor que se escribio con el que se debería haber guardado
-//				out = 0;										//Si coinciden, devuelvo 0
-//		}
 		out = 0;
 	}
 

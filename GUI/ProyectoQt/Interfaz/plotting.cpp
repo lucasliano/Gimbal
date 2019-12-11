@@ -9,6 +9,7 @@
 extern double pitch;
 extern double roll;
 extern double yaw;
+extern double out;
 
 
 Plotting::Plotting(QWidget *parent) :
@@ -33,9 +34,6 @@ Plotting::Plotting(QWidget *parent, double p, double r, double y):
     setupRealtimeDataDemo(ui->customPlot);
     setWindowTitle("Angulos de Euler");
     ui->customPlot->replot();
-//    pitch = p;
-//    roll = r;
-//    yaw = y;
 }
 
 Plotting::~Plotting()
@@ -46,39 +44,79 @@ Plotting::~Plotting()
 
 void Plotting::setupRealtimeDataDemo(QCustomPlot *customPlot)
 {
-  // include this section to fully disable antialiasing for higher performance:
-  /*
-  customPlot->setNotAntialiasedElements(QCP::aeAll);
-  QFont font;
-  font.setStyleStrategy(QFont::NoAntialias);
-  customPlot->xAxis->setTickLabelFont(font);
-  customPlot->yAxis->setTickLabelFont(font);
-  customPlot->legend->setFont(font);
-  */
-  //Inicializamos las lineas
-  //PITCH
-  customPlot->addGraph(); // blue line
-  customPlot->graph(0)->setPen(QPen(QColor(40, 110, 255)));
-  //ROLL
-  customPlot->addGraph(); // orange line
-  customPlot->graph(1)->setPen(QPen(QColor(255, 110, 40)));
-  //YAW
-  customPlot->addGraph(); // purple line
-  customPlot->graph(2)->setPen(QPen(QColor(245, 15, 215)));
+    customPlot->setLocale(QLocale(QLocale::Spanish, QLocale::LatinAmerica)); // period as decimal separator and comma as thousand separator
+    customPlot->legend->setVisible(true);
+    QFont legendFont = font();  // start out with MainWindow's font..
+    legendFont.setPointSize(9); // and make a bit smaller for legend
+    customPlot->legend->setFont(legendFont);
+    customPlot->legend->setBrush(QBrush(QColor(255,255,255,230)));
+    // by default, the legend is in the inset layout of the main axis rect. So this is how we access it to change legend placement:
+    customPlot->axisRect()->insetLayout()->setInsetAlignment(0, Qt::AlignBottom|Qt::AlignRight);
 
-  QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
-  timeTicker->setTimeFormat("%h:%m:%s");
-  customPlot->xAxis->setTicker(timeTicker);
-  customPlot->axisRect()->setupFullAxesBox();
-  customPlot->yAxis->setRange(-90, 90);         //Acá se actualiza cuanto se muestra del gráfico
 
-  // make left and bottom axes transfer their ranges to right and top axes:
-  connect(customPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), customPlot->xAxis2, SLOT(setRange(QCPRange)));
-  connect(customPlot->yAxis, SIGNAL(rangeChanged(QCPRange)), customPlot->yAxis2, SLOT(setRange(QCPRange)));
+    // include this section to fully disable antialiasing for higher performance:
+    /*
+    customPlot->setNotAntialiasedElements(QCP::aeAll);
+    QFont font;
+    font.setStyleStrategy(QFont::NoAntialias);
+    customPlot->xAxis->setTickLabelFont(font);
+    customPlot->yAxis->setTickLabelFont(font);
+    customPlot->legend->setFont(font);
+    */
+    //Inicializamos las lineas
+    //PITCH
+    customPlot->addGraph();
+    customPlot->graph(0)->setPen(QPen(QColor(40, 110, 255)));
+    customPlot->graph(0)->setBrush(QBrush(QPixmap("./balboa.jpg"))); // fill with texture of specified image
+//    customPlot->graph(0)->setLineStyle(QCPGraph::lsLine);
+//    customPlot->graph(0)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 5));
+    customPlot->graph(0)->setName("Pitch");
+    //ROLL
+    customPlot->addGraph();
+    customPlot->graph(1)->setPen(QPen(QColor(0, 255, 0)));
+    customPlot->graph(1)->setBrush(QBrush(QPixmap("./balboa.jpg"))); // fill with texture of specified image
+//    customPlot->graph(1)->setLineStyle(QCPGraph::lsLine);
+//    customPlot->graph(1)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 5));
+    customPlot->graph(1)->setName("Roll");
+    //YAW
+    customPlot->addGraph();
+    customPlot->graph(2)->setPen(QPen(QColor(245, 15, 215)));
+    customPlot->graph(2)->setBrush(QBrush(QPixmap("./balboa.jpg"))); // fill with texture of specified image
+//    customPlot->graph(2)->setLineStyle(QCPGraph::lsLine);
+//    customPlot->graph(2)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 5));
+    customPlot->graph(2)->setName("Yaw");
+    //Referencia
+    customPlot->addGraph();
+    QPen blueDotPen;
+    blueDotPen.setColor(QColor(255, 0, 0));
+    blueDotPen.setStyle(Qt::DotLine);
+    blueDotPen.setWidthF(3);
+    customPlot->graph(3)->setPen(blueDotPen);
+    customPlot->graph(3)->setName("Ref.");
 
-  // setup a timer that repeatedly calls MainWindow::realtimeDataSlot:
-  connect(&dataTimer, SIGNAL(timeout()), this, SLOT(realtimeDataSlot()));
-  dataTimer.start(0); // Interval 0 means to refresh as fast as possible
+
+
+    QSharedPointer<QCPAxisTickerTime> timeTicker(new QCPAxisTickerTime);
+    timeTicker->setTimeFormat("%h:%m:%s");
+    customPlot->xAxis->setTicker(timeTicker);
+    customPlot->axisRect()->setupFullAxesBox();
+    customPlot->yAxis->setRange(-90, 90);         //Acá se actualiza cuanto se muestra del gráfico
+
+
+    // add title layout element:
+    customPlot->plotLayout()->insertRow(0);
+    customPlot->plotLayout()->addElement(0, 0, new QCPTextElement(customPlot, "Angulos de Euler y Salida de Control", QFont("sans", 12, QFont::Bold)));
+    // set labels:
+    customPlot->xAxis->setLabel("Tiempo");
+    customPlot->yAxis->setLabel("Ángulos [grados]");
+
+    // make left and bottom axes transfer their ranges to right and top axes:
+    connect(customPlot->xAxis, SIGNAL(rangeChanged(QCPRange)), customPlot->xAxis2, SLOT(setRange(QCPRange)));
+    connect(customPlot->yAxis, SIGNAL(rangeChanged(QCPRange)), customPlot->yAxis2, SLOT(setRange(QCPRange)));
+
+    // setup a timer that repeatedly calls MainWindow::realtimeDataSlot:
+    connect(&dataTimer, SIGNAL(timeout()), this, SLOT(realtimeDataSlot()));
+    dataTimer.start(0); // Interval 0 means to refresh as fast as possible
 }
 
 void Plotting::screenShot()
@@ -119,6 +157,8 @@ void Plotting::realtimeDataSlot()
       //ui->customPlot->graph(1)->rescaleValueAxis();
       //Yaw
       ui->customPlot->graph(2)->addData(key, yaw);
+      //ui->customPlot->graph(2)->rescaleValueAxis();
+      ui->customPlot->graph(3)->addData(key, out);
       //ui->customPlot->graph(2)->rescaleValueAxis();
   }
 

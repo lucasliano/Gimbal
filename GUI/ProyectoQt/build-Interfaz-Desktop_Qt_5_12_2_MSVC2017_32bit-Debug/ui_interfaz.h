@@ -23,6 +23,7 @@
 #include <QtWidgets/QRadioButton>
 #include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
@@ -42,6 +43,8 @@ public:
     QRadioButton *modo1;
     QRadioButton *modo2;
     QPushButton *calibrar;
+    QGroupBox *groupBox_7;
+    QTextBrowser *txtConsola;
     QGroupBox *groupBox_4;
     QGroupBox *groupBox_5;
     QLabel *label_2;
@@ -51,7 +54,6 @@ public:
     QSpinBox *pitch1;
     QSpinBox *roll2;
     QPushButton *btnEnviar;
-    QLabel *impresion;
     QGroupBox *groupBox_3;
     QComboBox *comboBoxPort;
     QPushButton *pushButtonConectar;
@@ -95,13 +97,19 @@ public:
         groupBox_2->setGeometry(QRect(290, 10, 181, 311));
         modo1 = new QRadioButton(groupBox_2);
         modo1->setObjectName(QString::fromUtf8("modo1"));
-        modo1->setGeometry(QRect(50, 50, 82, 17));
+        modo1->setGeometry(QRect(50, 30, 82, 17));
         modo2 = new QRadioButton(groupBox_2);
         modo2->setObjectName(QString::fromUtf8("modo2"));
-        modo2->setGeometry(QRect(50, 80, 82, 17));
+        modo2->setGeometry(QRect(50, 50, 82, 17));
         calibrar = new QPushButton(groupBox_2);
         calibrar->setObjectName(QString::fromUtf8("calibrar"));
-        calibrar->setGeometry(QRect(50, 140, 75, 23));
+        calibrar->setGeometry(QRect(50, 80, 75, 23));
+        groupBox_7 = new QGroupBox(groupBox_2);
+        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
+        groupBox_7->setGeometry(QRect(10, 110, 161, 191));
+        txtConsola = new QTextBrowser(groupBox_7);
+        txtConsola->setObjectName(QString::fromUtf8("txtConsola"));
+        txtConsola->setGeometry(QRect(10, 20, 141, 161));
         groupBox_4 = new QGroupBox(centralWidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setGeometry(QRect(470, 10, 191, 311));
@@ -143,9 +151,6 @@ public:
         btnEnviar = new QPushButton(groupBox_5);
         btnEnviar->setObjectName(QString::fromUtf8("btnEnviar"));
         btnEnviar->setGeometry(QRect(40, 220, 75, 23));
-        impresion = new QLabel(centralWidget);
-        impresion->setObjectName(QString::fromUtf8("impresion"));
-        impresion->setGeometry(QRect(10, 330, 271, 61));
         groupBox_3 = new QGroupBox(centralWidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
         groupBox_3->setGeometry(QRect(100, 330, 371, 80));
@@ -216,22 +221,22 @@ public:
     {
         Interfaz->setWindowTitle(QApplication::translate("Interfaz", "Interfaz", nullptr));
         actionPlotting_Angles->setText(QApplication::translate("Interfaz", "Plotting Angles", nullptr));
-        groupBox->setTitle(QApplication::translate("Interfaz", "Controls", nullptr));
+        groupBox->setTitle(QApplication::translate("Interfaz", "Controles", nullptr));
         noseup->setText(QApplication::translate("Interfaz", "Nose Up", nullptr));
         noseright->setText(QApplication::translate("Interfaz", "Nose Right", nullptr));
         nosedown->setText(QApplication::translate("Interfaz", "Nose Down", nullptr));
         noseleft->setText(QApplication::translate("Interfaz", "Nose Left", nullptr));
-        groupBox_2->setTitle(QApplication::translate("Interfaz", "Advanced Control", nullptr));
+        groupBox_2->setTitle(QApplication::translate("Interfaz", "Controles Avanzados", nullptr));
         modo1->setText(QApplication::translate("Interfaz", "Mode 1", nullptr));
         modo2->setText(QApplication::translate("Interfaz", "Mode 2", nullptr));
         calibrar->setText(QApplication::translate("Interfaz", "Calibrate", nullptr));
+        groupBox_7->setTitle(QApplication::translate("Interfaz", "Consola", nullptr));
         groupBox_4->setTitle(QApplication::translate("Interfaz", "Datos", nullptr));
-        groupBox_5->setTitle(QApplication::translate("Interfaz", "Euler angles", nullptr));
+        groupBox_5->setTitle(QApplication::translate("Interfaz", "\303\201ngulos de Euler", nullptr));
         label_2->setText(QApplication::translate("Interfaz", "PITCH", nullptr));
         label_3->setText(QApplication::translate("Interfaz", "ROLL", nullptr));
         label_4->setText(QApplication::translate("Interfaz", "YAW", nullptr));
         btnEnviar->setText(QApplication::translate("Interfaz", "Enviar Datos", nullptr));
-        impresion->setText(QString());
         groupBox_3->setTitle(QApplication::translate("Interfaz", "Comunicaci\303\263n", nullptr));
         pushButtonConectar->setText(QApplication::translate("Interfaz", "Conectar", nullptr));
         btnUpdate->setText(QApplication::translate("Interfaz", "Actualizar Puertos", nullptr));

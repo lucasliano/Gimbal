@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Controls</string>
+     <string>Controles</string>
     </property>
     <widget class="QPushButton" name="noseup">
      <property name="geometry">
@@ -92,13 +92,13 @@
      </rect>
     </property>
     <property name="title">
-     <string>Advanced Control</string>
+     <string>Controles Avanzados</string>
     </property>
     <widget class="QRadioButton" name="modo1">
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>50</y>
+       <y>30</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -111,7 +111,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>80</y>
+       <y>50</y>
        <width>82</width>
        <height>17</height>
       </rect>
@@ -124,7 +124,7 @@
      <property name="geometry">
       <rect>
        <x>50</x>
-       <y>140</y>
+       <y>80</y>
        <width>75</width>
        <height>23</height>
       </rect>
@@ -132,6 +132,29 @@
      <property name="text">
       <string>Calibrate</string>
      </property>
+    </widget>
+    <widget class="QGroupBox" name="groupBox_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>161</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Consola</string>
+     </property>
+     <widget class="QTextBrowser" name="txtConsola">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>141</width>
+        <height>161</height>
+       </rect>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
@@ -156,7 +179,7 @@
       </rect>
      </property>
      <property name="title">
-      <string>Euler angles</string>
+      <string>Ángulos de Euler</string>
      </property>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
@@ -283,19 +306,6 @@
       </property>
      </widget>
     </widget>
-   </widget>
-   <widget class="QLabel" name="impresion">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>271</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">

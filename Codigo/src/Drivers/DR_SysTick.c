@@ -51,7 +51,7 @@ void Actualizar_Ticks(void)
 	if(contador == 0)				//Cuando sume 1ms
 	{
 		systemTicks++;
-		systemTicks %= 2^32;		//Se resetea despues de pasados 2^32 ms.. aproximadamente 50 días.
+		systemTicks %= (uint32_t) pow(2,32);		//Se resetea despues de pasados 2^32 ms.. aproximadamente 50 días.
 	}
 	contador++;
 	contador %= 10;					//Cuenta hasta 10 y resetea

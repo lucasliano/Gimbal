@@ -13,7 +13,7 @@
 
 
 
-#define FRECUENCIA_MEDICION_IMU_MS		125			//Si no me equivoco serian 8Hz
+#define FRECUENCIA_MEDICION_IMU_MS		10	//125			//Si no me equivoco serian 8Hz
 
 //Envio de angulos
 void enviarPlot(void);

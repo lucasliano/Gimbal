@@ -27,7 +27,7 @@ extern uint16_t kPeriodo;
 void Init_Timers()
 //-----------------------------------------------------
 {
-	TimerStart(TIMER_IMU, FRECUENCIA_MEDICION_IMU_MS, MedirIMU, MS);
+//	TimerStart(TIMER_IMU, FRECUENCIA_MEDICION_IMU_MS, MedirIMU, MS);
 	TimerStart(TIMER_PLOT, FRECUENCIA_PLOT_MS, enviarPlot, MS);
 	TimerStart(TIMER_CONTROL, kTime, donothing, US);
 	TimerStart(TIMER_PERIODO, kPeriodo, donothing, US);

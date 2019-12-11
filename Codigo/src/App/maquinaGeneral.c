@@ -142,7 +142,11 @@ void F_Funcionando()
 //-----------------------------------------------------
 int Maquina_Calibrando()
 {
-//	CalibrarIMU();
+	TimerStop(TIMER_IMU);			//Si hay timer lo apago
+
+	CalibrarIMU();
+
+	TimerStart(TIMER_IMU, FRECUENCIA_MEDICION_IMU_MS, MedirIMU, MS);		//Reinicio las mediciones
 	//Tener en cuenta que no tiene que ser bloqueante!
 	return TRUE;
 }

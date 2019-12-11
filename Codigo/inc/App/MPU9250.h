@@ -252,7 +252,7 @@ class c_MPU9250
 
 		float m_e_int[3];  						// vector to hold integral error for Mahony method
 
-		float m_gyro_bias[3];
+
 		uint8_t m_gyro_scale; 					// GFS_250DPS, GFS_500DPS, GFS_1000DPS, GFS_2000DPS
 
 
@@ -265,13 +265,9 @@ class c_MPU9250
 		EulerAngles angulos;					// Estos son los angulos de Euler
 
 
-		// Function which accumulates gyro and accelerometer data after device initialization. It calculates the average
-		// of the at-rest readings and then loads the resulting offsets into accelerometer and gyro bias registers.
-		void f_calibrate_mpu9250(void);
 
-		float f_get_accel_res();
-		float f_get_gyro_res();
-		float f_get_mag_res();
+
+
 		uint8_t f_get_mag_mode(uint8_t);
 
 		void f_init_ak8963(void);
@@ -282,14 +278,15 @@ class c_MPU9250
 
 
 		uint8_t f_read_byte(uint8_t address, uint8_t subAddress);
-		void f_read_bytes(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 
 		void f_reset_mpu9250(void);
 
-		void f_write_byte(uint8_t address, uint8_t subAddress, uint8_t data);
+
 
     public:
 		// Set initial input parameters
+
+		float m_gyro_bias[3];
 		enum E_ACC_SCALE : uint8_t
 		{
 		  AFS_2G = 0,
@@ -314,8 +311,8 @@ class c_MPU9250
 
 		enum E_MAG_HZ : uint8_t
 		{
-		  MFREQ_8HZ = 0, 		// 8Hz Magnetometer data ODR
-		  MFREQ_100HZ   		// 100Hz Magnetometer data ODR
+		  MFREQ_8HZ = 	0x2, 		// 8Hz Magnetometer data ODR
+		  MFREQ_100HZ = 0x6  		// 100Hz Magnetometer data ODR
 		};
 
 		c_MPU9250();
@@ -324,6 +321,11 @@ class c_MPU9250
 		// Check for IMU status and initializes both chips
 		bool init(void);
 
+		void f_read_bytes(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
+		void f_write_byte(uint8_t address, uint8_t subAddress, uint8_t data);
+		float f_get_accel_res();
+		float f_get_gyro_res();
+		float f_get_mag_res();
 		// Implementation of Sebastian Madgwick's "...efficient orientation filter for... inertial/magnetic sensor arrays"
 		// (see http://www.x-io.co.uk/category/open-source/ for examples and more details)
 		// which fuses acceleration, rotation rate, and magnetic moments to produce a quaternion-based estimate of absolute
@@ -335,6 +337,11 @@ class c_MPU9250
 		// measured ones.
 		void mahony_quaternion_update(float ax, float ay, float az, float gx, float gy, float gz, float mx, float my, float mz, float deltat);
 		void ToEulerAngles(void);
+
+		// Function which accumulates gyro and accelerometer data after device initialization. It calculates the average
+		// of the at-rest readings and then loads the resulting offsets into accelerometer and gyro bias registers.
+		void f_calibrate_mpu9250(void);
+
 		EulerAngles getAngles(void);
 		void read_accel_data(accel_data &);
 		void read_gyro_data(gyro_data &);

@@ -40,11 +40,11 @@ c_MPU9250::c_MPU9250()
 
 	/* FIXME: Tomar tiempos del RTOS */
 //	lastUpdate = HAL_GetTick();
-	this->m_accel_scale = c_MPU9250::E_ACC_SCALE::AFS_16G;     				// AFS_2G, AFS_4G, AFS_8G, AFS_16G
-	this->m_gyro_scale = c_MPU9250::E_GYRO_SCALE::GFS_1000DPS; 				// GFS_250DPS, GFS_500DPS, GFS_1000DPS, GFS_2000DPS
+	this->m_accel_scale = c_MPU9250::E_ACC_SCALE::AFS_4G;     				// AFS_2G, AFS_4G, AFS_8G, AFS_16G
+	this->m_gyro_scale = c_MPU9250::E_GYRO_SCALE::GFS_250DPS; 				// GFS_250DPS, GFS_500DPS, GFS_1000DPS, GFS_2000DPS
 	this->m_mag_scale = c_MPU9250::E_MAG_SCALE::MFS_16BITS; 				// MFS_14BITS or MFS_16BITS, 14-bit or 16-bit magnetometer resolution
 
-	this->m_mag_mode = this->f_get_mag_mode(E_MAG_HZ::MFREQ_100HZ);        // Either 8 Hz 0x02) or 100 Hz (0x06) magnetometer data ODR
+	this->m_mag_mode = E_MAG_HZ::MFREQ_8HZ;        // Either 8 Hz (0x02) or 100 Hz (0x06) magnetometer data ODR
 
 
 
@@ -97,7 +97,7 @@ bool c_MPU9250::init(void)
 
 		myDelay(2);
 		this->f_init_mpu9250();
-		this->f_init_ak8963();
+//		this->f_init_ak8963();
 
 		myDelay(2);
 	}
@@ -217,10 +217,6 @@ void c_MPU9250::madgwick_quaternion_update(float ax, float ay, float az, float g
 	this->m_q[1] = q2 * norm;
 	this->m_q[2] = q3 * norm;
 	this->m_q[3] = q4 * norm;
-//	q[0] = this->m_q[0];
-//	q[1] = this->m_q[1];
-//	q[2] = this->m_q[2];
-//	q[3] = this->m_q[3];
 }
 
 /**
@@ -352,10 +348,6 @@ void c_MPU9250::mahony_quaternion_update(float ax, float ay, float az, float gx,
 	this->m_q[1] = q2 * norm;
 	this->m_q[2] = q3 * norm;
 	this->m_q[3] = q4 * norm;
-//	q[0] = this->m_q[0];
-//	q[1] = this->m_q[1];
-//	q[2] = this->m_q[2];
-//	q[3] = this->m_q[3];
 }
 
 void c_MPU9250::read_accel_data(accel_data &accel)
@@ -368,9 +360,9 @@ void c_MPU9250::read_accel_data(accel_data &accel)
 	  data[2] = (int16_t)(((int16_t)rawData[4] << 8) | rawData[5]) ;
 
 	  // Para NED tengo que invertir x con y, ademas de negar z
-	  accel.x = (float)data[1]*this->f_get_accel_res();// - this->m_accel_bias[1];  // get actual g value, this depends on scale being set
-	  accel.y = (float)data[0]*this->f_get_accel_res();// - this->m_accel_bias[0];
-	  accel.z = -(float)data[2]*this->f_get_accel_res();// - this->m_accel_bias[2];
+	  accel.x = (float)data[0] * this->f_get_accel_res();// - this->m_accel_bias[0];  // get actual g value, this depends on scale being set
+	  accel.y = (float)data[1] * this->f_get_accel_res();// - this->m_accel_bias[1];
+	  accel.z = (float)data[2] * this->f_get_accel_res();// - this->m_accel_bias[2];
 }
 
 void c_MPU9250::read_gyro_data(gyro_data &gyro)
@@ -383,30 +375,29 @@ void c_MPU9250::read_gyro_data(gyro_data &gyro)
 	  data[2] = (int16_t)(((int16_t)rawData[4] << 8) | rawData[5]) ;
 
 	  // Para NED tengo que invertir x con y, ademas de negar z
-	  gyro.x = (float)data[1]*this->f_get_gyro_res();// - this->m_gyro_bias[1];  // get actual gyro value, this depends on scale being set
-	  gyro.y = (float)data[0]*this->f_get_gyro_res();// - this->m_gyro_bias[0];
-	  gyro.z = -(float)data[2]*this->f_get_gyro_res();// - this->m_gyro_bias[2];
+	  gyro.x = (float)data[0] * this->f_get_gyro_res();// - this->m_gyro_bias[0];  // get actual gyro value, this depends on scale being set
+	  gyro.y = (float)data[1] * this->f_get_gyro_res();// - this->m_gyro_bias[1];
+	  gyro.z = (float)data[2] * this->f_get_gyro_res();// - this->m_gyro_bias[2];
 }
 
 void c_MPU9250::read_mag_data(mag_data &mag)
 {
 	  uint8_t rawData[7];  // x/y/z gyro register data, ST2 register stored here, must read ST2 at end of data acquisition
 	  uint8_t c;
-	  uint16_t data[3];
+	  int16_t data[3];
 	  if(this->f_read_byte(AK8963_ADDRESS, AK8963_ST1) & 0x01)  // wait for magnetometer data ready bit to be set
 	  {
-		  this->f_read_bytes(AK8963_ADDRESS, AK8963_XOUT_L, 7, &rawData[0]);  // Read the six raw data and ST2 registers sequentially into data array
-		  c = rawData[6]; // End data read by reading ST2 register
-			if(!(c & 0x08)) // Check if magnetic sensor overflow set, if not then report data
-			{
-				data[0] = (int16_t)(((int16_t)rawData[1] << 8) | rawData[0]);  // Turn the MSB and LSB into a signed 16-bit value
-				data[1] = (int16_t)(((int16_t)rawData[3] << 8) | rawData[2]) ;  // Data stored as little Endian
-				data[2] = (int16_t)(((int16_t)rawData[5] << 8) | rawData[4]) ;
-				mag.x = (float)data[0]*this->f_get_mag_res()*this->m_mag_calibration[0];// - this->m_mag_bias[0];  // get actual magnetometer value, this depends on scale being set
-				mag.y = (float)data[1]*this->f_get_mag_res()*this->m_mag_calibration[1];// - this->m_mag_bias[1];
-				mag.z = (float)data[2]*this->f_get_mag_res()*this->m_mag_calibration[2];// - this->m_mag_bias[2];
-
-			}
+		this->f_read_bytes(AK8963_ADDRESS, AK8963_XOUT_L, 7, &rawData[0]);  // Read the six raw data and ST2 registers sequentially into data array
+		c = rawData[6]; // End data read by reading ST2 register
+		if(!(c & 0x08)) // Check if magnetic sensor overflow set, if not then report data
+		{
+			data[0] = (int16_t) (((int16_t)rawData[1] << 8) | rawData[0]);  // Turn the MSB and LSB into a signed 16-bit value
+			data[1] = (int16_t) (((int16_t)rawData[3] << 8) | rawData[2]) ;  // Data stored as little Endian
+			data[2] = (int16_t) (((int16_t)rawData[5] << 8) | rawData[4]) ;
+			mag.x = (float)data[0]*this->f_get_mag_res() * this->m_mag_calibration[0];// - this->m_mag_bias[0];  // get actual magnetometer value, this depends on scale being set
+			mag.y = (float)data[1]*this->f_get_mag_res() * this->m_mag_calibration[1];// - this->m_mag_bias[1];
+			mag.z = (float)data[2]*this->f_get_mag_res() * this->m_mag_calibration[2];// - this->m_mag_bias[2];
+		}
 	  }
 }
 
@@ -626,7 +617,7 @@ void c_MPU9250::f_init_mpu9250()
 	 // Configure Gyro and Accelerometer
 	 // Disable FSYNC and set accelerometer and gyro bandwidth to 44 and 42 Hz, respectively;
 	 // DLPF_CFG = bits 2:0 = 010; this sets the sample rate at 1 kHz for both
-	 // Maximum delay is 4.9 ms which is just over a 200 Hz maximum rate
+	 // Maximum delay is 5.9 ms which is just over a 170 Hz maximum rate
 	  this->f_write_byte(MPU9250_ADDRESS, CONFIG, 0x03);
 
 	 // Set sample rate = gyroscope output rate/(1 + SMPLRT_DIV)
@@ -701,11 +692,11 @@ void c_MPU9250::f_calibrate_mpu9250(void)
 	// Configure MPU9250 gyro and accelerometer for bias calculation
 	this->f_write_byte(MPU9250_ADDRESS, CONFIG, 0x01);      // Set low-pass filter to 188 Hz
 	this->f_write_byte(MPU9250_ADDRESS, SMPLRT_DIV, 0x00);  // Set sample rate to 1 kHz
-	this->f_write_byte(MPU9250_ADDRESS, GYRO_CONFIG, 0x00);  // Set gyro full-scale to 250 degrees per second, maximum sensitivity
-	this->f_write_byte(MPU9250_ADDRESS, ACCEL_CONFIG, 0x00); // Set accelerometer full-scale to 2 g, maximum sensitivity
+	this->f_write_byte(MPU9250_ADDRESS, GYRO_CONFIG, this->m_gyro_scale);  // Set gyro full-scale to 250 degrees per second, maximum sensitivity
+	this->f_write_byte(MPU9250_ADDRESS, ACCEL_CONFIG, this->m_accel_scale); // Set accelerometer full-scale to 2 g, maximum sensitivity
 
-	uint16_t  gyrosensitivity  = 131;   // = 131 LSB/degrees/sec
-	uint16_t  accelsensitivity = 16384;  // = 16384 LSB/g
+	uint16_t  gyrosensitivity  = 131 / pow(2, m_gyro_scale);		//Esto lo hacemos para que se puede variar la config
+	uint16_t  accelsensitivity = 16384 / pow(2, m_accel_scale);		//de la resolucion de ambos dispositivos. Conociendo la escala.
 
 	// Configure FIFO to capture accelerometer and gyro data for bias calculation
 	this->f_write_byte(MPU9250_ADDRESS, USER_CTRL, 0x40);   // Enable FIFO
@@ -714,10 +705,10 @@ void c_MPU9250::f_calibrate_mpu9250(void)
 	myDelay(40); // accumulate 40 samples in 80 milliseconds = 480 bytes
 
 	// At end of sample accumulation, turn off FIFO sensor read
-	this->f_write_byte(MPU9250_ADDRESS, FIFO_EN, 0x00);        // Disable gyro and accelerometer sensors for FIFO
-	this->f_read_bytes(MPU9250_ADDRESS, FIFO_COUNTH, 2, &data[0]); // read FIFO sample count
+	this->f_write_byte(MPU9250_ADDRESS, FIFO_EN, 0x00);        		// Disable gyro and accelerometer sensors for FIFO
+	this->f_read_bytes(MPU9250_ADDRESS, FIFO_COUNTH, 2, &data[0]); 	// read FIFO sample count
 	fifo_count = ((uint16_t)data[0] << 8) | data[1];
-	packet_count = fifo_count/12;// How many sets of full gyro and accelerometer data for averaging
+	packet_count = fifo_count/12;					// How many sets of full gyro and accelerometer data for averaging
 
 	for (ii = 0; ii < packet_count; ii++)
 	{

@@ -157,7 +157,7 @@ void Maquina_Control()
 int Maquina_Medir()
 {
 	//Acá es donde se tienen que hacer los filtros epicos que necesitan capacidad de computo
-
+	myDelay(5);
 	ActualizarAngulos();	//Actualizo los angulos de Euler.. Se fueron midiendo desde el systick
 
 	return TRUE;

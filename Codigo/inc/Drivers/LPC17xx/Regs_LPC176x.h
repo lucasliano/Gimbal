@@ -19,6 +19,7 @@ extern "C" {
 #define		__RW		volatile
 
 //typedef 	unsigned int 		uint32_t;
+typedef		short	int			int16_t;
 typedef 	unsigned short 		uint16_t;
 typedef 	unsigned char 		uint8_t;
 typedef 	__RW uint32_t 		registro;  //!< defino un tipo 'registro' uint32_t volatile.

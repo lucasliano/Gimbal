@@ -58,16 +58,20 @@ private slots:
 
     void on_btnPlot_clicked();
 
+    void verificarTrama(void);
+
 
 
 private:
     Ui::Interfaz *ui;
     QString Portname;
     QSerialPort *Port;
+    QTimer Timer;
 
     char setpointPitch;
     char setpointRoll;
     char setpointYaw;
+
 
     void EnumerarPuertos();
     void HabilitarBotones(bool);
