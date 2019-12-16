@@ -8,6 +8,8 @@
 
 #include "all.h"
 
+extern int8_t recalibrarFlag;
+
 
 /**
 	\fn void TimerStart(uint8_t event, uint32_t t, void (*handler)(void), uint8_t base)
@@ -161,4 +163,18 @@ void TimerClose(void)
 
 	for( i=0 ; i < N_TIMERS ; i++ )
 		TimerStop( i );
+}
+
+
+/**
+	\fn void Watchdog(void)
+	\brief Rutina que chequea que funcione correctamente el sistema :D
+	\return void
+*/
+void Watchdog(void)
+{
+	if(GetTimer(TIMER_WATCHDOG) == 0)
+	{
+		recalibrarFlag = TRUE;			//Si se tilda, mandamos recalibración
+	}
 }

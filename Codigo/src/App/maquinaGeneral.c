@@ -25,6 +25,8 @@ extern float kTime;    //cte de tiempo. Es 1 pq el TIMER_CONTROL es en DEC(100ms
 extern float setPoint;
 extern float actual;
 extern float output;
+extern float PWM;
+extern EulerAngles euler;
 
 /*Declaracion de rutinas*/
 
@@ -46,12 +48,21 @@ void Maquina_General()
 	{
 	  case E_CALIBRANDO:
 
-		output = 0;						//Se pide que el gimbal arranque centrado
-		aux = Maquina_Calibrando(); 	//ingreso a la submaquina de estado calibrando
+		Stop_Timers();			//Si se pide recalibración, corto los timers.
+
+		actual = 23;				//Se pide que el gimbal arranque centrado en lo que el servo considera 0
+		PWM = (float) map(actual, -90, 90, 450, 2350);		//Calculo de mapeo entre -90/90 a 450/2350
+		UpdatePWM();
+
+		myDelay(5000);
+
+		aux = Maquina_Calibrando(); 	//ingreso a la sub-maquina de estado calibrando
 		//Transiciones:
 		if(aux == TRUE)
 		{
 			estado = E_FUNCIONANDO;
+
+			Init_Timers();				//Inicia los timers - Debe llamarse despues de que se haya iniciado la IMU.
 		}
 
 		//Auto-transicion
@@ -59,9 +70,14 @@ void Maquina_General()
 		break;
 
 	  case E_FUNCIONANDO:
+
+		TimerStart(TIMER_WATCHDOG, 100, donothing, MS);		//Timer de seguridad!
+
 		if(Recalibrar_Confirm() == TRUE)		//Si me llega un mesaje por Serie!
 		{
+			StandByTimer(TIMER_WATCHDOG, PAUSE);
 			estado = E_CALIBRANDO;
+			return;
 		}
 
 		//Auto-Transicion
@@ -91,6 +107,7 @@ void Inicializar_HW()
 	initI2C();
 	initComSerie();
 	Init_PWM();
+	InicializarServos();
 //	InicializarLCD();
 
 }
@@ -107,7 +124,10 @@ int8_t Recalibrar_Confirm()
 //-----------------------------------------------------
 {
   int8_t res = recalibrarFlag;
-  if(recalibrarFlag == TRUE) recalibrarFlag = FALSE;	//Si hay que recalibrar, cambio el flag a FALSE
+  if(recalibrarFlag == TRUE)
+  {
+	  recalibrarFlag = FALSE;	//Si hay que recalibrar, cambio el flag a FALSE
+  }
   return res;
 }
 

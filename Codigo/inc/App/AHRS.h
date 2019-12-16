@@ -26,6 +26,7 @@ void MedirIMU (void);
 //Relacionado a Filtros
 void FiltroPasaBajos(void);
 void ActualizarAngulos(void);
+void filtro(float dt);
 
 
 

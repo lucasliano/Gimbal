@@ -84,7 +84,7 @@ void Plotting::setupRealtimeDataDemo(QCustomPlot *customPlot)
     customPlot->graph(2)->setBrush(QBrush(QPixmap("./balboa.jpg"))); // fill with texture of specified image
 //    customPlot->graph(2)->setLineStyle(QCPGraph::lsLine);
 //    customPlot->graph(2)->setScatterStyle(QCPScatterStyle(QCPScatterStyle::ssDisc, 5));
-    customPlot->graph(2)->setName("Yaw");
+    customPlot->graph(2)->setName("Actual");
     //Referencia
     customPlot->addGraph();
     QPen blueDotPen;
@@ -100,7 +100,7 @@ void Plotting::setupRealtimeDataDemo(QCustomPlot *customPlot)
     timeTicker->setTimeFormat("%h:%m:%s");
     customPlot->xAxis->setTicker(timeTicker);
     customPlot->axisRect()->setupFullAxesBox();
-    customPlot->yAxis->setRange(-90, 90);         //Acá se actualiza cuanto se muestra del gráfico
+    customPlot->yAxis->setRange(-120, 120);         //Acá se actualiza cuanto se muestra del gráfico
 
 
     // add title layout element:

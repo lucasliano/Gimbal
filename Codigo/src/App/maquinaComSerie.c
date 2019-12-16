@@ -133,22 +133,22 @@ void initComSerie()
 */
 void analizarTrama(KeyType* trama)
 {
+
 	if (strncmp((char*) trama, "#PIT", 4) == 0)
 	{
 		setPoint = (float)(trama[4] - 128);	//Convierte el uint8_t en int8_t
-
-
-		//reenviar(setPoint);		//Esto es para probar la recepcion en QT
-
 
 	}
 	else if (strncmp((char*) trama, "#RLL", 4) == 0)
 	{
 	  //Acá hay que modificar el "Setpoint" del Roll
+
+		ModificarServo( 0, (uint8_t) map(trama[4] - 128, -90, 90, 450, 2350) );
 	}
 	else if (strncmp((char*) trama, "#YAW", 4) == 0)
 	{
 	  //Acá hay que modificar el "Setpoint" del YAW
+		ModificarServo( 1, (uint8_t) map(trama[4] - 128, -90, 90, 450, 2350) );
 	}
 	else if (strncmp((char*) trama, "#REC", 4) == 0)
 	{

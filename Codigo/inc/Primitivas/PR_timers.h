@@ -44,6 +44,7 @@ extern "C" {
 #define TIMER_PLOT			3	//FRECUENCIA_PLOT_MS
 #define TIMER_CONTROL 		4	//kTime	(en ms)
 #define TIMER_PERIODO 		5	//kPeriodo (en ms)
+#define TIMER_WATCHDOG		6
 
 
 
@@ -54,6 +55,7 @@ void StandByTimer( uint8_t event , uint8_t accion);										//Pause/Play
 void TimerStop(uint8_t event);															//Deshabilita un timer (le saca el handler y los contadores)
 void TimerClose(void);																	//Corre un timerStop de todos los timers
 void myDelay(uint16_t ms);
+void Watchdog(void);
 
 void donothing( void );
 

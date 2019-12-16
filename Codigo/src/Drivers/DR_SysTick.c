@@ -21,6 +21,8 @@ void SysTick_Handler(void)
 //	uint32_t j = STCTRL;	//Limpio el flag del SysTick
 	AnalizarTimers();
 	Actualizar_Ticks();
+	Watchdog();
+	ActualizarServosGPIO();
 }
 
 

@@ -34,10 +34,6 @@ private slots:
 
     void on_noseleft_clicked();
 
-    void on_modo1_clicked();
-
-    void on_modo2_clicked();
-
     void on_calibrar_clicked();
 
     void on_pitch1_editingFinished();

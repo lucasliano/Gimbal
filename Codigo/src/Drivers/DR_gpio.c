@@ -50,8 +50,7 @@
 /**
 	\fn  void SetDIR ( uint8_t puerto , uint8_t bit , uint8_t dir )
 	\brief Selecciona si el GPIO sera entrada o salida
- 	\author Ing. Marcelo Trujillo
- 	\date 30/03/2016
+ 	\date 30/06/2019
  	\param [in] puerto Numero del puerto seleccionado
  	\param [in] bit Numero del bit seleccionado
  	\param [in] dir seleccion entre entrada o salida
@@ -72,8 +71,7 @@ void SetDIR ( uint8_t puerto , uint8_t bit , uint8_t dir )
 /**
 	\fn  void SetPIN ( uint8_t puerto , uint8_t bit , uint8_t estado )
 	\brief Activa/Desactiva un pin
- 	\author Ing. Marcelo Trujillo
- 	\date 30/03/2016
+ 	\date 30/06/2019
  	\param [in] puerto Numero del puerto seleccionado
  	\param [in] bit Numero del bit seleccionado
  	\param [in] estado 1: ON 2:OFF
@@ -92,33 +90,6 @@ void SetPIN ( uint8_t puerto , uint8_t bit , uint8_t estado )
 
 }
 
-/**
-	\fn  void SetMODE ( uint8_t puerto , uint8_t bit , uint8_t modo )
-	\brief Activa/Desactiva un pin
- 	\author Ing. Marcelo Trujillo
- 	\date 30/03/2016
- 	\param [in] puerto Numero del puerto seleccionado
- 	\param [in] bit Numero del bit seleccionado
- 	\param [in] modo Selecciona entre los 4 modos de funcionamiento
-		<ul>
-			<li> Dirección de los ports
-			<ol>
-			<li> MODO0: SALIDA
-			<li> MODO1: SALIDA
-			<li> MODO2: ENTRADA
-			<li> MODO3: ENTRADA
-			</ol>
-		</ul>
-	\return void
-*/
-void SetMODE ( uint8_t puerto , uint8_t bit , uint8_t modo )
-{
-	__RW uint32_t *p = ( __RW uint32_t * )  0x4002C040 ;
-
-	*( p + puerto * 2 + bit / 16 ) = *( p + puerto * 2 + bit / 16 ) & ~( 0x3 << (2 * bit));
-	*( p + puerto * 2 + bit / 16 ) = *( p + puerto * 2 + bit / 16 ) | ( modo << (2 * (bit % 16)));
-
-}
 
 uint8_t GetPIN( uint8_t puerto , uint8_t bit , uint8_t actividad )
 {

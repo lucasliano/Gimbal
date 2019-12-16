@@ -17,7 +17,7 @@ extern "C" {
 #include "all.h"
 
 
-#define TIMEOUT_I2C 	5	//ms
+#define TIMEOUT_I2C 	100	//us
 
 
 

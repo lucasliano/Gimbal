@@ -14,9 +14,8 @@ int main()
 //*****************************************************
 {
     Inicializar_HW();
-    IniciarIMU();
 
-    Init_Timers();				//Inicia los timers - Debe llamarse despues de que se haya iniciado la IMU.
+    IniciarIMU();
 
 
     while(1)

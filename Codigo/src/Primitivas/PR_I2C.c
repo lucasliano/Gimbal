@@ -32,7 +32,7 @@ int8_t singleReadI2C(uint8_t addr, uint8_t RA, uint8_t* data)
 	{
 		//myDelay(5);
 
-		TimerStart(READ_I2C_TIMER, TIMEOUT_I2C, donothing , MS );
+		TimerStart(READ_I2C_TIMER, TIMEOUT_I2C, donothing , US );
 		while( GetTimer(READ_I2C_TIMER) != 0 && salida != 0)			//Pregunto hasta que pueda leer el dato o hasta que expire el tiempo
 		{
 			if(readI2C_driver(data, 1) == 0)

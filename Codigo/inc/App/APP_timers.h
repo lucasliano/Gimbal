@@ -18,6 +18,7 @@ extern "C" {
 
 /*Funciones asociadas a timers*/
 void Init_Timers();
+void Stop_Timers();
 
 
 #ifdef __cplusplus

@@ -221,7 +221,7 @@ typedef struct MPU9250_data_t
 } MPU9250_data;
 
 typedef struct EulerAngles_t {
-    double roll, pitch, yaw;
+    float roll, pitch, yaw;
 }EulerAngles;
 
 
@@ -277,7 +277,7 @@ class c_MPU9250
 		void f_mpu9250_self_test(float * destination); // Should return percent deviation from factory trim values, +/- 14 or less deviation is a pass
 
 
-		uint8_t f_read_byte(uint8_t address, uint8_t subAddress);
+
 
 		void f_reset_mpu9250(void);
 
@@ -323,6 +323,7 @@ class c_MPU9250
 
 		void f_read_bytes(uint8_t address, uint8_t subAddress, uint8_t count, uint8_t * dest);
 		void f_write_byte(uint8_t address, uint8_t subAddress, uint8_t data);
+		uint8_t f_read_byte(uint8_t address, uint8_t subAddress);
 		float f_get_accel_res();
 		float f_get_gyro_res();
 		float f_get_mag_res();

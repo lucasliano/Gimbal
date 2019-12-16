@@ -20,10 +20,12 @@ extern "C" {
 #define YAW 2
 #define DEB 3
 #define OUT 4
+#define ACC 5
+#define GYR 6
 
 //============DEFINES IMPORTANTES===========================
 #define CANT_MAX_ENVIO_UART 50
-#define FRECUENCIA_PLOT_MS	10
+#define FRECUENCIA_PLOT_MS	5
 
 
 void reenviar(uint8_t dato);

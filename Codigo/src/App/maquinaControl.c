@@ -15,31 +15,25 @@
 
 /**
   \var float actual
-  \brief Almacena el valor de la posición actual del gimbal (solo para leds).
+  \brief Almacena el valor de la posición actual del gimbal.
   \details none.
 */
-double actual = 0;
+float actual = 0;
 
 /**
   \var float setPoint
   \brief Almacena el valor de setpoint deseado.
   \details none.
 */
-double setPoint = 0;
+float setPoint = 0;
 
 /**
   \var float output
   \brief Almacena el valor de salida del sistema.
   \details none.
 */
-double output = 0;
+float output = 0;
 
-///**
-//  \var uint16_t duty
-//  \brief Almacena el valor correspondiente al ciclo de trabajo del motor.
-//  \details none.
-//*/
-//uint16_t duty;
 
 /**
   \var uint16_t periodo
@@ -53,7 +47,7 @@ uint16_t kPeriodo = 1 * DECIMAS;
   \brief Almacena una constante de control.
   \details Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control.
 */
-float kTime = 1 * DECIMAS;
+float kTime = 10;
 /*
  * Curva Normal: Ktime < = 5*periodo
  * Oscilacion Decreciente: 5*perido < kTime < 10*periodo
@@ -91,6 +85,7 @@ int escala = 18;       //Escala de la perturbacion solo para SIMULACION
 extern uint16_t timeBoton;  	//Acumulador del boton
 extern uint16_t timeControl;   	//Hago extern pq esta en timers.c
 extern EulerAngles euler;		//Angulos de Euler
+extern EulerAngles eulerOffset;
 /*Declaracion de rutinas*/
 
 
@@ -151,14 +146,18 @@ void Maquina_Control()
   \fn int Maquina_Medir();
   \brief Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con LEDS.
   \author Grupo 8 - R2003
-  \date 2019.07.23
+  \date 2019.07.23 jkfdkf
   \return TRUE si se pudo realizar la medición, FALSE si hubo algun fallo.
 */
 int Maquina_Medir()
 {
 	//Acá es donde se tienen que hacer los filtros epicos que necesitan capacidad de computo
-	myDelay(5);
+
 	ActualizarAngulos();	//Actualizo los angulos de Euler.. Se fueron midiendo desde el systick
+
+ 	euler.pitch -= eulerOffset.pitch;
+	euler.roll -= eulerOffset.roll;
+
 
 	return TRUE;
 }
@@ -186,14 +185,14 @@ int F_Calculando()
 
 void Controlador_PID( void )
 {
-	static double Integral = 0;		//Guarda el valor integral del sistema
-	static double errorAnterior = 0;	//Guarda el valor anterior del error
-	double error;
-	double Proporcional = 0;
-	double Derivativo = 0;
-	double deltaError = 0;
+	static float Integral = 0;		//Guarda el valor integral del sistema
+	static float errorAnterior = 0;	//Guarda el valor anterior del error
+	float error;
+	float Proporcional = 0;
+	float Derivativo = 0;
+	float deltaError = 0;
 
-	error = setPoint - euler.pitch;						//Calculo de error
+	error = setPoint - euler.roll;						//Calculo de error
 	deltaError = (error - errorAnterior);				//Calculo de la pendiente del D
 
 	Proporcional = error * kp;							//P
@@ -203,7 +202,7 @@ void Controlador_PID( void )
 	errorAnterior = error;								//Actualizo el valor anterior, para calcular la prox pendiente
 	if (error > ANTIWINDUP_THRESHOLD) Integral = 0;		//I		-		Anti-WindUp
 
-	output = Proporcional + Integral + Derivativo;		//Calculo la salida del Control H()
+	output = (Proporcional + Integral + Derivativo) ;		//Calculo la salida del Control H()
 
 
 }

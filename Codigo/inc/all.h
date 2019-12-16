@@ -37,6 +37,7 @@ extern "C" {
 #include "DR_gpio.h"
 #include "DR_UART0.h"
 #include "DR_I2C.h"
+#include "DR_Servo.h"
 //Primitivas
 #include "comunicaciones.h"
 #include "circularBuffer.h"

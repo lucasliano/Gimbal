@@ -83,6 +83,24 @@ char enviarUART(uint8_t* dato, uint8_t size, uint8_t type)
 					UART0_PushTX('@');
 					salida = 0;
 					break;
+				case ACC:
+					UART0_PushTX('#');
+					UART0_PushTX('A');
+					UART0_PushTX('C');
+					UART0_PushTX('C');
+					for(int i = 0; i < size; i++) UART0_PushTX(dato[i]);
+					UART0_PushTX('@');
+					salida = 0;
+					break;
+				case GYR:
+					UART0_PushTX('#');
+					UART0_PushTX('G');
+					UART0_PushTX('Y');
+					UART0_PushTX('R');
+					for(int i = 0; i < size; i++) UART0_PushTX(dato[i]);
+					UART0_PushTX('@');
+					salida = 0;
+					break;
 				case DEB:
 					UART0_PushTX('#');
 					UART0_PushTX('D');
