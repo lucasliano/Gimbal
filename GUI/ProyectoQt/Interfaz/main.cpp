@@ -1,15 +1,19 @@
-#include "interfaz.h"
 #include <QApplication>
 #include <QSplashScreen>
 #include <QTimer>
-#include "bienvenidos.h"
 #include "interfaz.h"
-#include "comserie.h"
 
-
+double pitch = 0;
+double roll = 0;
+double yaw = 0;
+double out = 0;
+int index=0;
+QByteArray bufferCircular;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    bufferCircular.clear();
+
 
     //Esto de acá inicializa la imagen que va a saltar
     QSplashScreen *splash = new QSplashScreen;

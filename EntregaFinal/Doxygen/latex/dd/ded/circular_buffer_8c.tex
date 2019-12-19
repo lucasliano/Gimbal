@@ -1,0 +1,68 @@
+\hypertarget{circular_buffer_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/src/\+Primitivas/circular\+Buffer.c File Reference}
+\label{circular_buffer_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Primitivas/circularBuffer.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Primitivas/circularBuffer.c}}
+
+
+Se encuentran las rutinas para manejar buffer cirulares.  
+
+
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{circular_buffer_8c_a87f5c79103ba51f32407dbbcc9394f08}{Circular\+Buffer\+Init}} (\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$p\+Que)
+\item 
+int \mbox{\hyperlink{circular_buffer_8c_a6d99cd29f1d47375e6aee44c43de9252}{Circular\+Buffer\+Is\+Full}} (\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$que)
+\item 
+int \mbox{\hyperlink{circular_buffer_8c_a23c6329200e7e2fd17da145e72beb721}{Circular\+Buffer\+Is\+Empty}} (\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$que)
+\item 
+int \mbox{\hyperlink{circular_buffer_8c_a0656e81d1464455fcfbb02aa0cd036eb}{Circular\+Buffer\+Enque}} (\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$que, \mbox{\hyperlink{circular_buffer_8h_abb0512d531d8ae992fc6c5cce5971691}{Key\+Type}} k)
+\item 
+int \mbox{\hyperlink{circular_buffer_8c_a6d6b34b75591f139940b9a49eb6ed2d3}{Circular\+Buffer\+Deque}} (\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$que, \mbox{\hyperlink{circular_buffer_8h_abb0512d531d8ae992fc6c5cce5971691}{Key\+Type}} $\ast$pK)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Se encuentran las rutinas para manejar buffer cirulares. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+10.\+14 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{circular_buffer_8c_a6d6b34b75591f139940b9a49eb6ed2d3}\label{circular_buffer_8c_a6d6b34b75591f139940b9a49eb6ed2d3}} 
+\index{circularBuffer.c@{circularBuffer.c}!CircularBufferDeque@{CircularBufferDeque}}
+\index{CircularBufferDeque@{CircularBufferDeque}!circularBuffer.c@{circularBuffer.c}}
+\subsubsection{\texorpdfstring{CircularBufferDeque()}{CircularBufferDeque()}}
+{\footnotesize\ttfamily int Circular\+Buffer\+Deque (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$}]{que,  }\item[{\mbox{\hyperlink{circular_buffer_8h_abb0512d531d8ae992fc6c5cce5971691}{Key\+Type}} $\ast$}]{pK }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{circular_buffer_8c_a0656e81d1464455fcfbb02aa0cd036eb}\label{circular_buffer_8c_a0656e81d1464455fcfbb02aa0cd036eb}} 
+\index{circularBuffer.c@{circularBuffer.c}!CircularBufferEnque@{CircularBufferEnque}}
+\index{CircularBufferEnque@{CircularBufferEnque}!circularBuffer.c@{circularBuffer.c}}
+\subsubsection{\texorpdfstring{CircularBufferEnque()}{CircularBufferEnque()}}
+{\footnotesize\ttfamily int Circular\+Buffer\+Enque (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$}]{que,  }\item[{\mbox{\hyperlink{circular_buffer_8h_abb0512d531d8ae992fc6c5cce5971691}{Key\+Type}}}]{k }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{circular_buffer_8c_a87f5c79103ba51f32407dbbcc9394f08}\label{circular_buffer_8c_a87f5c79103ba51f32407dbbcc9394f08}} 
+\index{circularBuffer.c@{circularBuffer.c}!CircularBufferInit@{CircularBufferInit}}
+\index{CircularBufferInit@{CircularBufferInit}!circularBuffer.c@{circularBuffer.c}}
+\subsubsection{\texorpdfstring{CircularBufferInit()}{CircularBufferInit()}}
+{\footnotesize\ttfamily void Circular\+Buffer\+Init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$}]{p\+Que }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{circular_buffer_8c_a23c6329200e7e2fd17da145e72beb721}\label{circular_buffer_8c_a23c6329200e7e2fd17da145e72beb721}} 
+\index{circularBuffer.c@{circularBuffer.c}!CircularBufferIsEmpty@{CircularBufferIsEmpty}}
+\index{CircularBufferIsEmpty@{CircularBufferIsEmpty}!circularBuffer.c@{circularBuffer.c}}
+\subsubsection{\texorpdfstring{CircularBufferIsEmpty()}{CircularBufferIsEmpty()}}
+{\footnotesize\ttfamily int Circular\+Buffer\+Is\+Empty (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$}]{que }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{circular_buffer_8c_a6d99cd29f1d47375e6aee44c43de9252}\label{circular_buffer_8c_a6d99cd29f1d47375e6aee44c43de9252}} 
+\index{circularBuffer.c@{circularBuffer.c}!CircularBufferIsFull@{CircularBufferIsFull}}
+\index{CircularBufferIsFull@{CircularBufferIsFull}!circularBuffer.c@{circularBuffer.c}}
+\subsubsection{\texorpdfstring{CircularBufferIsFull()}{CircularBufferIsFull()}}
+{\footnotesize\ttfamily int Circular\+Buffer\+Is\+Full (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_circular_buffer}{Circular\+Buffer}} $\ast$}]{que }\end{DoxyParamCaption})}
+

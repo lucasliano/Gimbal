@@ -1,0 +1,246 @@
+\hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/\+Github/\+Gimbal/\+Codigo/gimbal\+\_\+workspace/\+Gimbal/src/\+Aplicacion/maquina\+Control.c File Reference}
+\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/src/Aplicacion/maquinaControl.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/src/Aplicacion/maquinaControl.c}}
+{\ttfamily \#include \char`\"{}maquina\+Control.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a1c8abba016263809cb77fb26f70e4df2}{Maquina\+\_\+\+Medir}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con L\+E\+DS. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a504cdea0bb87a736c2125593d47a7a89}{F\+\_\+\+Calculando}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de realizar los caluclos pertinentes al sistema de control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_ab89fa5c0d2613096beaef358420c7ad4}{Maquina\+\_\+\+Control}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a655a7771e0ba04409a574f7f5605f22f}{actual}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena el valor de la posición actual del gimbal (solo para leds). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a63d3c3044414027c2686db00ea9cca32}{set\+Point}} = 0
+\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a00505972efb8c1749fb3f62c490314a2}{output}}
+\begin{DoxyCompactList}\small\item\em Almacena el valor de salida del sistema. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a629bbb86e941652d883be6def7f22808}{duty}}
+\begin{DoxyCompactList}\small\item\em Almacena el valor correspondiente al ciclo de trabajo del motor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4f9278c1438b58276522156f95c2a669}{periodo}} = 5
+\begin{DoxyCompactList}\small\item\em Almacena cual es el periodo maximo del P\+WM del motor. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_ae3c7ebbb0a24f103f572af04ff4bab83}{k\+Time}} = 50
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a9b2541e6fe95d43a7a40de4535f334ab}{kp}} = 1
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4744612faec3e777b9fc1aa395c987de}{kd}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a56f52d629e36d9c88477dc1772ad4e61}{ki}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a2b1315d937fec51e6159b3a912ee7bdd}{limite}} = 5
+\item 
+int \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4783c7194304eb8fb4f20ab58b186d85}{escala}} = 13
+\item 
+float \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_aec7dd6e38c6ac000a6ce12bb34bea100}{kreac}} = 5
+\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_af722f732068042c996f055d5f76b4a46}{time\+Boton}}
+\begin{DoxyCompactList}\small\item\em Es el acumulador relacionado al T\+I\+M\+E\+R\+\_\+\+B\+O\+T\+ON. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a713c3cd30b14b9f396016b6c5b7ebd36}{tecla}}
+\begin{DoxyCompactList}\small\item\em Almacena la última tecla presionada. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_af331e190943e574a764aca968c910789}{time\+Control}}
+\begin{DoxyCompactList}\small\item\em Es el acumulador relacionado al T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a504cdea0bb87a736c2125593d47a7a89}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a504cdea0bb87a736c2125593d47a7a89}} 
+\index{maquinaControl.c@{maquinaControl.c}!F\_Calculando@{F\_Calculando}}
+\index{F\_Calculando@{F\_Calculando}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{F\_Calculando()}{F\_Calculando()}}
+{\footnotesize\ttfamily int F\+\_\+\+Calculando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de realizar los caluclos pertinentes al sistema de control. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+F\+A\+L\+SE mientras se este calculando. T\+R\+UE cuando se haya terminado de calcular. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_ab89fa5c0d2613096beaef358420c7ad4}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_ab89fa5c0d2613096beaef358420c7ad4}} 
+\index{maquinaControl.c@{maquinaControl.c}!Maquina\_Control@{Maquina\_Control}}
+\index{Maquina\_Control@{Maquina\_Control}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{Maquina\_Control()}{Maquina\_Control()}}
+{\footnotesize\ttfamily void Maquina\+\_\+\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a1c8abba016263809cb77fb26f70e4df2}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a1c8abba016263809cb77fb26f70e4df2}} 
+\index{maquinaControl.c@{maquinaControl.c}!Maquina\_Medir@{Maquina\_Medir}}
+\index{Maquina\_Medir@{Maquina\_Medir}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{Maquina\_Medir()}{Maquina\_Medir()}}
+{\footnotesize\ttfamily int Maquina\+\_\+\+Medir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con L\+E\+DS. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si se pudo realizar la medición, F\+A\+L\+SE si hubo algun fallo. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a655a7771e0ba04409a574f7f5605f22f}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a655a7771e0ba04409a574f7f5605f22f}} 
+\index{maquinaControl.c@{maquinaControl.c}!actual@{actual}}
+\index{actual@{actual}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{actual}{actual}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} actual = 0}
+
+
+
+Almacena el valor de la posición actual del gimbal (solo para leds). 
+
+none. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a629bbb86e941652d883be6def7f22808}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a629bbb86e941652d883be6def7f22808}} 
+\index{maquinaControl.c@{maquinaControl.c}!duty@{duty}}
+\index{duty@{duty}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{duty}{duty}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} duty}
+
+
+
+Almacena el valor correspondiente al ciclo de trabajo del motor. 
+
+none. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4783c7194304eb8fb4f20ab58b186d85}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4783c7194304eb8fb4f20ab58b186d85}} 
+\index{maquinaControl.c@{maquinaControl.c}!escala@{escala}}
+\index{escala@{escala}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{escala}{escala}}
+{\footnotesize\ttfamily int escala = 13}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4744612faec3e777b9fc1aa395c987de}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4744612faec3e777b9fc1aa395c987de}} 
+\index{maquinaControl.c@{maquinaControl.c}!kd@{kd}}
+\index{kd@{kd}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kd}{kd}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} kd = 0}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar que tanta importancia se le da a la componente de control derivativa. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a56f52d629e36d9c88477dc1772ad4e61}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a56f52d629e36d9c88477dc1772ad4e61}} 
+\index{maquinaControl.c@{maquinaControl.c}!ki@{ki}}
+\index{ki@{ki}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{ki}{ki}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} ki = 0}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar que tanta importancia se le da a la componente de control integral. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a9b2541e6fe95d43a7a40de4535f334ab}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a9b2541e6fe95d43a7a40de4535f334ab}} 
+\index{maquinaControl.c@{maquinaControl.c}!kp@{kp}}
+\index{kp@{kp}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kp}{kp}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} kp = 1}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite la componente proporcional del sistema de control. Varia que tan brusca es la respuesta inmediata. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_aec7dd6e38c6ac000a6ce12bb34bea100}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_aec7dd6e38c6ac000a6ce12bb34bea100}} 
+\index{maquinaControl.c@{maquinaControl.c}!kreac@{kreac}}
+\index{kreac@{kreac}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kreac}{kreac}}
+{\footnotesize\ttfamily float kreac = 5}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_ae3c7ebbb0a24f103f572af04ff4bab83}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_ae3c7ebbb0a24f103f572af04ff4bab83}} 
+\index{maquinaControl.c@{maquinaControl.c}!kTime@{kTime}}
+\index{kTime@{kTime}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kTime}{kTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} k\+Time = 50}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a2b1315d937fec51e6159b3a912ee7bdd}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a2b1315d937fec51e6159b3a912ee7bdd}} 
+\index{maquinaControl.c@{maquinaControl.c}!limite@{limite}}
+\index{limite@{limite}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{limite}{limite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} limite = 5}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a00505972efb8c1749fb3f62c490314a2}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a00505972efb8c1749fb3f62c490314a2}} 
+\index{maquinaControl.c@{maquinaControl.c}!output@{output}}
+\index{output@{output}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} output}
+
+
+
+Almacena el valor de salida del sistema. 
+
+none. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4f9278c1438b58276522156f95c2a669}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a4f9278c1438b58276522156f95c2a669}} 
+\index{maquinaControl.c@{maquinaControl.c}!periodo@{periodo}}
+\index{periodo@{periodo}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{periodo}{periodo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} periodo = 5}
+
+
+
+Almacena cual es el periodo maximo del P\+WM del motor. 
+
+none. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a63d3c3044414027c2686db00ea9cca32}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a63d3c3044414027c2686db00ea9cca32}} 
+\index{maquinaControl.c@{maquinaControl.c}!setPoint@{setPoint}}
+\index{setPoint@{setPoint}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{setPoint}{setPoint}}
+{\footnotesize\ttfamily float set\+Point = 0}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a713c3cd30b14b9f396016b6c5b7ebd36}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_a713c3cd30b14b9f396016b6c5b7ebd36}} 
+\index{maquinaControl.c@{maquinaControl.c}!tecla@{tecla}}
+\index{tecla@{tecla}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{tecla}{tecla}}
+{\footnotesize\ttfamily tecla}
+
+
+
+Almacena la última tecla presionada. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_af722f732068042c996f055d5f76b4a46}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_af722f732068042c996f055d5f76b4a46}} 
+\index{maquinaControl.c@{maquinaControl.c}!timeBoton@{timeBoton}}
+\index{timeBoton@{timeBoton}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{timeBoton}{timeBoton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} time\+Boton}
+
+
+
+Es el acumulador relacionado al T\+I\+M\+E\+R\+\_\+\+B\+O\+T\+ON. 
+
+none. \mbox{\Hypertarget{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_af331e190943e574a764aca968c910789}\label{gimbal__workspace_2_gimbal_2src_2_aplicacion_2maquina_control_8c_af331e190943e574a764aca968c910789}} 
+\index{maquinaControl.c@{maquinaControl.c}!timeControl@{timeControl}}
+\index{timeControl@{timeControl}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{timeControl}{timeControl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} time\+Control}
+
+
+
+Es el acumulador relacionado al T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL. 
+
+none. 

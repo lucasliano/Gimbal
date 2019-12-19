@@ -1,0 +1,127 @@
+\hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/\+Github/\+Gimbal/\+Codigo/gimbal\+\_\+workspace/\+Gimbal/inc/\+Aplicacion/maquina\+Control.h File Reference}
+\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/inc/Aplicacion/maquinaControl.h@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/inc/Aplicacion/maquinaControl.h}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_ae36e307d418150593e2830ffa5dc2610}{E\+\_\+\+M\+I\+D\+I\+E\+N\+DO}}~9
+\item 
+\#define \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a581c12235551f9d117b4f7e61dea308a}{E\+\_\+\+C\+A\+L\+C\+U\+L\+A\+N\+DO}}~10
+\item 
+\#define \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a3c62de2fb58f5070743858db212a8e2c}{E\+\_\+\+P\+A\+U\+SA}}~1
+\item 
+\#define \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_abdd05722037e8684bbcddd57f92d756a}{E\+\_\+\+P\+R\+E\+S\+I\+O\+N\+A\+N\+DO}}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a0f92f93d7cb51b647d9c03925443425f}{F\+\_\+\+Calculando}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de realizar los caluclos pertinentes al sistema de control. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a5184292dd7de6f2c5c24503cc0dd0a07}{hay\+Boton}} ()
+\begin{DoxyCompactList}\small\item\em Se fija si algun boton fue presionado. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_af3588b1c694670267a7d0f1766e3c8bc}{Maquina\+\_\+\+Medir}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con L\+E\+DS. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_ab89fa5c0d2613096beaef358420c7ad4}{Maquina\+\_\+\+Control}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a581c12235551f9d117b4f7e61dea308a}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a581c12235551f9d117b4f7e61dea308a}} 
+\index{maquinaControl.h@{maquinaControl.h}!E\_CALCULANDO@{E\_CALCULANDO}}
+\index{E\_CALCULANDO@{E\_CALCULANDO}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{E\_CALCULANDO}{E\_CALCULANDO}}
+{\footnotesize\ttfamily \#define E\+\_\+\+C\+A\+L\+C\+U\+L\+A\+N\+DO~10}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_ae36e307d418150593e2830ffa5dc2610}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_ae36e307d418150593e2830ffa5dc2610}} 
+\index{maquinaControl.h@{maquinaControl.h}!E\_MIDIENDO@{E\_MIDIENDO}}
+\index{E\_MIDIENDO@{E\_MIDIENDO}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{E\_MIDIENDO}{E\_MIDIENDO}}
+{\footnotesize\ttfamily \#define E\+\_\+\+M\+I\+D\+I\+E\+N\+DO~9}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a3c62de2fb58f5070743858db212a8e2c}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a3c62de2fb58f5070743858db212a8e2c}} 
+\index{maquinaControl.h@{maquinaControl.h}!E\_PAUSA@{E\_PAUSA}}
+\index{E\_PAUSA@{E\_PAUSA}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{E\_PAUSA}{E\_PAUSA}}
+{\footnotesize\ttfamily \#define E\+\_\+\+P\+A\+U\+SA~1}
+
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_abdd05722037e8684bbcddd57f92d756a}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_abdd05722037e8684bbcddd57f92d756a}} 
+\index{maquinaControl.h@{maquinaControl.h}!E\_PRESIONANDO@{E\_PRESIONANDO}}
+\index{E\_PRESIONANDO@{E\_PRESIONANDO}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{E\_PRESIONANDO}{E\_PRESIONANDO}}
+{\footnotesize\ttfamily \#define E\+\_\+\+P\+R\+E\+S\+I\+O\+N\+A\+N\+DO~2}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a0f92f93d7cb51b647d9c03925443425f}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a0f92f93d7cb51b647d9c03925443425f}} 
+\index{maquinaControl.h@{maquinaControl.h}!F\_Calculando@{F\_Calculando}}
+\index{F\_Calculando@{F\_Calculando}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{F\_Calculando()}{F\_Calculando()}}
+{\footnotesize\ttfamily bool F\+\_\+\+Calculando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de realizar los caluclos pertinentes al sistema de control. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+F\+A\+L\+SE mientras se este calculando. T\+R\+UE cuando se haya terminado de calcular. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a5184292dd7de6f2c5c24503cc0dd0a07}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_a5184292dd7de6f2c5c24503cc0dd0a07}} 
+\index{maquinaControl.h@{maquinaControl.h}!hayBoton@{hayBoton}}
+\index{hayBoton@{hayBoton}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{hayBoton()}{hayBoton()}}
+{\footnotesize\ttfamily bool hay\+Boton (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se fija si algun boton fue presionado. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+F\+A\+L\+SE si no hay ninguno presionado, y T\+R\+UE si alguno se presiono o esta siendo presionado. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_ab89fa5c0d2613096beaef358420c7ad4}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_ab89fa5c0d2613096beaef358420c7ad4}} 
+\index{maquinaControl.h@{maquinaControl.h}!Maquina\_Control@{Maquina\_Control}}
+\index{Maquina\_Control@{Maquina\_Control}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{Maquina\_Control()}{Maquina\_Control()}}
+{\footnotesize\ttfamily void Maquina\+\_\+\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_af3588b1c694670267a7d0f1766e3c8bc}\label{gimbal__workspace_2_gimbal_2inc_2_aplicacion_2maquina_control_8h_af3588b1c694670267a7d0f1766e3c8bc}} 
+\index{maquinaControl.h@{maquinaControl.h}!Maquina\_Medir@{Maquina\_Medir}}
+\index{Maquina\_Medir@{Maquina\_Medir}!maquinaControl.h@{maquinaControl.h}}
+\subsubsection{\texorpdfstring{Maquina\_Medir()}{Maquina\_Medir()}}
+{\footnotesize\ttfamily bool Maquina\+\_\+\+Medir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con L\+E\+DS. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si se pudo realizar la medición, F\+A\+L\+SE si hubo algun fallo. 
+\end{DoxyReturn}

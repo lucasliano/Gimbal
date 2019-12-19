@@ -1,0 +1,389 @@
+\hypertarget{_d_r___u_a_r_t0_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/src/\+Drivers/\+D\+R\+\_\+\+U\+A\+R\+T0.c File Reference}
+\label{_d_r___u_a_r_t0_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Drivers/DR\_UART0.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Drivers/DR\_UART0.c}}
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}~( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4000\+C000\+U\+L )
+\begin{DoxyCompactList}\small\item\em $<$ ///////////// U\+A\+R\+Ts /////////////////////////// \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_adba5bb27ae60fdb9d98b2e8b4fb907b9}{U\+A\+R\+T0\+R\+BR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a3eaafd4dab9aedadadb4b3ab661244a7}{U\+A\+R\+T0\+T\+HR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a8cc42f167c1a8868798c1de712d0142f}{U\+A\+R\+T0\+D\+LL}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab519c55c6e32dd1ed3a3b964dae878b8}{U\+A\+R\+T0\+I\+ER}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}1\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab7a9533691c0bdf292237007526a3bca}{U\+A\+R\+T0\+D\+LM}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}1\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a3a4e8af9324165ce434ca3035a44f99e}{U\+A\+R\+T0\+I\+IR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}2\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_af22e602f22cfc4425de2851e80ac15da}{U\+A\+R\+T0\+L\+CR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}3\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a2636592a5bac9cfe13a5290184c13eac}{U\+A\+R\+T0\+L\+SR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}5\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_abc24b24e4260b41f3b6a9964a8385c6d}{U\+A\+R\+T0\+D\+L\+A\+B\+\_\+\+O\+FF}}~(\mbox{\hyperlink{_regs___l_p_c176x_8h_ac04af46e5aa3dc369e089dac159536d6}{U0\+L\+CR}} \& 0x\+E\+F)
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a89734bf9a29e814cd9d523416970e78a}{U\+A\+R\+T0\+D\+L\+A\+B\+\_\+\+ON}}~(\mbox{\hyperlink{_regs___l_p_c176x_8h_ac04af46e5aa3dc369e089dac159536d6}{U0\+L\+CR}} $\vert$ 0x80)
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_af9c6bc1f2870a5b716b9ceaa0acb0328}{T\+X0}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}}, 2
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_acedefa8d2ab1a947fbe2d5b4c1a6c3aa}{R\+X0}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}}, 3
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}~( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x40010000\+U\+L )
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab196f938ddc4161fa1ea3bb944869b26}{U\+A\+R\+T1\+R\+BR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a8a36e93dfefcddfbee227f31ee8914c9}{U\+A\+R\+T1\+T\+HR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a190fc74d62931f2d30c6e8992f945ceb}{U\+A\+R\+T1\+D\+LL}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_aa0b3fb3f5c9fb093d76107be34664bad}{U\+A\+R\+T1\+I\+ER}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}1\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_aea3a795cfb5b20aef817bb65ec677b11}{U\+A\+R\+T1\+D\+LM}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}1\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_ad0e27dd25368201c273c73d4dd0432fa}{U\+A\+R\+T1\+I\+IR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}2\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a25037e4fd894299a4966b63d089a4b94}{U\+A\+R\+T1\+L\+CR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}3\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a89dd05085ff33073329a24087d0c3661}{U\+A\+R\+T1\+L\+SR}}~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}5\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a0dd5147a6151443d7640e532b5c91f49}{T\+X1}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}} , 15
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_afd6ea3a018adead693930404719e8eeb}{R\+X1}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}} , 16
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a0466ccb605cb0395fb03b72f476ec855}{T\+XD}}~1
+\item 
+\#define \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a95855eaf9cee62de5402f124b1b8a27b}{R\+XD}}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a1c0544b06d54b198d8c50f507e399a91}{U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Interrupcion de U\+A\+R\+T0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a5590ed6eabda3df6d165c8ba1b66d865}{U\+A\+R\+T0\+\_\+\+Inicializacion}} (uint32\+\_\+t baudios)
+\begin{DoxyCompactList}\small\item\em Inicializacion de U\+A\+R\+T0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a8fdeb64781a560fd20a60930d16eb485}{U\+A\+R\+T0\+\_\+\+Push\+RX}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} dato)
+\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a66634143db08bebe9b46ab4cb1fc6fd3}{int16\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a7eb7e36ece8fc038e8b8ff33b8530bf1}{U\+A\+R\+T0\+\_\+\+Pop\+RX}} (void)
+\item 
+void \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a7c36c0583231d698ca42822f50038f14}{U\+A\+R\+T0\+\_\+\+Push\+TX}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} dato)
+\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a66634143db08bebe9b46ab4cb1fc6fd3}{int16\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_aa3b7cda7186ab90d4a468d2173627c9f}{U\+A\+R\+T0\+\_\+\+Pop\+TX}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_ada02f3e5d81a6fe0f7a6c141c44252c9}{U\+A\+R\+T0\+\_\+\+Buffer\+Rx}} \mbox{[}\mbox{\hyperlink{_d_r___u_a_r_t0_8h_a5fb63da07403ec1a87efdcf960a92af7}{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+RX}}\mbox{]}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a6cfa713ca5a8af1abdf45368c56e3ddb}{U\+A\+R\+T0\+\_\+\+Buffer\+Tx}} \mbox{[}\mbox{\hyperlink{_d_r___u_a_r_t0_8h_af16a0fb944a9a2e7df7318ca8208ec9f}{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+TX}}\mbox{]}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a7b54900db3231556def05c7634691b57}{U\+A\+R\+T0\+\_\+in\+RX}}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_a1da0a31f8f975924adeb6315234eec74}{U\+A\+R\+T0\+\_\+out\+RX}}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_aaef21b908758d8983f2ed94f38d077e5}{U\+A\+R\+T0\+\_\+in\+TX}}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_af73cdbf760053cc00e7c6720d112349c}{U\+A\+R\+T0\+\_\+out\+TX}}
+\item 
+static volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_a66634143db08bebe9b46ab4cb1fc6fd3}{int16\+\_\+t}} \mbox{\hyperlink{_d_r___u_a_r_t0_8c_acd1036716331ed1c61c6432863ee6e3f}{U\+A\+R\+T0\+\_\+flag\+Tx}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}\label{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!DIR\_UART0@{DIR\_UART0}}
+\index{DIR\_UART0@{DIR\_UART0}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{DIR\_UART0}{DIR\_UART0}}
+{\footnotesize\ttfamily \#define D\+I\+R\+\_\+\+U\+A\+R\+T0~( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4000\+C000\+U\+L )}
+
+
+
+$<$ ///////////// U\+A\+R\+Ts /////////////////////////// 
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}\label{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!DIR\_UART1@{DIR\_UART1}}
+\index{DIR\_UART1@{DIR\_UART1}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{DIR\_UART1}{DIR\_UART1}}
+{\footnotesize\ttfamily \#define D\+I\+R\+\_\+\+U\+A\+R\+T1~( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x40010000\+U\+L )}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_acedefa8d2ab1a947fbe2d5b4c1a6c3aa}\label{_d_r___u_a_r_t0_8c_acedefa8d2ab1a947fbe2d5b4c1a6c3aa}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!RX0@{RX0}}
+\index{RX0@{RX0}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{RX0}{RX0}}
+{\footnotesize\ttfamily \#define R\+X0~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}}, 3}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_afd6ea3a018adead693930404719e8eeb}\label{_d_r___u_a_r_t0_8c_afd6ea3a018adead693930404719e8eeb}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!RX1@{RX1}}
+\index{RX1@{RX1}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{RX1}{RX1}}
+{\footnotesize\ttfamily \#define R\+X1~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}} , 16}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a95855eaf9cee62de5402f124b1b8a27b}\label{_d_r___u_a_r_t0_8c_a95855eaf9cee62de5402f124b1b8a27b}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!RXD@{RXD}}
+\index{RXD@{RXD}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{RXD}{RXD}}
+{\footnotesize\ttfamily \#define R\+XD~1}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_af9c6bc1f2870a5b716b9ceaa0acb0328}\label{_d_r___u_a_r_t0_8c_af9c6bc1f2870a5b716b9ceaa0acb0328}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!TX0@{TX0}}
+\index{TX0@{TX0}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{TX0}{TX0}}
+{\footnotesize\ttfamily \#define T\+X0~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}}, 2}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a0dd5147a6151443d7640e532b5c91f49}\label{_d_r___u_a_r_t0_8c_a0dd5147a6151443d7640e532b5c91f49}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!TX1@{TX1}}
+\index{TX1@{TX1}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{TX1}{TX1}}
+{\footnotesize\ttfamily \#define T\+X1~\mbox{\hyperlink{_regs___l_p_c176x_8h_af41b34488a518db05b413d3a370f871f}{P\+O\+R\+T0}} , 15}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a0466ccb605cb0395fb03b72f476ec855}\label{_d_r___u_a_r_t0_8c_a0466ccb605cb0395fb03b72f476ec855}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!TXD@{TXD}}
+\index{TXD@{TXD}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{TXD}{TXD}}
+{\footnotesize\ttfamily \#define T\+XD~1}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_abc24b24e4260b41f3b6a9964a8385c6d}\label{_d_r___u_a_r_t0_8c_abc24b24e4260b41f3b6a9964a8385c6d}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0DLAB\_OFF@{UART0DLAB\_OFF}}
+\index{UART0DLAB\_OFF@{UART0DLAB\_OFF}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0DLAB\_OFF}{UART0DLAB\_OFF}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+D\+L\+A\+B\+\_\+\+O\+FF~(\mbox{\hyperlink{_regs___l_p_c176x_8h_ac04af46e5aa3dc369e089dac159536d6}{U0\+L\+CR}} \& 0x\+E\+F)}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a89734bf9a29e814cd9d523416970e78a}\label{_d_r___u_a_r_t0_8c_a89734bf9a29e814cd9d523416970e78a}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0DLAB\_ON@{UART0DLAB\_ON}}
+\index{UART0DLAB\_ON@{UART0DLAB\_ON}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0DLAB\_ON}{UART0DLAB\_ON}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+D\+L\+A\+B\+\_\+\+ON~(\mbox{\hyperlink{_regs___l_p_c176x_8h_ac04af46e5aa3dc369e089dac159536d6}{U0\+L\+CR}} $\vert$ 0x80)}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a8cc42f167c1a8868798c1de712d0142f}\label{_d_r___u_a_r_t0_8c_a8cc42f167c1a8868798c1de712d0142f}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0DLL@{UART0DLL}}
+\index{UART0DLL@{UART0DLL}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0DLL}{UART0DLL}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+D\+LL~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_ab7a9533691c0bdf292237007526a3bca}\label{_d_r___u_a_r_t0_8c_ab7a9533691c0bdf292237007526a3bca}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0DLM@{UART0DLM}}
+\index{UART0DLM@{UART0DLM}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0DLM}{UART0DLM}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+D\+LM~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_ab519c55c6e32dd1ed3a3b964dae878b8}\label{_d_r___u_a_r_t0_8c_ab519c55c6e32dd1ed3a3b964dae878b8}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0IER@{UART0IER}}
+\index{UART0IER@{UART0IER}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0IER}{UART0IER}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+I\+ER~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a3a4e8af9324165ce434ca3035a44f99e}\label{_d_r___u_a_r_t0_8c_a3a4e8af9324165ce434ca3035a44f99e}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0IIR@{UART0IIR}}
+\index{UART0IIR@{UART0IIR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0IIR}{UART0IIR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+I\+IR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}2\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_af22e602f22cfc4425de2851e80ac15da}\label{_d_r___u_a_r_t0_8c_af22e602f22cfc4425de2851e80ac15da}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0LCR@{UART0LCR}}
+\index{UART0LCR@{UART0LCR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0LCR}{UART0LCR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+L\+CR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a2636592a5bac9cfe13a5290184c13eac}\label{_d_r___u_a_r_t0_8c_a2636592a5bac9cfe13a5290184c13eac}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0LSR@{UART0LSR}}
+\index{UART0LSR@{UART0LSR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0LSR}{UART0LSR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+L\+SR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}5\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_adba5bb27ae60fdb9d98b2e8b4fb907b9}\label{_d_r___u_a_r_t0_8c_adba5bb27ae60fdb9d98b2e8b4fb907b9}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0RBR@{UART0RBR}}
+\index{UART0RBR@{UART0RBR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0RBR}{UART0RBR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+R\+BR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a3eaafd4dab9aedadadb4b3ab661244a7}\label{_d_r___u_a_r_t0_8c_a3eaafd4dab9aedadadb4b3ab661244a7}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0THR@{UART0THR}}
+\index{UART0THR@{UART0THR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0THR}{UART0THR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T0\+T\+HR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_a94bbc7504b852c4267592777d06ee267}{D\+I\+R\+\_\+\+U\+A\+R\+T0}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a190fc74d62931f2d30c6e8992f945ceb}\label{_d_r___u_a_r_t0_8c_a190fc74d62931f2d30c6e8992f945ceb}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1DLL@{UART1DLL}}
+\index{UART1DLL@{UART1DLL}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1DLL}{UART1DLL}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+D\+LL~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_aea3a795cfb5b20aef817bb65ec677b11}\label{_d_r___u_a_r_t0_8c_aea3a795cfb5b20aef817bb65ec677b11}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1DLM@{UART1DLM}}
+\index{UART1DLM@{UART1DLM}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1DLM}{UART1DLM}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+D\+LM~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_aa0b3fb3f5c9fb093d76107be34664bad}\label{_d_r___u_a_r_t0_8c_aa0b3fb3f5c9fb093d76107be34664bad}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1IER@{UART1IER}}
+\index{UART1IER@{UART1IER}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1IER}{UART1IER}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+I\+ER~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_ad0e27dd25368201c273c73d4dd0432fa}\label{_d_r___u_a_r_t0_8c_ad0e27dd25368201c273c73d4dd0432fa}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1IIR@{UART1IIR}}
+\index{UART1IIR@{UART1IIR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1IIR}{UART1IIR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+I\+IR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}2\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a25037e4fd894299a4966b63d089a4b94}\label{_d_r___u_a_r_t0_8c_a25037e4fd894299a4966b63d089a4b94}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1LCR@{UART1LCR}}
+\index{UART1LCR@{UART1LCR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1LCR}{UART1LCR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+L\+CR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a89dd05085ff33073329a24087d0c3661}\label{_d_r___u_a_r_t0_8c_a89dd05085ff33073329a24087d0c3661}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1LSR@{UART1LSR}}
+\index{UART1LSR@{UART1LSR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1LSR}{UART1LSR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+L\+SR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}5\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_ab196f938ddc4161fa1ea3bb944869b26}\label{_d_r___u_a_r_t0_8c_ab196f938ddc4161fa1ea3bb944869b26}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1RBR@{UART1RBR}}
+\index{UART1RBR@{UART1RBR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1RBR}{UART1RBR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+R\+BR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a8a36e93dfefcddfbee227f31ee8914c9}\label{_d_r___u_a_r_t0_8c_a8a36e93dfefcddfbee227f31ee8914c9}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART1THR@{UART1THR}}
+\index{UART1THR@{UART1THR}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART1THR}{UART1THR}}
+{\footnotesize\ttfamily \#define U\+A\+R\+T1\+T\+HR~\mbox{\hyperlink{_d_r___u_a_r_t0_8c_ab3667e06087d79decbffc96b4d15baf9}{D\+I\+R\+\_\+\+U\+A\+R\+T1}}\mbox{[}0\mbox{]}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a5590ed6eabda3df6d165c8ba1b66d865}\label{_d_r___u_a_r_t0_8c_a5590ed6eabda3df6d165c8ba1b66d865}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_Inicializacion@{UART0\_Inicializacion}}
+\index{UART0\_Inicializacion@{UART0\_Inicializacion}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_Inicializacion()}{UART0\_Inicializacion()}}
+{\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+\+Inicializacion (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{baudios }\end{DoxyParamCaption})}
+
+
+
+Inicializacion de U\+A\+R\+T0. 
+
+\begin{DoxyAuthor}{Author}
+Ing. Marcelo Trujillo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 de ago. de 2016 
+\end{DoxyDate}
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em uint32\+\_\+t} & baudios\+: Velocidad de Tranmision \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+$<$ 1.-\/ Registro P\+C\+O\+NP -\/ bit 3 en 1 prende la U\+A\+RT\+:
+
+$<$ 2.-\/ Registro P\+C\+L\+K\+S\+E\+L0 -\/ bits 6 y 7 en 0 seleccionan que el clk de la U\+A\+R\+T0 sea C\+C\+L\+K/4\+:
+
+$<$ con un C\+C\+L\+OK=100Mhz, nos queda P\+C\+L\+O\+CK=25Mhz
+
+$<$ 3.-\/ Registro U0\+L\+CR -\/ transmision de 8 bits, 1 bit de stop, sin paridad, sin break cond, D\+L\+AB = 1\+:
+
+$<$ 4.-\/ Registros U10\+D\+LL y U0\+D\+LM
+
+$<$ 5.-\/ Registros P\+I\+N\+S\+E\+L0 y P\+I\+N\+S\+E\+L1 -\/ habilitan las funciones especiales de los pines\+: T\+X0 \+: P0\mbox{[}2\mbox{]} -\/$>$ P\+I\+N\+S\+E\+L0\+: 04\+:05
+
+$<$ R\+X0 \+: P0\mbox{[}3\mbox{]} -\/$>$ P\+I\+N\+S\+E\+L0\+: 06\+:07
+
+$<$ 6.-\/ Registro U0\+L\+CR, pongo D\+L\+AB en 0\+:
+
+$<$ 7. Habilito las interrupciones (En la U\+A\+RT -\/I\+E\+R-\/ y en el N\+V\+IC -\/I\+S\+ER) \mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a1c0544b06d54b198d8c50f507e399a91}\label{_d_r___u_a_r_t0_8c_a1c0544b06d54b198d8c50f507e399a91}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_IRQHandler@{UART0\_IRQHandler}}
+\index{UART0\_IRQHandler@{UART0\_IRQHandler}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_IRQHandler()}{UART0\_IRQHandler()}}
+{\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Interrupcion de U\+A\+R\+T0. 
+
+\begin{DoxyAuthor}{Author}
+Ing. Marcelo Trujillo 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+31 de ago. de 2016 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a7eb7e36ece8fc038e8b8ff33b8530bf1}\label{_d_r___u_a_r_t0_8c_a7eb7e36ece8fc038e8b8ff33b8530bf1}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_PopRX@{UART0\_PopRX}}
+\index{UART0\_PopRX@{UART0\_PopRX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_PopRX()}{UART0\_PopRX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a66634143db08bebe9b46ab4cb1fc6fd3}{int16\+\_\+t}} U\+A\+R\+T0\+\_\+\+Pop\+RX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_aa3b7cda7186ab90d4a468d2173627c9f}\label{_d_r___u_a_r_t0_8c_aa3b7cda7186ab90d4a468d2173627c9f}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_PopTX@{UART0\_PopTX}}
+\index{UART0\_PopTX@{UART0\_PopTX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_PopTX()}{UART0\_PopTX()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a66634143db08bebe9b46ab4cb1fc6fd3}{int16\+\_\+t}} U\+A\+R\+T0\+\_\+\+Pop\+TX (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a8fdeb64781a560fd20a60930d16eb485}\label{_d_r___u_a_r_t0_8c_a8fdeb64781a560fd20a60930d16eb485}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_PushRX@{UART0\_PushRX}}
+\index{UART0\_PushRX@{UART0\_PushRX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_PushRX()}{UART0\_PushRX()}}
+{\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+\+Push\+RX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{dato }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a7c36c0583231d698ca42822f50038f14}\label{_d_r___u_a_r_t0_8c_a7c36c0583231d698ca42822f50038f14}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_PushTX@{UART0\_PushTX}}
+\index{UART0\_PushTX@{UART0\_PushTX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_PushTX()}{UART0\_PushTX()}}
+{\footnotesize\ttfamily void U\+A\+R\+T0\+\_\+\+Push\+TX (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{dato }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_ada02f3e5d81a6fe0f7a6c141c44252c9}\label{_d_r___u_a_r_t0_8c_ada02f3e5d81a6fe0f7a6c141c44252c9}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_BufferRx@{UART0\_BufferRx}}
+\index{UART0\_BufferRx@{UART0\_BufferRx}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_BufferRx}{UART0\_BufferRx}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} U\+A\+R\+T0\+\_\+\+Buffer\+Rx\mbox{[}\mbox{\hyperlink{_d_r___u_a_r_t0_8h_a5fb63da07403ec1a87efdcf960a92af7}{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+RX}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a6cfa713ca5a8af1abdf45368c56e3ddb}\label{_d_r___u_a_r_t0_8c_a6cfa713ca5a8af1abdf45368c56e3ddb}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_BufferTx@{UART0\_BufferTx}}
+\index{UART0\_BufferTx@{UART0\_BufferTx}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_BufferTx}{UART0\_BufferTx}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} U\+A\+R\+T0\+\_\+\+Buffer\+Tx\mbox{[}\mbox{\hyperlink{_d_r___u_a_r_t0_8h_af16a0fb944a9a2e7df7318ca8208ec9f}{M\+A\+X\+\_\+\+B\+U\+F\+F\+\_\+\+TX}}\mbox{]}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_acd1036716331ed1c61c6432863ee6e3f}\label{_d_r___u_a_r_t0_8c_acd1036716331ed1c61c6432863ee6e3f}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_flagTx@{UART0\_flagTx}}
+\index{UART0\_flagTx@{UART0\_flagTx}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_flagTx}{UART0\_flagTx}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_a66634143db08bebe9b46ab4cb1fc6fd3}{int16\+\_\+t}} U\+A\+R\+T0\+\_\+flag\+Tx\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a7b54900db3231556def05c7634691b57}\label{_d_r___u_a_r_t0_8c_a7b54900db3231556def05c7634691b57}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_inRX@{UART0\_inRX}}
+\index{UART0\_inRX@{UART0\_inRX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_inRX}{UART0\_inRX}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} U\+A\+R\+T0\+\_\+in\+RX\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_aaef21b908758d8983f2ed94f38d077e5}\label{_d_r___u_a_r_t0_8c_aaef21b908758d8983f2ed94f38d077e5}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_inTX@{UART0\_inTX}}
+\index{UART0\_inTX@{UART0\_inTX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_inTX}{UART0\_inTX}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} U\+A\+R\+T0\+\_\+in\+TX\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_a1da0a31f8f975924adeb6315234eec74}\label{_d_r___u_a_r_t0_8c_a1da0a31f8f975924adeb6315234eec74}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_outRX@{UART0\_outRX}}
+\index{UART0\_outRX@{UART0\_outRX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_outRX}{UART0\_outRX}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} U\+A\+R\+T0\+\_\+out\+RX\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{_d_r___u_a_r_t0_8c_af73cdbf760053cc00e7c6720d112349c}\label{_d_r___u_a_r_t0_8c_af73cdbf760053cc00e7c6720d112349c}} 
+\index{DR\_UART0.c@{DR\_UART0.c}!UART0\_outTX@{UART0\_outTX}}
+\index{UART0\_outTX@{UART0\_outTX}!DR\_UART0.c@{DR\_UART0.c}}
+\subsubsection{\texorpdfstring{UART0\_outTX}{UART0\_outTX}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} U\+A\+R\+T0\+\_\+out\+TX\hspace{0.3cm}{\ttfamily [static]}}
+

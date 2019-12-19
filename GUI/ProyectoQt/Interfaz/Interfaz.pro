@@ -6,7 +6,7 @@
 
 QT       += core gui
 
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
 
 QT += serialport
 TARGET = Interfaz
@@ -26,14 +26,19 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+        qcustomplot.cpp \
         main.cpp \
-        interfaz.cpp
+        interfaz.cpp \
+        plotting.cpp
 
 HEADERS += \
-        interfaz.h
+        qcustomplot.h \
+        interfaz.h \
+        plotting.h
 
 FORMS += \
-        interfaz.ui
+        interfaz.ui \
+        plotting.ui
 
 
 # Default rules for deployment.

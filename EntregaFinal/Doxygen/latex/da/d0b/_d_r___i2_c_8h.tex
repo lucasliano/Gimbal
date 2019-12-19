@@ -1,0 +1,445 @@
+\hypertarget{_d_r___i2_c_8h}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/inc/\+Drivers/\+D\+R\+\_\+\+I2C.h File Reference}
+\label{_d_r___i2_c_8h}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/inc/Drivers/DR\_I2C.h@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/inc/Drivers/DR\_I2C.h}}
+
+
+Almacena todas las definiciones correspondientes a los drivers del periferico I2\+C1.  
+
+
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a1583b00a62bc1138f99bbfcd8ef81a6a}{P0}}~0
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a6c2a9f7efd46f0160f3037869924d6ce}{P1}}~1
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ae00a52dba55d31948c377fa85d385b87}{P2}}~2
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a0707a89c2f63bd260108e9dbb669358e}{P3}}~3
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_acbc14a33d017f5f2dabce1cb0d85718e}{P4}}~4
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a49def446e302ba44f9fa2af86e7e00f5}{P\+C\+L\+K\+S\+E\+L0}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_adee64da7c6934b98b5c565791a275128}{P\+C\+L\+K\+S\+EL}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ae99d1dda9b3051054ac019a697495268}{P\+C\+L\+K\+S\+E\+L1}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_adee64da7c6934b98b5c565791a275128}{P\+C\+L\+K\+S\+EL}}\mbox{[}1\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a8c1775b57b6f869f4c1f6711a3f5c638}{I\+S\+E\+R0}}~\mbox{\hyperlink{_regs___l_p_c176x_8h_aaff8f2953d6a9abf837bb03c2dd2ab26}{I\+S\+ER}}\mbox{[}0\mbox{]}
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ae8fde2c2c3ce4902515011a7cfde5bef}{I2\+C1\+C\+O\+N\+S\+ET}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C000\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_adbba5de491b6cf3df5876cfd40c9feb1}{I2\+C1\+S\+T\+AT}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C004\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_aeee122c8e994fcdac0043f0132017408}{I2\+C1\+D\+AT}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C008\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ae6726b203fcdced42a958bb0400913f7}{I2\+C1\+A\+D\+R0}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C00\+C\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ab0dbe2477f6a41d985fc028a6431865b}{I2\+C1\+S\+C\+LH}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C010\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a3bc586426ccbc2edd96c50babaa62c36}{I2\+C1\+S\+C\+LL}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C014\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a449956d7f906cb61bdc0b3c5b6ae91ea}{I2\+C1\+C\+O\+N\+C\+LR}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C018\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ab399542760c556a7498839e165c56cc5}{I2\+C1\+M\+M\+C\+T\+RL}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C01\+C\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a4f27ee873adfe61d2a6d2392e45b34bb}{I2\+C1\+A\+D\+R1}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C020\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a7fd177dc8b5cb7283f25b499878e6082}{I2\+C1\+A\+D\+R2}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C024\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a68cf17ac78cad1700f9254472e0ae76e}{I2\+C1\+A\+D\+R3}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C028\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ae7db66e9d6eb2eb5039fd38c1c575141}{I2\+C1\+D\+A\+T\+A\+\_\+\+B\+U\+F\+F\+ER}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C02\+C\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a49e2ace1557a4364f7a4e9514990f12f}{I2\+C1\+M\+A\+S\+K0}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C030\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a5b76c010e71d4a595367495d854b90c7}{I2\+C1\+M\+A\+S\+K1}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C034\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a86ee4c34df7197a4024ed8aea47fde1b}{I2\+C1\+M\+A\+S\+K2}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C038\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ac7c361978a243775d8c9743b4682e680}{I2\+C1\+M\+A\+S\+K3}}~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C03\+C\+U\+L ))
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a12447d932895a151d9f3a6494ef27f89}{I2\+EN}}~6
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a83e3fea5be2b0854b6351e79d4315b2a}{S\+TA}}~5
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ac8ab1f93e383f229ff0cdcd3f4053e7c}{S\+TO}}~4
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_aa1be7844620ac7bffe73137a180aa044}{SI}}~3
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_abdd3d71e494e2115f67ee5e8879f9017}{AA}}~2
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ae1b27ed6175eaacaf96033cf29287ec3}{I2\+C\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~10
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_aae0952b6ce081c9b0a95ac8e5a720d6f}{I2\+C\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}~30
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a9fad2fbb677672fc4e969be5586753ba}{I2\+C\+\_\+\+I\+D\+LE}}~0
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ad7e560082ad99fc26904882405b26377}{I2\+C\+\_\+\+B\+U\+SY}}~1
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a6d77c3f91a03b12112b893bd3743d29e}{I2\+C\+\_\+\+D\+A\+T\+AV}}~2
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_ab376fc64fe7ebdd995cfb9efc4d0bf4d}{I2\+C\+\_\+\+F\+A\+I\+L\+ED}}~3
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a649b8f01fd6c0f47ff3cbddaeba63bfb}{W}}~0
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_a5c71a5e59a53413cd6c270266d63b031}{R}}~1
+\item 
+\#define \mbox{\hyperlink{_d_r___i2_c_8h_af09642653903de2af0a8530215bb120f}{DW}}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_r___i2_c_8h_abe298a3c1d98035cebe8b0535db549fa}{init\+I2C}} ()
+\begin{DoxyCompactList}\small\item\em Rutina a nivel de Drivers encargada de inicializar el periférico I2\+C1. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_d_r___i2_c_8h_a7a61edeb145f8997bccf218da0e87c5d}{my\+Delay}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} ms)
+\begin{DoxyCompactList}\small\item\em Rutina bloqueante que genera un delay de la cantidad indicada de milisegundos. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{_d_r___i2_c_8h_a929dc3494210c7392a35f045a830ea22}{read\+I2\+C\+\_\+driver}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$data, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} size)
+\begin{DoxyCompactList}\small\item\em Funcion a nivel de Driver encargada de recoger todos datos del buffer\+Rx de I2C. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{_d_r___i2_c_8h_a22cfd01aae9c2ad303cd9b8743bbd37d}{write\+I2\+C\+\_\+driver}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} addr, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} modo, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$data, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} sizet, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} sizer)
+\begin{DoxyCompactList}\small\item\em Funcion a nivel de Primitiva encargada de escribir en el periférico de I2C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Almacena todas las definiciones correspondientes a los drivers del periferico I2\+C1. 
+
+Almacena todas las definiciones correspondientes a las primitivas del periferico I2\+C1.
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+10.\+19 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_d_r___i2_c_8h_abdd3d71e494e2115f67ee5e8879f9017}\label{_d_r___i2_c_8h_abdd3d71e494e2115f67ee5e8879f9017}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!AA@{AA}}
+\index{AA@{AA}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{AA}{AA}}
+{\footnotesize\ttfamily \#define AA~2}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_af09642653903de2af0a8530215bb120f}\label{_d_r___i2_c_8h_af09642653903de2af0a8530215bb120f}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!DW@{DW}}
+\index{DW@{DW}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{DW}{DW}}
+{\footnotesize\ttfamily \#define DW~2}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ae6726b203fcdced42a958bb0400913f7}\label{_d_r___i2_c_8h_ae6726b203fcdced42a958bb0400913f7}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1ADR0@{I2C1ADR0}}
+\index{I2C1ADR0@{I2C1ADR0}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1ADR0}{I2C1ADR0}}
+{\footnotesize\ttfamily \#define I2\+C1\+A\+D\+R0~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C00\+C\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a4f27ee873adfe61d2a6d2392e45b34bb}\label{_d_r___i2_c_8h_a4f27ee873adfe61d2a6d2392e45b34bb}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1ADR1@{I2C1ADR1}}
+\index{I2C1ADR1@{I2C1ADR1}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1ADR1}{I2C1ADR1}}
+{\footnotesize\ttfamily \#define I2\+C1\+A\+D\+R1~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C020\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a7fd177dc8b5cb7283f25b499878e6082}\label{_d_r___i2_c_8h_a7fd177dc8b5cb7283f25b499878e6082}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1ADR2@{I2C1ADR2}}
+\index{I2C1ADR2@{I2C1ADR2}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1ADR2}{I2C1ADR2}}
+{\footnotesize\ttfamily \#define I2\+C1\+A\+D\+R2~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C024\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a68cf17ac78cad1700f9254472e0ae76e}\label{_d_r___i2_c_8h_a68cf17ac78cad1700f9254472e0ae76e}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1ADR3@{I2C1ADR3}}
+\index{I2C1ADR3@{I2C1ADR3}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1ADR3}{I2C1ADR3}}
+{\footnotesize\ttfamily \#define I2\+C1\+A\+D\+R3~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C028\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a449956d7f906cb61bdc0b3c5b6ae91ea}\label{_d_r___i2_c_8h_a449956d7f906cb61bdc0b3c5b6ae91ea}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1CONCLR@{I2C1CONCLR}}
+\index{I2C1CONCLR@{I2C1CONCLR}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1CONCLR}{I2C1CONCLR}}
+{\footnotesize\ttfamily \#define I2\+C1\+C\+O\+N\+C\+LR~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C018\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ae8fde2c2c3ce4902515011a7cfde5bef}\label{_d_r___i2_c_8h_ae8fde2c2c3ce4902515011a7cfde5bef}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1CONSET@{I2C1CONSET}}
+\index{I2C1CONSET@{I2C1CONSET}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1CONSET}{I2C1CONSET}}
+{\footnotesize\ttfamily \#define I2\+C1\+C\+O\+N\+S\+ET~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C000\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_aeee122c8e994fcdac0043f0132017408}\label{_d_r___i2_c_8h_aeee122c8e994fcdac0043f0132017408}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1DAT@{I2C1DAT}}
+\index{I2C1DAT@{I2C1DAT}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1DAT}{I2C1DAT}}
+{\footnotesize\ttfamily \#define I2\+C1\+D\+AT~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C008\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ae7db66e9d6eb2eb5039fd38c1c575141}\label{_d_r___i2_c_8h_ae7db66e9d6eb2eb5039fd38c1c575141}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1DATA\_BUFFER@{I2C1DATA\_BUFFER}}
+\index{I2C1DATA\_BUFFER@{I2C1DATA\_BUFFER}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1DATA\_BUFFER}{I2C1DATA\_BUFFER}}
+{\footnotesize\ttfamily \#define I2\+C1\+D\+A\+T\+A\+\_\+\+B\+U\+F\+F\+ER~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C02\+C\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a49e2ace1557a4364f7a4e9514990f12f}\label{_d_r___i2_c_8h_a49e2ace1557a4364f7a4e9514990f12f}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1MASK0@{I2C1MASK0}}
+\index{I2C1MASK0@{I2C1MASK0}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1MASK0}{I2C1MASK0}}
+{\footnotesize\ttfamily \#define I2\+C1\+M\+A\+S\+K0~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C030\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a5b76c010e71d4a595367495d854b90c7}\label{_d_r___i2_c_8h_a5b76c010e71d4a595367495d854b90c7}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1MASK1@{I2C1MASK1}}
+\index{I2C1MASK1@{I2C1MASK1}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1MASK1}{I2C1MASK1}}
+{\footnotesize\ttfamily \#define I2\+C1\+M\+A\+S\+K1~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C034\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a86ee4c34df7197a4024ed8aea47fde1b}\label{_d_r___i2_c_8h_a86ee4c34df7197a4024ed8aea47fde1b}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1MASK2@{I2C1MASK2}}
+\index{I2C1MASK2@{I2C1MASK2}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1MASK2}{I2C1MASK2}}
+{\footnotesize\ttfamily \#define I2\+C1\+M\+A\+S\+K2~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C038\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ac7c361978a243775d8c9743b4682e680}\label{_d_r___i2_c_8h_ac7c361978a243775d8c9743b4682e680}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1MASK3@{I2C1MASK3}}
+\index{I2C1MASK3@{I2C1MASK3}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1MASK3}{I2C1MASK3}}
+{\footnotesize\ttfamily \#define I2\+C1\+M\+A\+S\+K3~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C03\+C\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ab399542760c556a7498839e165c56cc5}\label{_d_r___i2_c_8h_ab399542760c556a7498839e165c56cc5}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1MMCTRL@{I2C1MMCTRL}}
+\index{I2C1MMCTRL@{I2C1MMCTRL}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1MMCTRL}{I2C1MMCTRL}}
+{\footnotesize\ttfamily \#define I2\+C1\+M\+M\+C\+T\+RL~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C01\+C\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ab0dbe2477f6a41d985fc028a6431865b}\label{_d_r___i2_c_8h_ab0dbe2477f6a41d985fc028a6431865b}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1SCLH@{I2C1SCLH}}
+\index{I2C1SCLH@{I2C1SCLH}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1SCLH}{I2C1SCLH}}
+{\footnotesize\ttfamily \#define I2\+C1\+S\+C\+LH~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C010\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a3bc586426ccbc2edd96c50babaa62c36}\label{_d_r___i2_c_8h_a3bc586426ccbc2edd96c50babaa62c36}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1SCLL@{I2C1SCLL}}
+\index{I2C1SCLL@{I2C1SCLL}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1SCLL}{I2C1SCLL}}
+{\footnotesize\ttfamily \#define I2\+C1\+S\+C\+LL~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C014\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_adbba5de491b6cf3df5876cfd40c9feb1}\label{_d_r___i2_c_8h_adbba5de491b6cf3df5876cfd40c9feb1}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C1STAT@{I2C1STAT}}
+\index{I2C1STAT@{I2C1STAT}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C1STAT}{I2C1STAT}}
+{\footnotesize\ttfamily \#define I2\+C1\+S\+T\+AT~($\ast$ ( ( \mbox{\hyperlink{_regs___l_p_c176x_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} uint32\+\_\+t  $\ast$ ) 0x4005\+C004\+U\+L ))}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ad7e560082ad99fc26904882405b26377}\label{_d_r___i2_c_8h_ad7e560082ad99fc26904882405b26377}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C\_BUSY@{I2C\_BUSY}}
+\index{I2C\_BUSY@{I2C\_BUSY}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C\_BUSY}{I2C\_BUSY}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+B\+U\+SY~1}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a6d77c3f91a03b12112b893bd3743d29e}\label{_d_r___i2_c_8h_a6d77c3f91a03b12112b893bd3743d29e}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C\_DATAV@{I2C\_DATAV}}
+\index{I2C\_DATAV@{I2C\_DATAV}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C\_DATAV}{I2C\_DATAV}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+D\+A\+T\+AV~2}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ab376fc64fe7ebdd995cfb9efc4d0bf4d}\label{_d_r___i2_c_8h_ab376fc64fe7ebdd995cfb9efc4d0bf4d}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C\_FAILED@{I2C\_FAILED}}
+\index{I2C\_FAILED@{I2C\_FAILED}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C\_FAILED}{I2C\_FAILED}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+F\+A\+I\+L\+ED~3}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a9fad2fbb677672fc4e969be5586753ba}\label{_d_r___i2_c_8h_a9fad2fbb677672fc4e969be5586753ba}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C\_IDLE@{I2C\_IDLE}}
+\index{I2C\_IDLE@{I2C\_IDLE}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C\_IDLE}{I2C\_IDLE}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+I\+D\+LE~0}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_aae0952b6ce081c9b0a95ac8e5a720d6f}\label{_d_r___i2_c_8h_aae0952b6ce081c9b0a95ac8e5a720d6f}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C\_RX\_BUFF\_SIZE@{I2C\_RX\_BUFF\_SIZE}}
+\index{I2C\_RX\_BUFF\_SIZE@{I2C\_RX\_BUFF\_SIZE}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C\_RX\_BUFF\_SIZE}{I2C\_RX\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~30}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ae1b27ed6175eaacaf96033cf29287ec3}\label{_d_r___i2_c_8h_ae1b27ed6175eaacaf96033cf29287ec3}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2C\_TX\_BUFF\_SIZE@{I2C\_TX\_BUFF\_SIZE}}
+\index{I2C\_TX\_BUFF\_SIZE@{I2C\_TX\_BUFF\_SIZE}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2C\_TX\_BUFF\_SIZE}{I2C\_TX\_BUFF\_SIZE}}
+{\footnotesize\ttfamily \#define I2\+C\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE~10}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a12447d932895a151d9f3a6494ef27f89}\label{_d_r___i2_c_8h_a12447d932895a151d9f3a6494ef27f89}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!I2EN@{I2EN}}
+\index{I2EN@{I2EN}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{I2EN}{I2EN}}
+{\footnotesize\ttfamily \#define I2\+EN~6}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a8c1775b57b6f869f4c1f6711a3f5c638}\label{_d_r___i2_c_8h_a8c1775b57b6f869f4c1f6711a3f5c638}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!ISER0@{ISER0}}
+\index{ISER0@{ISER0}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{ISER0}{ISER0}}
+{\footnotesize\ttfamily \#define I\+S\+E\+R0~\mbox{\hyperlink{_regs___l_p_c176x_8h_aaff8f2953d6a9abf837bb03c2dd2ab26}{I\+S\+ER}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a1583b00a62bc1138f99bbfcd8ef81a6a}\label{_d_r___i2_c_8h_a1583b00a62bc1138f99bbfcd8ef81a6a}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!P0@{P0}}
+\index{P0@{P0}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{P0}{P0}}
+{\footnotesize\ttfamily \#define P0~0}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a6c2a9f7efd46f0160f3037869924d6ce}\label{_d_r___i2_c_8h_a6c2a9f7efd46f0160f3037869924d6ce}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!P1@{P1}}
+\index{P1@{P1}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{P1}{P1}}
+{\footnotesize\ttfamily \#define P1~1}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ae00a52dba55d31948c377fa85d385b87}\label{_d_r___i2_c_8h_ae00a52dba55d31948c377fa85d385b87}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!P2@{P2}}
+\index{P2@{P2}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{P2}{P2}}
+{\footnotesize\ttfamily \#define P2~2}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a0707a89c2f63bd260108e9dbb669358e}\label{_d_r___i2_c_8h_a0707a89c2f63bd260108e9dbb669358e}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!P3@{P3}}
+\index{P3@{P3}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{P3}{P3}}
+{\footnotesize\ttfamily \#define P3~3}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_acbc14a33d017f5f2dabce1cb0d85718e}\label{_d_r___i2_c_8h_acbc14a33d017f5f2dabce1cb0d85718e}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!P4@{P4}}
+\index{P4@{P4}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{P4}{P4}}
+{\footnotesize\ttfamily \#define P4~4}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a49def446e302ba44f9fa2af86e7e00f5}\label{_d_r___i2_c_8h_a49def446e302ba44f9fa2af86e7e00f5}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!PCLKSEL0@{PCLKSEL0}}
+\index{PCLKSEL0@{PCLKSEL0}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{PCLKSEL0}{PCLKSEL0}}
+{\footnotesize\ttfamily \#define P\+C\+L\+K\+S\+E\+L0~\mbox{\hyperlink{_regs___l_p_c176x_8h_adee64da7c6934b98b5c565791a275128}{P\+C\+L\+K\+S\+EL}}\mbox{[}0\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ae99d1dda9b3051054ac019a697495268}\label{_d_r___i2_c_8h_ae99d1dda9b3051054ac019a697495268}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!PCLKSEL1@{PCLKSEL1}}
+\index{PCLKSEL1@{PCLKSEL1}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{PCLKSEL1}{PCLKSEL1}}
+{\footnotesize\ttfamily \#define P\+C\+L\+K\+S\+E\+L1~\mbox{\hyperlink{_regs___l_p_c176x_8h_adee64da7c6934b98b5c565791a275128}{P\+C\+L\+K\+S\+EL}}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a5c71a5e59a53413cd6c270266d63b031}\label{_d_r___i2_c_8h_a5c71a5e59a53413cd6c270266d63b031}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!R@{R}}
+\index{R@{R}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily \#define R~1}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_aa1be7844620ac7bffe73137a180aa044}\label{_d_r___i2_c_8h_aa1be7844620ac7bffe73137a180aa044}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!SI@{SI}}
+\index{SI@{SI}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{SI}{SI}}
+{\footnotesize\ttfamily \#define SI~3}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a83e3fea5be2b0854b6351e79d4315b2a}\label{_d_r___i2_c_8h_a83e3fea5be2b0854b6351e79d4315b2a}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!STA@{STA}}
+\index{STA@{STA}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{STA}{STA}}
+{\footnotesize\ttfamily \#define S\+TA~5}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_ac8ab1f93e383f229ff0cdcd3f4053e7c}\label{_d_r___i2_c_8h_ac8ab1f93e383f229ff0cdcd3f4053e7c}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!STO@{STO}}
+\index{STO@{STO}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{STO}{STO}}
+{\footnotesize\ttfamily \#define S\+TO~4}
+
+\mbox{\Hypertarget{_d_r___i2_c_8h_a649b8f01fd6c0f47ff3cbddaeba63bfb}\label{_d_r___i2_c_8h_a649b8f01fd6c0f47ff3cbddaeba63bfb}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!W@{W}}
+\index{W@{W}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{W}{W}}
+{\footnotesize\ttfamily \#define W~0}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_d_r___i2_c_8h_abe298a3c1d98035cebe8b0535db549fa}\label{_d_r___i2_c_8h_abe298a3c1d98035cebe8b0535db549fa}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!initI2C@{initI2C}}
+\index{initI2C@{initI2C}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{initI2C()}{initI2C()}}
+{\footnotesize\ttfamily void init\+I2C (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Rutina a nivel de Drivers encargada de inicializar el periférico I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8h_a7a61edeb145f8997bccf218da0e87c5d}\label{_d_r___i2_c_8h_a7a61edeb145f8997bccf218da0e87c5d}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!myDelay@{myDelay}}
+\index{myDelay@{myDelay}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{myDelay()}{myDelay()}}
+{\footnotesize\ttfamily void my\+Delay (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}}}]{ms }\end{DoxyParamCaption})}
+
+
+
+Rutina bloqueante que genera un delay de la cantidad indicada de milisegundos. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8h_a929dc3494210c7392a35f045a830ea22}\label{_d_r___i2_c_8h_a929dc3494210c7392a35f045a830ea22}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!readI2C\_driver@{readI2C\_driver}}
+\index{readI2C\_driver@{readI2C\_driver}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{readI2C\_driver()}{readI2C\_driver()}}
+{\footnotesize\ttfamily int8\+\_\+t read\+I2\+C\+\_\+driver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Funcion a nivel de Driver encargada de recoger todos datos del buffer\+Rx de I2C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8\+\_\+t$\ast$} & data -\/ Buffer en el que se van a guardar los datos. \\
+\hline
+{\em uint8\+\_\+t} & size -\/ Cantidad de elementos que se desean leer del buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Se devuelve el -\/1 en caso de error y 0 en caso de acierto. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8h_a22cfd01aae9c2ad303cd9b8743bbd37d}\label{_d_r___i2_c_8h_a22cfd01aae9c2ad303cd9b8743bbd37d}} 
+\index{DR\_I2C.h@{DR\_I2C.h}!writeI2C\_driver@{writeI2C\_driver}}
+\index{writeI2C\_driver@{writeI2C\_driver}!DR\_I2C.h@{DR\_I2C.h}}
+\subsubsection{\texorpdfstring{writeI2C\_driver()}{writeI2C\_driver()}}
+{\footnotesize\ttfamily int8\+\_\+t write\+I2\+C\+\_\+driver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{addr,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{modo,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{sizet,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{sizer }\end{DoxyParamCaption})}
+
+
+
+Funcion a nivel de Primitiva encargada de escribir en el periférico de I2C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8\+\_\+t} & addr -\/ Dirrecion del Slave donde se quiere W/R. \\
+\hline
+{\em uint8\+\_\+t} & modo -\/ Se elige que se quiere hacer, si Write, Read o D\+M(dummy\+Read) que es equivalente a escribir y leer. \\
+\hline
+{\em uint8\+\_\+t$\ast$} & data -\/ Buffer que se va a enviar. En caso de Read, no influye en nada. \\
+\hline
+{\em uint8\+\_\+t} & sizet -\/ Cantidad de elementos que se desean escribir del buffer\+TX. \\
+\hline
+{\em uint8\+\_\+t} & sizer -\/ Cantidad de elementos que se desean leer del buffer\+Rx. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Se retorna 0 en caso de que se haya logrado la función. Se retorna -\/1 si (estado\+I2C == I2\+C\+\_\+\+B\+U\+SY $\vert$$\vert$ estado\+I2C == I2\+C\+\_\+\+D\+A\+T\+AV) 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+Depende del modo de uso\+:
+
+R\+: I\+M\+P\+O\+R\+T\+A\+N\+TE, S\+O\+LO F\+U\+N\+C\+I\+O\+NA SI A\+N\+T\+ES H\+I\+C\+I\+S\+TE W\+R\+I\+TE Carga la slave\+Addr y el tamaño del buffer de lectura y escritura. Pero no carga el buffer\+Tx. Genera S\+T\+A\+RT.
+
+W\+: Carga la slave\+Addr, el tamaño de los buffer y el buffer\+Tx. Genera S\+T\+A\+RT y aparte va a escribir el buffer\+Tx.
+
+DW\+: Hace lo mismo que Write, pero carga un flag para que cuando termine de recibir A\+CK (I2\+C1\+S\+T\+AT = 0x28) retrasnmita en modo lectura.

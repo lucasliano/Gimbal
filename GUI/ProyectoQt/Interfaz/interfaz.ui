@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>678</width>
-    <height>471</height>
+    <width>673</width>
+    <height>459</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -27,7 +27,7 @@
      </rect>
     </property>
     <property name="title">
-     <string>Controls</string>
+     <string>Controles</string>
     </property>
     <widget class="QPushButton" name="noseup">
      <property name="geometry">
@@ -39,7 +39,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Nose Up</string>
+      <string>Pitch Up</string>
      </property>
     </widget>
     <widget class="QPushButton" name="noseright">
@@ -52,7 +52,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Nose Right</string>
+      <string>Roll Right</string>
      </property>
     </widget>
     <widget class="QPushButton" name="nosedown">
@@ -65,7 +65,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Nose Down</string>
+      <string>Pitch Down</string>
      </property>
     </widget>
     <widget class="QPushButton" name="noseleft">
@@ -78,7 +78,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>Nose Left</string>
+      <string>Roll Left</string>
      </property>
     </widget>
    </widget>
@@ -88,49 +88,213 @@
       <x>290</x>
       <y>10</y>
       <width>181</width>
-      <height>311</height>
+      <height>391</height>
      </rect>
     </property>
     <property name="title">
-     <string>Advanced Control</string>
+     <string>Controles Avanzados</string>
     </property>
-    <widget class="QRadioButton" name="modo1">
+    <widget class="QGroupBox" name="groupBox_7">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>10</x>
+       <y>190</y>
+       <width>161</width>
+       <height>191</height>
+      </rect>
+     </property>
+     <property name="title">
+      <string>Consola</string>
+     </property>
+     <widget class="QTextBrowser" name="txtConsola">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>20</y>
+        <width>141</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="readOnly">
+       <bool>true</bool>
+      </property>
+      <property name="textInteractionFlags">
+       <set>Qt::LinksAccessibleByKeyboard|Qt::LinksAccessibleByMouse|Qt::TextBrowserInteraction|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QSpinBox" name="txt_kp">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>30</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>-99999</number>
+     </property>
+     <property name="maximum">
+      <number>99999</number>
+     </property>
+     <property name="singleStep">
+      <number>5</number>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="txt_kd">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>60</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>-99999</number>
+     </property>
+     <property name="maximum">
+      <number>99999</number>
+     </property>
+     <property name="singleStep">
+      <number>5</number>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QSpinBox" name="txt_ki">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>90</y>
+       <width>51</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="toolTipDuration">
+      <number>-1</number>
+     </property>
+     <property name="buttonSymbols">
+      <enum>QAbstractSpinBox::NoButtons</enum>
+     </property>
+     <property name="minimum">
+      <number>-99999</number>
+     </property>
+     <property name="maximum">
+      <number>99999</number>
+     </property>
+     <property name="singleStep">
+      <number>5</number>
+     </property>
+     <property name="stepType">
+      <enum>QAbstractSpinBox::DefaultStepType</enum>
+     </property>
+     <property name="value">
+      <number>0</number>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>20</y>
+       <width>31</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>Kp</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
        <y>50</y>
-       <width>82</width>
-       <height>17</height>
+       <width>31</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>Mode 1</string>
+      <string>Kd</string>
      </property>
     </widget>
-    <widget class="QRadioButton" name="modo2">
+    <widget class="QLabel" name="label_7">
      <property name="geometry">
       <rect>
-       <x>50</x>
+       <x>30</x>
        <y>80</y>
-       <width>82</width>
-       <height>17</height>
+       <width>21</width>
+       <height>31</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
+      </font>
+     </property>
      <property name="text">
-      <string>Mode 2</string>
+      <string>Ki</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="calibrar">
+    <widget class="QPushButton" name="btnPID">
      <property name="geometry">
       <rect>
-       <x>50</x>
-       <y>140</y>
-       <width>75</width>
-       <height>23</height>
+       <x>10</x>
+       <y>120</y>
+       <width>161</width>
+       <height>51</height>
       </rect>
      </property>
+     <property name="font">
+      <font>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
      <property name="text">
-      <string>Calibrate</string>
+      <string>Actualizar PID</string>
      </property>
     </widget>
    </widget>
@@ -156,7 +320,7 @@
       </rect>
      </property>
      <property name="title">
-      <string>Euler angles</string>
+      <string>Ángulos de Euler</string>
      </property>
      <widget class="QLabel" name="label_2">
       <property name="geometry">
@@ -272,38 +436,48 @@
      <widget class="QPushButton" name="btnEnviar">
       <property name="geometry">
        <rect>
-        <x>40</x>
-        <y>220</y>
-        <width>75</width>
-        <height>23</height>
+        <x>10</x>
+        <y>170</y>
+        <width>131</width>
+        <height>41</height>
        </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
       </property>
       <property name="text">
        <string>Enviar Datos</string>
       </property>
      </widget>
+     <widget class="QPushButton" name="calibrar">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>220</y>
+        <width>131</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Calibrate</string>
+      </property>
+     </widget>
     </widget>
-   </widget>
-   <widget class="QLabel" name="impresion">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>330</y>
-      <width>271</width>
-      <height>61</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
    </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>330</y>
-      <width>371</width>
-      <height>80</height>
+      <x>10</x>
+      <y>319</y>
+      <width>281</width>
+      <height>81</height>
      </rect>
     </property>
     <property name="title">
@@ -314,7 +488,7 @@
       <rect>
        <x>20</x>
        <y>30</y>
-       <width>184</width>
+       <width>121</width>
        <height>23</height>
       </rect>
      </property>
@@ -340,7 +514,7 @@
     <widget class="QPushButton" name="pushButtonConectar">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>160</x>
        <y>50</y>
        <width>111</width>
        <height>23</height>
@@ -359,7 +533,7 @@
     <widget class="QPushButton" name="btnUpdate">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>160</x>
        <y>10</y>
        <width>111</width>
        <height>23</height>
@@ -376,44 +550,23 @@
      </property>
     </widget>
    </widget>
-   <widget class="QGroupBox" name="groupBox_6">
+   <widget class="QPushButton" name="btnPlot">
     <property name="geometry">
      <rect>
-      <x>490</x>
-      <y>330</y>
-      <width>151</width>
+      <x>480</x>
+      <y>320</y>
+      <width>181</width>
       <height>81</height>
      </rect>
     </property>
-    <property name="title">
-     <string>Extra-Info</string>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+     </font>
     </property>
-    <widget class="QLabel" name="label_5">
-     <property name="geometry">
-      <rect>
-       <x>40</x>
-       <y>20</y>
-       <width>71</width>
-       <height>16</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>Battery power</string>
-     </property>
-    </widget>
-    <widget class="QProgressBar" name="bateria">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>40</y>
-       <width>118</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="value">
-      <number>100</number>
-     </property>
-    </widget>
+    <property name="text">
+     <string>Graficar</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -421,7 +574,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>678</width>
+     <width>673</width>
      <height>21</height>
     </rect>
    </property>
@@ -450,6 +603,11 @@
    </attribute>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionPlotting_Angles">
+   <property name="text">
+    <string>Plotting Angles</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>

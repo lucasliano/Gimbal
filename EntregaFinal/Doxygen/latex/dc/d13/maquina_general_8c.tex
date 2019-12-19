@@ -1,0 +1,217 @@
+\hypertarget{maquina_general_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/src/\+App/maquina\+General.c File Reference}
+\label{maquina_general_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/App/maquinaGeneral.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/App/maquinaGeneral.c}}
+
+
+Se encuentra las rutinas mas genericas de las maquinas de estados. Entre ellas, la maquina\+General().  
+
+
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{maquina_general_8c_a3014ad06c2a83a10a215aa1b0c9c8f9d}{Maquina\+\_\+\+General}} ()
+\begin{DoxyCompactList}\small\item\em Es la maquina encargada del funcionamiento principal del dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{maquina_general_8c_ad8d2e05311a2aaf7b8642dea8dcbca84}{Inicializar\+\_\+\+HW}} ()
+\item 
+int8\+\_\+t \mbox{\hyperlink{maquina_general_8c_a7aecc7e72b22de3b1bf6a8ddc049de10}{Recalibrar\+\_\+\+Confirm}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de revisar si se esta solicitando la recalibración del dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{maquina_general_8c_a7d538ca3255649894e2723332eabb69f}{F\+\_\+\+Funcionando}} ()
+\begin{DoxyCompactList}\small\item\em Es la rutina que actualmente ejecuta aquello dentro del estado \char`\"{}\+Funcionando\char`\"{} en la maquina general. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{maquina_general_8c_ad0f1c37f584d73ce3d4b908bc7bff54c}{Maquina\+\_\+\+Calibrando}} ()
+\begin{DoxyCompactList}\small\item\em Es la maquina de estados que se encarga de calibrar el sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int8\+\_\+t \mbox{\hyperlink{maquina_general_8c_ab840b3689de8ce59e1027f76d9221877}{recalibrar\+Flag}} = \mbox{\hyperlink{main_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+SE}}
+\begin{DoxyCompactList}\small\item\em Almacena un valor correspondiente a si se debe recalibrar o no el sistema. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{maquina_general_8c_af331e190943e574a764aca968c910789}{time\+Control}}
+\item 
+float \mbox{\hyperlink{maquina_general_8c_a85054665626ca249e67cd87e5995c8bf}{k\+Time}}
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_general_8c_a63d3c3044414027c2686db00ea9cca32}{set\+Point}}
+\begin{DoxyCompactList}\small\item\em Almacena el valor de setpoint deseado. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_general_8c_aff03bbf3694fd644f7f00227ad0d6f2b}{actual}}
+\begin{DoxyCompactList}\small\item\em Almacena el valor de la posición actual del gimbal. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_general_8c_a1084d7e47a5571b229a33ad347cc9453}{output}}
+\begin{DoxyCompactList}\small\item\em Almacena el valor de salida del sistema. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_general_8c_a097892cb35c1747f8ee922619f108731}{P\+WM}}
+\item 
+\mbox{\hyperlink{_m_p_u9250_8h_a5b2246720b6b70f69113fc08a3ce9a73}{Euler\+Angles}} \mbox{\hyperlink{maquina_general_8c_a42ac0723abee768829ce249a91cd364b}{euler}}
+\begin{DoxyCompactList}\small\item\em Estructura que almecena los angulos de euler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Se encuentra las rutinas mas genericas de las maquinas de estados. Entre ellas, la maquina\+General(). 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{maquina_general_8c_a7d538ca3255649894e2723332eabb69f}\label{maquina_general_8c_a7d538ca3255649894e2723332eabb69f}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!F\_Funcionando@{F\_Funcionando}}
+\index{F\_Funcionando@{F\_Funcionando}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{F\_Funcionando()}{F\_Funcionando()}}
+{\footnotesize\ttfamily void F\+\_\+\+Funcionando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la rutina que actualmente ejecuta aquello dentro del estado \char`\"{}\+Funcionando\char`\"{} en la maquina general. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_general_8c_ad8d2e05311a2aaf7b8642dea8dcbca84}\label{maquina_general_8c_ad8d2e05311a2aaf7b8642dea8dcbca84}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Inicializar\_HW@{Inicializar\_HW}}
+\index{Inicializar\_HW@{Inicializar\_HW}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Inicializar\_HW()}{Inicializar\_HW()}}
+{\footnotesize\ttfamily void Inicializar\+\_\+\+HW (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{maquina_general_8c_ad0f1c37f584d73ce3d4b908bc7bff54c}\label{maquina_general_8c_ad0f1c37f584d73ce3d4b908bc7bff54c}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Maquina\_Calibrando@{Maquina\_Calibrando}}
+\index{Maquina\_Calibrando@{Maquina\_Calibrando}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Maquina\_Calibrando()}{Maquina\_Calibrando()}}
+{\footnotesize\ttfamily int Maquina\+\_\+\+Calibrando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la maquina de estados que se encarga de calibrar el sistema. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_general_8c_a3014ad06c2a83a10a215aa1b0c9c8f9d}\label{maquina_general_8c_a3014ad06c2a83a10a215aa1b0c9c8f9d}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Maquina\_General@{Maquina\_General}}
+\index{Maquina\_General@{Maquina\_General}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Maquina\_General()}{Maquina\_General()}}
+{\footnotesize\ttfamily void Maquina\+\_\+\+General (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la maquina encargada del funcionamiento principal del dispositivo. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_general_8c_a7aecc7e72b22de3b1bf6a8ddc049de10}\label{maquina_general_8c_a7aecc7e72b22de3b1bf6a8ddc049de10}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Recalibrar\_Confirm@{Recalibrar\_Confirm}}
+\index{Recalibrar\_Confirm@{Recalibrar\_Confirm}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Recalibrar\_Confirm()}{Recalibrar\_Confirm()}}
+{\footnotesize\ttfamily int8\+\_\+t Recalibrar\+\_\+\+Confirm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de revisar si se esta solicitando la recalibración del dispositivo. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE en caso de que se solicite. F\+A\+L\+SE en el caso contrario. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{maquina_general_8c_aff03bbf3694fd644f7f00227ad0d6f2b}\label{maquina_general_8c_aff03bbf3694fd644f7f00227ad0d6f2b}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!actual@{actual}}
+\index{actual@{actual}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{actual}{actual}}
+{\footnotesize\ttfamily float actual}
+
+
+
+Almacena el valor de la posición actual del gimbal. 
+
+none. \mbox{\Hypertarget{maquina_general_8c_a42ac0723abee768829ce249a91cd364b}\label{maquina_general_8c_a42ac0723abee768829ce249a91cd364b}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!euler@{euler}}
+\index{euler@{euler}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{euler}{euler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_p_u9250_8h_a5b2246720b6b70f69113fc08a3ce9a73}{Euler\+Angles}} euler}
+
+
+
+Estructura que almecena los angulos de euler. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+12.\+12 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_general_8c_a85054665626ca249e67cd87e5995c8bf}\label{maquina_general_8c_a85054665626ca249e67cd87e5995c8bf}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!kTime@{kTime}}
+\index{kTime@{kTime}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{kTime}{kTime}}
+{\footnotesize\ttfamily float k\+Time}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control. \mbox{\Hypertarget{maquina_general_8c_a1084d7e47a5571b229a33ad347cc9453}\label{maquina_general_8c_a1084d7e47a5571b229a33ad347cc9453}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!output@{output}}
+\index{output@{output}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily float output}
+
+
+
+Almacena el valor de salida del sistema. 
+
+none. \mbox{\Hypertarget{maquina_general_8c_a097892cb35c1747f8ee922619f108731}\label{maquina_general_8c_a097892cb35c1747f8ee922619f108731}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!PWM@{PWM}}
+\index{PWM@{PWM}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{PWM}{PWM}}
+{\footnotesize\ttfamily float P\+WM}
+
+\mbox{\Hypertarget{maquina_general_8c_ab840b3689de8ce59e1027f76d9221877}\label{maquina_general_8c_ab840b3689de8ce59e1027f76d9221877}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!recalibrarFlag@{recalibrarFlag}}
+\index{recalibrarFlag@{recalibrarFlag}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{recalibrarFlag}{recalibrarFlag}}
+{\footnotesize\ttfamily int8\+\_\+t recalibrar\+Flag = \mbox{\hyperlink{main_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\+A\+L\+SE}}}
+
+
+
+Almacena un valor correspondiente a si se debe recalibrar o no el sistema. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_general_8c_a63d3c3044414027c2686db00ea9cca32}\label{maquina_general_8c_a63d3c3044414027c2686db00ea9cca32}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!setPoint@{setPoint}}
+\index{setPoint@{setPoint}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{setPoint}{setPoint}}
+{\footnotesize\ttfamily float set\+Point}
+
+
+
+Almacena el valor de setpoint deseado. 
+
+none. \mbox{\Hypertarget{maquina_general_8c_af331e190943e574a764aca968c910789}\label{maquina_general_8c_af331e190943e574a764aca968c910789}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!timeControl@{timeControl}}
+\index{timeControl@{timeControl}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{timeControl}{timeControl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} time\+Control}
+
