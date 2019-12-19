@@ -1,0 +1,102 @@
+\hypertarget{_d_r___sys_tick_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/src/\+Drivers/\+D\+R\+\_\+\+Sys\+Tick.c File Reference}
+\label{_d_r___sys_tick_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Drivers/DR\_SysTick.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Drivers/DR\_SysTick.c}}
+
+
+Se desarrollan las funciones relacionadas al systick a nivel de drivers.  
+
+
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_r___sys_tick_8c_ab5e09814056d617c521549e542639b7e}{Sys\+Tick\+\_\+\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Handler asociado a la interrupción del Sys\+Tick. Llama a funciones temporizadas. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_d_r___sys_tick_8c_a71a8c5cfca18501985bdcdb5a0daaf82}{Inicializar\+Sys\+Tick}} (void)
+\begin{DoxyCompactList}\small\item\em Inicializa el Systick en 100us. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_d_r___sys_tick_8c_a886964cb1cc3fba760e9b5cdd0b4d102}{Actualizar\+\_\+\+Ticks}} (void)
+\begin{DoxyCompactList}\small\item\em Incrementa el tiempo. El valor del tiempo se resetea despues de aprox. 50 días (2$^\wedge$32 ms) \end{DoxyCompactList}\item 
+uint32\+\_\+t \mbox{\hyperlink{_d_r___sys_tick_8c_ae626fb68b4503701534936d10ec97067}{Get\+Ticks}} (void)
+\begin{DoxyCompactList}\small\item\em Devuelve el valor del tiempo del sistema. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{_d_r___sys_tick_8c_af8dbaac972ce6387288b42aafc2fe598}{system\+Ticks}} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Se desarrollan las funciones relacionadas al systick a nivel de drivers. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+24 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_d_r___sys_tick_8c_a886964cb1cc3fba760e9b5cdd0b4d102}\label{_d_r___sys_tick_8c_a886964cb1cc3fba760e9b5cdd0b4d102}} 
+\index{DR\_SysTick.c@{DR\_SysTick.c}!Actualizar\_Ticks@{Actualizar\_Ticks}}
+\index{Actualizar\_Ticks@{Actualizar\_Ticks}!DR\_SysTick.c@{DR\_SysTick.c}}
+\subsubsection{\texorpdfstring{Actualizar\_Ticks()}{Actualizar\_Ticks()}}
+{\footnotesize\ttfamily void Actualizar\+\_\+\+Ticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Incrementa el tiempo. El valor del tiempo se resetea despues de aprox. 50 días (2$^\wedge$32 ms) 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_d_r___sys_tick_8c_ae626fb68b4503701534936d10ec97067}\label{_d_r___sys_tick_8c_ae626fb68b4503701534936d10ec97067}} 
+\index{DR\_SysTick.c@{DR\_SysTick.c}!GetTicks@{GetTicks}}
+\index{GetTicks@{GetTicks}!DR\_SysTick.c@{DR\_SysTick.c}}
+\subsubsection{\texorpdfstring{GetTicks()}{GetTicks()}}
+{\footnotesize\ttfamily uint32\+\_\+t Get\+Ticks (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Devuelve el valor del tiempo del sistema. 
+
+\begin{DoxyReturn}{Returns}
+Devuelve la variable global \textquotesingle{}system\+Ticks\textquotesingle{} propia al archivo systick.\+c 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_d_r___sys_tick_8c_a71a8c5cfca18501985bdcdb5a0daaf82}\label{_d_r___sys_tick_8c_a71a8c5cfca18501985bdcdb5a0daaf82}} 
+\index{DR\_SysTick.c@{DR\_SysTick.c}!InicializarSysTick@{InicializarSysTick}}
+\index{InicializarSysTick@{InicializarSysTick}!DR\_SysTick.c@{DR\_SysTick.c}}
+\subsubsection{\texorpdfstring{InicializarSysTick()}{InicializarSysTick()}}
+{\footnotesize\ttfamily void Inicializar\+Sys\+Tick (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Inicializa el Systick en 100us. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{_d_r___sys_tick_8c_ab5e09814056d617c521549e542639b7e}\label{_d_r___sys_tick_8c_ab5e09814056d617c521549e542639b7e}} 
+\index{DR\_SysTick.c@{DR\_SysTick.c}!SysTick\_Handler@{SysTick\_Handler}}
+\index{SysTick\_Handler@{SysTick\_Handler}!DR\_SysTick.c@{DR\_SysTick.c}}
+\subsubsection{\texorpdfstring{SysTick\_Handler()}{SysTick\_Handler()}}
+{\footnotesize\ttfamily void Sys\+Tick\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handler asociado a la interrupción del Sys\+Tick. Llama a funciones temporizadas. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_d_r___sys_tick_8c_af8dbaac972ce6387288b42aafc2fe598}\label{_d_r___sys_tick_8c_af8dbaac972ce6387288b42aafc2fe598}} 
+\index{DR\_SysTick.c@{DR\_SysTick.c}!systemTicks@{systemTicks}}
+\index{systemTicks@{systemTicks}!DR\_SysTick.c@{DR\_SysTick.c}}
+\subsubsection{\texorpdfstring{systemTicks}{systemTicks}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t system\+Ticks = 0}
+

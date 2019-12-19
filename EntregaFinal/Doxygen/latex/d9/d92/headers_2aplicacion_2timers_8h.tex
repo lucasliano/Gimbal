@@ -1,0 +1,157 @@
+\hypertarget{headers_2aplicacion_2timers_8h}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/\+Github/\+Gimbal/\+Codigo/headers/aplicacion/timers.h File Reference}
+\label{headers_2aplicacion_2timers_8h}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/headers/aplicacion/timers.h@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/headers/aplicacion/timers.h}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a706f726cbc37e4049b47f4f2ec867337}{T\+I\+M\+E\+R\+\_\+\+D\+EC}}~1
+\item 
+\#define \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a5db674356ce79b5219e43296289bd1c1}{T\+I\+M\+E\+R\+\_\+\+S\+EG}}~2
+\item 
+\#define \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a39af3ca6fbba85ca55a964097af27e3e}{T\+I\+M\+E\+R\+\_\+\+M\+IN}}~3
+\item 
+\#define \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a9e5335b7aaff72150f492779da7bc962}{T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL}}~1
+\item 
+\#define \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a0fe71fce0609c8c623fb591c14bcc474}{T\+I\+M\+E\+R\+\_\+\+B\+O\+T\+ON}}~2
+\item 
+\#define \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a57ce5d84b19b520f82251d52b2c33dca}{T\+I\+M\+E\+R\+\_\+\+P\+E\+R\+I\+O\+DO}}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a07bb882dd0a49a9765acb5b3cd4ade9f}{Init\+\_\+\+Timers}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de llamar por primera vez a los tres timers T\+I\+M\+E\+R\+\_\+\+D\+EC, T\+I\+M\+E\+R\+\_\+\+S\+EG, T\+I\+M\+E\+R\+\_\+\+M\+IN. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a939d413273f14fa46908e1457c5471b3}{Actualizar\+Dec}} ()
+\begin{DoxyCompactList}\small\item\em Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a D\+EC. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a61a4508b447127c6c01cdcc6c3c10adf}{Actualizar\+Seg}} ()
+\begin{DoxyCompactList}\small\item\em Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a S\+EG. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{headers_2aplicacion_2timers_8h_a2a035bff29dd900a3b326a1e481684d3}{Actualizar\+Min}} ()
+\begin{DoxyCompactList}\small\item\em Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a M\+IN. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{headers_2aplicacion_2timers_8h_afc2fe7704e4b02883f62758f4b171a94}{Set\+Timer}} (\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} timer)
+\begin{DoxyCompactList}\small\item\em Rutina encargada de resetear el valor de los acumuladores relacionados con los timers transparentes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a0fe71fce0609c8c623fb591c14bcc474}\label{headers_2aplicacion_2timers_8h_a0fe71fce0609c8c623fb591c14bcc474}} 
+\index{timers.h@{timers.h}!TIMER\_BOTON@{TIMER\_BOTON}}
+\index{TIMER\_BOTON@{TIMER\_BOTON}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{TIMER\_BOTON}{TIMER\_BOTON}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+B\+O\+T\+ON~2}
+
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a9e5335b7aaff72150f492779da7bc962}\label{headers_2aplicacion_2timers_8h_a9e5335b7aaff72150f492779da7bc962}} 
+\index{timers.h@{timers.h}!TIMER\_CONTROL@{TIMER\_CONTROL}}
+\index{TIMER\_CONTROL@{TIMER\_CONTROL}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{TIMER\_CONTROL}{TIMER\_CONTROL}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL~1}
+
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a706f726cbc37e4049b47f4f2ec867337}\label{headers_2aplicacion_2timers_8h_a706f726cbc37e4049b47f4f2ec867337}} 
+\index{timers.h@{timers.h}!TIMER\_DEC@{TIMER\_DEC}}
+\index{TIMER\_DEC@{TIMER\_DEC}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{TIMER\_DEC}{TIMER\_DEC}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+D\+EC~1}
+
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a39af3ca6fbba85ca55a964097af27e3e}\label{headers_2aplicacion_2timers_8h_a39af3ca6fbba85ca55a964097af27e3e}} 
+\index{timers.h@{timers.h}!TIMER\_MIN@{TIMER\_MIN}}
+\index{TIMER\_MIN@{TIMER\_MIN}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{TIMER\_MIN}{TIMER\_MIN}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+M\+IN~3}
+
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a57ce5d84b19b520f82251d52b2c33dca}\label{headers_2aplicacion_2timers_8h_a57ce5d84b19b520f82251d52b2c33dca}} 
+\index{timers.h@{timers.h}!TIMER\_PERIODO@{TIMER\_PERIODO}}
+\index{TIMER\_PERIODO@{TIMER\_PERIODO}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{TIMER\_PERIODO}{TIMER\_PERIODO}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+P\+E\+R\+I\+O\+DO~3}
+
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a5db674356ce79b5219e43296289bd1c1}\label{headers_2aplicacion_2timers_8h_a5db674356ce79b5219e43296289bd1c1}} 
+\index{timers.h@{timers.h}!TIMER\_SEG@{TIMER\_SEG}}
+\index{TIMER\_SEG@{TIMER\_SEG}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{TIMER\_SEG}{TIMER\_SEG}}
+{\footnotesize\ttfamily \#define T\+I\+M\+E\+R\+\_\+\+S\+EG~2}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a939d413273f14fa46908e1457c5471b3}\label{headers_2aplicacion_2timers_8h_a939d413273f14fa46908e1457c5471b3}} 
+\index{timers.h@{timers.h}!ActualizarDec@{ActualizarDec}}
+\index{ActualizarDec@{ActualizarDec}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{ActualizarDec()}{ActualizarDec()}}
+{\footnotesize\ttfamily void Actualizar\+Dec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a D\+EC. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a2a035bff29dd900a3b326a1e481684d3}\label{headers_2aplicacion_2timers_8h_a2a035bff29dd900a3b326a1e481684d3}} 
+\index{timers.h@{timers.h}!ActualizarMin@{ActualizarMin}}
+\index{ActualizarMin@{ActualizarMin}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{ActualizarMin()}{ActualizarMin()}}
+{\footnotesize\ttfamily void Actualizar\+Min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a M\+IN. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a61a4508b447127c6c01cdcc6c3c10adf}\label{headers_2aplicacion_2timers_8h_a61a4508b447127c6c01cdcc6c3c10adf}} 
+\index{timers.h@{timers.h}!ActualizarSeg@{ActualizarSeg}}
+\index{ActualizarSeg@{ActualizarSeg}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{ActualizarSeg()}{ActualizarSeg()}}
+{\footnotesize\ttfamily void Actualizar\+Seg (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Rutina encargada de incrementar los acumuladores que tengan como unidad de tiempo a S\+EG. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_a07bb882dd0a49a9765acb5b3cd4ade9f}\label{headers_2aplicacion_2timers_8h_a07bb882dd0a49a9765acb5b3cd4ade9f}} 
+\index{timers.h@{timers.h}!Init\_Timers@{Init\_Timers}}
+\index{Init\_Timers@{Init\_Timers}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{Init\_Timers()}{Init\_Timers()}}
+{\footnotesize\ttfamily void Init\+\_\+\+Timers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de llamar por primera vez a los tres timers T\+I\+M\+E\+R\+\_\+\+D\+EC, T\+I\+M\+E\+R\+\_\+\+S\+EG, T\+I\+M\+E\+R\+\_\+\+M\+IN. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{headers_2aplicacion_2timers_8h_afc2fe7704e4b02883f62758f4b171a94}\label{headers_2aplicacion_2timers_8h_afc2fe7704e4b02883f62758f4b171a94}} 
+\index{timers.h@{timers.h}!SetTimer@{SetTimer}}
+\index{SetTimer@{SetTimer}!timers.h@{timers.h}}
+\subsubsection{\texorpdfstring{SetTimer()}{SetTimer()}}
+{\footnotesize\ttfamily void Set\+Timer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}}}]{timer }\end{DoxyParamCaption})}
+
+
+
+Rutina encargada de resetear el valor de los acumuladores relacionados con los timers transparentes. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+
+\begin{DoxyParams}{Parameters}
+{\em Recibe} & como parámetro un timer transparente, es decir aquellos timers que no nos interesa el valor de la unidad de tiempo. Ejemplo\+: T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL \\
+\hline
+\end{DoxyParams}

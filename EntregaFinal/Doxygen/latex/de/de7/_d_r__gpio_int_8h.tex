@@ -1,0 +1,233 @@
+\hypertarget{_d_r__gpio_int_8h}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/\+Github/\+Gimbal/\+Codigo/gimbal\+\_\+workspace/\+Gimbal/\+Biblioteca Info 2/\+D\+R\+\_\+gpio\+Int.h File Reference}
+\label{_d_r__gpio_int_8h}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/Biblioteca Info 2/DR\_gpioInt.h@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/Biblioteca Info 2/DR\_gpioInt.h}}
+
+
+Breve descripción del objetivo del Módulo.  
+
+
+{\ttfamily \#include \char`\"{}D\+R\+\_\+tipos.\+h\char`\"{}}\newline
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_i_o_int__t}{I\+O\+Int\+\_\+t}}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}{I\+O\+I\+N\+T\+S\+T\+A\+T\+US}}~($\ast$( ( \mbox{\hyperlink{_d_r__tipos_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} \mbox{\hyperlink{_d_r__tipos_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}  $\ast$ ) 0x40028080\+U\+L ))
+\begin{DoxyCompactList}\small\item\em overall Interrupt Status register \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}~( ( \mbox{\hyperlink{struct_i_o_int__t}{I\+O\+Int\+\_\+t}}  $\ast$ ) 0x40028084\+U\+L )
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}~( ( \mbox{\hyperlink{struct_i_o_int__t}{I\+O\+Int\+\_\+t}}  $\ast$ ) 0x400280\+A4\+U\+L )
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a9c30ce2e339b0a6ea4af70376ac54065}{I\+O0\+I\+N\+T\+S\+T\+A\+TR}}~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TR
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Status for port 0 Rising Edge Interrupt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_ae3f72593666f71a88293a28e0fd79821}{I\+O0\+I\+N\+T\+S\+T\+A\+TF}}~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TF
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Status for port 0 Falling Edge Interrupt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_ab5359b27769ff7c427de1093b45d1ab1}{I\+O0\+I\+N\+T\+C\+LR}}~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+C\+LR
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Clear register for port 0. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_aa9ca544555b067726d1057aaac4bd406}{I\+O0\+I\+N\+T\+E\+NR}}~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NR
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Enable for port 0 Rising Edge. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a5db17d85f5cf7877c37d37d4c863db60}{I\+O0\+I\+N\+T\+E\+NF}}~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NF
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Enable for port 0 Falling Edge. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a02f94871f01c2b636042915f1c9c9fe4}{I\+O2\+I\+N\+T\+S\+T\+A\+TR}}~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TR
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Status for port 2 Rising Edge Interrupt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_af47f8c3e8643b0deb0ab4565ed0b2357}{I\+O2\+I\+N\+T\+S\+T\+A\+TF}}~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TF
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Status for port 2 Falling Edge Interrupt. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_aee59b338fd75d314c4718dbd5f67a192}{I\+O2\+I\+N\+T\+C\+LR}}~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+C\+LR
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Clear register for port 2. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a81678057baf5b968662bbd7febeb7204}{I\+O2\+I\+N\+T\+E\+NR}}~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NR
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Enable for port 2 Rising Edge. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a0865ab78a895a013af3e55b8c0a4f5e9}{I\+O2\+I\+N\+T\+E\+NF}}~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NF
+\begin{DoxyCompactList}\small\item\em G\+P\+IO Interrupt Enable for port 2 Falling Edge. \end{DoxyCompactList}\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a32aaf5b62b5b04a2410c0aad2bf7b12b}{P0\+I\+NT}}~( \mbox{\hyperlink{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}{I\+O\+I\+N\+T\+S\+T\+A\+T\+US}} \& 1)
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a103aec9bcc1638cc30262192ceeb97f1}{P2\+I\+NT}}~(( \mbox{\hyperlink{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}{I\+O\+I\+N\+T\+S\+T\+A\+T\+US}} $>$$>$ 1) \& 1)
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_af13ff90bb3a97b9d46ae59f02c515b67}{R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE}}~0
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a880fd21b92b45ceb938130edfeb9adbe}{F\+A\+L\+L\+I\+N\+F\+\_\+\+E\+D\+GE}}~1
+\item 
+\#define \mbox{\hyperlink{_d_r__gpio_int_8h_a5330d16b9c473aa067df4d9584daa9f6}{R\+I\+S\+I\+N\+G\+\_\+\+F\+A\+L\+L\+I\+N\+F\+\_\+\+E\+D\+GE}}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_r__gpio_int_8h_ac3464eaae60aa16fdb47faf677bad70c}{G\+P\+I\+O\+I\+N\+T\+\_\+\+Inicializacion}} (\mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}, \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}, \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Breve descripción del objetivo del Módulo. 
+
+\begin{DoxyDate}{Date}
+23 de jul. de 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Ing. Marcelo Trujillo \begin{DoxyVerb}\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a880fd21b92b45ceb938130edfeb9adbe}\label{_d_r__gpio_int_8h_a880fd21b92b45ceb938130edfeb9adbe}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!FALLINF\_EDGE@{FALLINF\_EDGE}}
+\index{FALLINF\_EDGE@{FALLINF\_EDGE}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{FALLINF\_EDGE}{FALLINF\_EDGE}}
+{\footnotesize\ttfamily \#define F\+A\+L\+L\+I\+N\+F\+\_\+\+E\+D\+GE~1}
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_ab5359b27769ff7c427de1093b45d1ab1}\label{_d_r__gpio_int_8h_ab5359b27769ff7c427de1093b45d1ab1}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO0INTCLR@{IO0INTCLR}}
+\index{IO0INTCLR@{IO0INTCLR}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO0INTCLR}{IO0INTCLR}}
+{\footnotesize\ttfamily \#define I\+O0\+I\+N\+T\+C\+LR~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+C\+LR}
+
+
+
+G\+P\+IO Interrupt Clear register for port 0. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a5db17d85f5cf7877c37d37d4c863db60}\label{_d_r__gpio_int_8h_a5db17d85f5cf7877c37d37d4c863db60}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO0INTENF@{IO0INTENF}}
+\index{IO0INTENF@{IO0INTENF}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO0INTENF}{IO0INTENF}}
+{\footnotesize\ttfamily \#define I\+O0\+I\+N\+T\+E\+NF~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NF}
+
+
+
+G\+P\+IO Interrupt Enable for port 0 Falling Edge. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_aa9ca544555b067726d1057aaac4bd406}\label{_d_r__gpio_int_8h_aa9ca544555b067726d1057aaac4bd406}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO0INTENR@{IO0INTENR}}
+\index{IO0INTENR@{IO0INTENR}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO0INTENR}{IO0INTENR}}
+{\footnotesize\ttfamily \#define I\+O0\+I\+N\+T\+E\+NR~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NR}
+
+
+
+G\+P\+IO Interrupt Enable for port 0 Rising Edge. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_ae3f72593666f71a88293a28e0fd79821}\label{_d_r__gpio_int_8h_ae3f72593666f71a88293a28e0fd79821}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO0INTSTATF@{IO0INTSTATF}}
+\index{IO0INTSTATF@{IO0INTSTATF}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO0INTSTATF}{IO0INTSTATF}}
+{\footnotesize\ttfamily \#define I\+O0\+I\+N\+T\+S\+T\+A\+TF~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TF}
+
+
+
+G\+P\+IO Interrupt Status for port 0 Falling Edge Interrupt. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a9c30ce2e339b0a6ea4af70376ac54065}\label{_d_r__gpio_int_8h_a9c30ce2e339b0a6ea4af70376ac54065}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO0INTSTATR@{IO0INTSTATR}}
+\index{IO0INTSTATR@{IO0INTSTATR}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO0INTSTATR}{IO0INTSTATR}}
+{\footnotesize\ttfamily \#define I\+O0\+I\+N\+T\+S\+T\+A\+TR~\mbox{\hyperlink{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}{P0\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TR}
+
+
+
+G\+P\+IO Interrupt Status for port 0 Rising Edge Interrupt. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_aee59b338fd75d314c4718dbd5f67a192}\label{_d_r__gpio_int_8h_aee59b338fd75d314c4718dbd5f67a192}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO2INTCLR@{IO2INTCLR}}
+\index{IO2INTCLR@{IO2INTCLR}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO2INTCLR}{IO2INTCLR}}
+{\footnotesize\ttfamily \#define I\+O2\+I\+N\+T\+C\+LR~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+C\+LR}
+
+
+
+G\+P\+IO Interrupt Clear register for port 2. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a0865ab78a895a013af3e55b8c0a4f5e9}\label{_d_r__gpio_int_8h_a0865ab78a895a013af3e55b8c0a4f5e9}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO2INTENF@{IO2INTENF}}
+\index{IO2INTENF@{IO2INTENF}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO2INTENF}{IO2INTENF}}
+{\footnotesize\ttfamily \#define I\+O2\+I\+N\+T\+E\+NF~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NF}
+
+
+
+G\+P\+IO Interrupt Enable for port 2 Falling Edge. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a81678057baf5b968662bbd7febeb7204}\label{_d_r__gpio_int_8h_a81678057baf5b968662bbd7febeb7204}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO2INTENR@{IO2INTENR}}
+\index{IO2INTENR@{IO2INTENR}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO2INTENR}{IO2INTENR}}
+{\footnotesize\ttfamily \#define I\+O2\+I\+N\+T\+E\+NR~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+E\+NR}
+
+
+
+G\+P\+IO Interrupt Enable for port 2 Rising Edge. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_af47f8c3e8643b0deb0ab4565ed0b2357}\label{_d_r__gpio_int_8h_af47f8c3e8643b0deb0ab4565ed0b2357}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO2INTSTATF@{IO2INTSTATF}}
+\index{IO2INTSTATF@{IO2INTSTATF}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO2INTSTATF}{IO2INTSTATF}}
+{\footnotesize\ttfamily \#define I\+O2\+I\+N\+T\+S\+T\+A\+TF~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TF}
+
+
+
+G\+P\+IO Interrupt Status for port 2 Falling Edge Interrupt. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a02f94871f01c2b636042915f1c9c9fe4}\label{_d_r__gpio_int_8h_a02f94871f01c2b636042915f1c9c9fe4}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IO2INTSTATR@{IO2INTSTATR}}
+\index{IO2INTSTATR@{IO2INTSTATR}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IO2INTSTATR}{IO2INTSTATR}}
+{\footnotesize\ttfamily \#define I\+O2\+I\+N\+T\+S\+T\+A\+TR~\mbox{\hyperlink{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}{P2\+I\+O\+I\+NT}}-\/$>$I\+O\+I\+N\+T\+S\+T\+A\+TR}
+
+
+
+G\+P\+IO Interrupt Status for port 2 Rising Edge Interrupt. 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}\label{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!IOINTSTATUS@{IOINTSTATUS}}
+\index{IOINTSTATUS@{IOINTSTATUS}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{IOINTSTATUS}{IOINTSTATUS}}
+{\footnotesize\ttfamily \#define I\+O\+I\+N\+T\+S\+T\+A\+T\+US~($\ast$( ( \mbox{\hyperlink{_d_r__tipos_8h_a81f369079976a46554fd9798ab035697}{\+\_\+\+\_\+\+RW}} \mbox{\hyperlink{_d_r__tipos_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}}  $\ast$ ) 0x40028080\+U\+L ))}
+
+
+
+overall Interrupt Status register 
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a32aaf5b62b5b04a2410c0aad2bf7b12b}\label{_d_r__gpio_int_8h_a32aaf5b62b5b04a2410c0aad2bf7b12b}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!P0INT@{P0INT}}
+\index{P0INT@{P0INT}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{P0INT}{P0INT}}
+{\footnotesize\ttfamily \#define P0\+I\+NT~( \mbox{\hyperlink{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}{I\+O\+I\+N\+T\+S\+T\+A\+T\+US}} \& 1)}
+
+Overall Interrupt Status register bits 0 There are no pending interrupts on Port 0 -\/ Port 2. 1 There is at least one pending interrupt on Port 0 -\/ Port 2. 31\+:2 Reserved. \mbox{\Hypertarget{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}\label{_d_r__gpio_int_8h_aac0b84932a97c48d60cb8ba4562cacb2}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!P0IOINT@{P0IOINT}}
+\index{P0IOINT@{P0IOINT}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{P0IOINT}{P0IOINT}}
+{\footnotesize\ttfamily \#define P0\+I\+O\+I\+NT~( ( \mbox{\hyperlink{struct_i_o_int__t}{I\+O\+Int\+\_\+t}}  $\ast$ ) 0x40028084\+U\+L )}
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a103aec9bcc1638cc30262192ceeb97f1}\label{_d_r__gpio_int_8h_a103aec9bcc1638cc30262192ceeb97f1}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!P2INT@{P2INT}}
+\index{P2INT@{P2INT}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{P2INT}{P2INT}}
+{\footnotesize\ttfamily \#define P2\+I\+NT~(( \mbox{\hyperlink{_d_r__gpio_int_8h_aac4a2d403092857717e0d07238b3509b}{I\+O\+I\+N\+T\+S\+T\+A\+T\+US}} $>$$>$ 1) \& 1)}
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}\label{_d_r__gpio_int_8h_a11bc4f197abce198e2fe1911b64b748a}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!P2IOINT@{P2IOINT}}
+\index{P2IOINT@{P2IOINT}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{P2IOINT}{P2IOINT}}
+{\footnotesize\ttfamily \#define P2\+I\+O\+I\+NT~( ( \mbox{\hyperlink{struct_i_o_int__t}{I\+O\+Int\+\_\+t}}  $\ast$ ) 0x400280\+A4\+U\+L )}
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_af13ff90bb3a97b9d46ae59f02c515b67}\label{_d_r__gpio_int_8h_af13ff90bb3a97b9d46ae59f02c515b67}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!RISING\_EDGE@{RISING\_EDGE}}
+\index{RISING\_EDGE@{RISING\_EDGE}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{RISING\_EDGE}{RISING\_EDGE}}
+{\footnotesize\ttfamily \#define R\+I\+S\+I\+N\+G\+\_\+\+E\+D\+GE~0}
+
+\mbox{\Hypertarget{_d_r__gpio_int_8h_a5330d16b9c473aa067df4d9584daa9f6}\label{_d_r__gpio_int_8h_a5330d16b9c473aa067df4d9584daa9f6}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!RISING\_FALLINF\_EDGE@{RISING\_FALLINF\_EDGE}}
+\index{RISING\_FALLINF\_EDGE@{RISING\_FALLINF\_EDGE}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{RISING\_FALLINF\_EDGE}{RISING\_FALLINF\_EDGE}}
+{\footnotesize\ttfamily \#define R\+I\+S\+I\+N\+G\+\_\+\+F\+A\+L\+L\+I\+N\+F\+\_\+\+E\+D\+GE~2}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_d_r__gpio_int_8h_ac3464eaae60aa16fdb47faf677bad70c}\label{_d_r__gpio_int_8h_ac3464eaae60aa16fdb47faf677bad70c}} 
+\index{DR\_gpioInt.h@{DR\_gpioInt.h}!GPIOINT\_Inicializacion@{GPIOINT\_Inicializacion}}
+\index{GPIOINT\_Inicializacion@{GPIOINT\_Inicializacion}!DR\_gpioInt.h@{DR\_gpioInt.h}}
+\subsubsection{\texorpdfstring{GPIOINT\_Inicializacion()}{GPIOINT\_Inicializacion()}}
+{\footnotesize\ttfamily void G\+P\+I\+O\+I\+N\+T\+\_\+\+Inicializacion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{,  }\item[{\mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{,  }\item[{\mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{ }\end{DoxyParamCaption})}
+

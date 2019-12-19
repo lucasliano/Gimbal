@@ -1,0 +1,262 @@
+\hypertarget{maquina_control_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/src/\+App/maquina\+Control.c File Reference}
+\label{maquina_control_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/App/maquinaControl.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/App/maquinaControl.c}}
+
+
+Se encuentran las rutinas relacionadas con el sistema de control.  
+
+
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{maquina_control_8c_ab89fa5c0d2613096beaef358420c7ad4}{Maquina\+\_\+\+Control}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{maquina_control_8c_a1c8abba016263809cb77fb26f70e4df2}{Maquina\+\_\+\+Medir}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con L\+E\+DS. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{maquina_control_8c_a504cdea0bb87a736c2125593d47a7a89}{F\+\_\+\+Calculando}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de realizar los caluclos pertinentes al sistema de control. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{maquina_control_8c_a61020e6a864b061debbc1d45cfd0caa8}{Controlador\+\_\+\+P\+ID}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{maquina_control_8c_aff03bbf3694fd644f7f00227ad0d6f2b}{actual}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena el valor de la posición actual del gimbal. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_control_8c_a63d3c3044414027c2686db00ea9cca32}{set\+Point}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena el valor de setpoint deseado. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_control_8c_a1084d7e47a5571b229a33ad347cc9453}{output}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena el valor de salida del sistema. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{maquina_control_8c_ab6a8758f7e89954e89a3a3ac0d22451c}{k\+Periodo}} = 1 $\ast$ \mbox{\hyperlink{_p_r__timers_8h_aa1fa83fdbcc311a17fd5e16c744f983e}{D\+E\+C\+I\+M\+AS}}
+\item 
+float \mbox{\hyperlink{maquina_control_8c_a85054665626ca249e67cd87e5995c8bf}{k\+Time}} = 10
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_control_8c_a1f7add0f84d583bc2eceb290d6c4cc06}{kp}} = 1
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_control_8c_ae7a5c6018507bb1361fcca170e069b9c}{kd}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{maquina_control_8c_a050993b7ca6c97e62c1020017f716b91}{ki}} = 0
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{maquina_control_8c_a2b1315d937fec51e6159b3a912ee7bdd}{limite}} = 5
+\item 
+int \mbox{\hyperlink{maquina_control_8c_a4783c7194304eb8fb4f20ab58b186d85}{escala}} = 18
+\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{maquina_control_8c_af722f732068042c996f055d5f76b4a46}{time\+Boton}}
+\item 
+\mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} \mbox{\hyperlink{maquina_control_8c_af331e190943e574a764aca968c910789}{time\+Control}}
+\item 
+\mbox{\hyperlink{_m_p_u9250_8h_a5b2246720b6b70f69113fc08a3ce9a73}{Euler\+Angles}} \mbox{\hyperlink{maquina_control_8c_a42ac0723abee768829ce249a91cd364b}{euler}}
+\begin{DoxyCompactList}\small\item\em Estructura que almecena los angulos de euler. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_m_p_u9250_8h_a5b2246720b6b70f69113fc08a3ce9a73}{Euler\+Angles}} \mbox{\hyperlink{maquina_control_8c_ab1eafdd742d4a0fcf70453e0b81770c9}{euler\+Offset}}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena los offset para todos los angulos de Euler. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Se encuentran las rutinas relacionadas con el sistema de control. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\+2 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{maquina_control_8c_a61020e6a864b061debbc1d45cfd0caa8}\label{maquina_control_8c_a61020e6a864b061debbc1d45cfd0caa8}} 
+\index{maquinaControl.c@{maquinaControl.c}!Controlador\_PID@{Controlador\_PID}}
+\index{Controlador\_PID@{Controlador\_PID}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{Controlador\_PID()}{Controlador\_PID()}}
+{\footnotesize\ttfamily void Controlador\+\_\+\+P\+ID (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{maquina_control_8c_a504cdea0bb87a736c2125593d47a7a89}\label{maquina_control_8c_a504cdea0bb87a736c2125593d47a7a89}} 
+\index{maquinaControl.c@{maquinaControl.c}!F\_Calculando@{F\_Calculando}}
+\index{F\_Calculando@{F\_Calculando}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{F\_Calculando()}{F\_Calculando()}}
+{\footnotesize\ttfamily int F\+\_\+\+Calculando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de realizar los caluclos pertinentes al sistema de control. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+F\+A\+L\+SE mientras se este calculando. T\+R\+UE cuando se haya terminado de calcular. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{maquina_control_8c_ab89fa5c0d2613096beaef358420c7ad4}\label{maquina_control_8c_ab89fa5c0d2613096beaef358420c7ad4}} 
+\index{maquinaControl.c@{maquinaControl.c}!Maquina\_Control@{Maquina\_Control}}
+\index{Maquina\_Control@{Maquina\_Control}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{Maquina\_Control()}{Maquina\_Control()}}
+{\footnotesize\ttfamily void Maquina\+\_\+\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_control_8c_a1c8abba016263809cb77fb26f70e4df2}\label{maquina_control_8c_a1c8abba016263809cb77fb26f70e4df2}} 
+\index{maquinaControl.c@{maquinaControl.c}!Maquina\_Medir@{Maquina\_Medir}}
+\index{Maquina\_Medir@{Maquina\_Medir}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{Maquina\_Medir()}{Maquina\_Medir()}}
+{\footnotesize\ttfamily int Maquina\+\_\+\+Medir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados encargada de realizar la medición del giróscopo. Hasta ahora solo implementada para la prueba con L\+E\+DS. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 jkfdkf 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE si se pudo realizar la medición, F\+A\+L\+SE si hubo algun fallo. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{maquina_control_8c_aff03bbf3694fd644f7f00227ad0d6f2b}\label{maquina_control_8c_aff03bbf3694fd644f7f00227ad0d6f2b}} 
+\index{maquinaControl.c@{maquinaControl.c}!actual@{actual}}
+\index{actual@{actual}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{actual}{actual}}
+{\footnotesize\ttfamily float actual = 0}
+
+
+
+Almacena el valor de la posición actual del gimbal. 
+
+none. \mbox{\Hypertarget{maquina_control_8c_a4783c7194304eb8fb4f20ab58b186d85}\label{maquina_control_8c_a4783c7194304eb8fb4f20ab58b186d85}} 
+\index{maquinaControl.c@{maquinaControl.c}!escala@{escala}}
+\index{escala@{escala}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{escala}{escala}}
+{\footnotesize\ttfamily int escala = 18}
+
+\mbox{\Hypertarget{maquina_control_8c_a42ac0723abee768829ce249a91cd364b}\label{maquina_control_8c_a42ac0723abee768829ce249a91cd364b}} 
+\index{maquinaControl.c@{maquinaControl.c}!euler@{euler}}
+\index{euler@{euler}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{euler}{euler}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_p_u9250_8h_a5b2246720b6b70f69113fc08a3ce9a73}{Euler\+Angles}} euler}
+
+
+
+Estructura que almecena los angulos de euler. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+12.\+12 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_control_8c_ab1eafdd742d4a0fcf70453e0b81770c9}\label{maquina_control_8c_ab1eafdd742d4a0fcf70453e0b81770c9}} 
+\index{maquinaControl.c@{maquinaControl.c}!eulerOffset@{eulerOffset}}
+\index{eulerOffset@{eulerOffset}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{eulerOffset}{eulerOffset}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_m_p_u9250_8h_a5b2246720b6b70f69113fc08a3ce9a73}{Euler\+Angles}} euler\+Offset}
+
+
+
+Estructura que almacena los offset para todos los angulos de Euler. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+12.\+12 
+\end{DoxyDate}
+\mbox{\Hypertarget{maquina_control_8c_ae7a5c6018507bb1361fcca170e069b9c}\label{maquina_control_8c_ae7a5c6018507bb1361fcca170e069b9c}} 
+\index{maquinaControl.c@{maquinaControl.c}!kd@{kd}}
+\index{kd@{kd}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kd}{kd}}
+{\footnotesize\ttfamily float kd = 0}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar que tanta importancia se le da a la componente de control derivativa. \mbox{\Hypertarget{maquina_control_8c_a050993b7ca6c97e62c1020017f716b91}\label{maquina_control_8c_a050993b7ca6c97e62c1020017f716b91}} 
+\index{maquinaControl.c@{maquinaControl.c}!ki@{ki}}
+\index{ki@{ki}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{ki}{ki}}
+{\footnotesize\ttfamily float ki = 0}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar que tanta importancia se le da a la componente de control integral. \mbox{\Hypertarget{maquina_control_8c_a1f7add0f84d583bc2eceb290d6c4cc06}\label{maquina_control_8c_a1f7add0f84d583bc2eceb290d6c4cc06}} 
+\index{maquinaControl.c@{maquinaControl.c}!kp@{kp}}
+\index{kp@{kp}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kp}{kp}}
+{\footnotesize\ttfamily float kp = 1}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite la componente proporcional del sistema de control. Varia que tan brusca es la respuesta inmediata. \mbox{\Hypertarget{maquina_control_8c_ab6a8758f7e89954e89a3a3ac0d22451c}\label{maquina_control_8c_ab6a8758f7e89954e89a3a3ac0d22451c}} 
+\index{maquinaControl.c@{maquinaControl.c}!kPeriodo@{kPeriodo}}
+\index{kPeriodo@{kPeriodo}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kPeriodo}{kPeriodo}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} k\+Periodo = 1 $\ast$ \mbox{\hyperlink{_p_r__timers_8h_aa1fa83fdbcc311a17fd5e16c744f983e}{D\+E\+C\+I\+M\+AS}}}
+
+\mbox{\Hypertarget{maquina_control_8c_a85054665626ca249e67cd87e5995c8bf}\label{maquina_control_8c_a85054665626ca249e67cd87e5995c8bf}} 
+\index{maquinaControl.c@{maquinaControl.c}!kTime@{kTime}}
+\index{kTime@{kTime}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{kTime}{kTime}}
+{\footnotesize\ttfamily float k\+Time = 10}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control. \mbox{\Hypertarget{maquina_control_8c_a2b1315d937fec51e6159b3a912ee7bdd}\label{maquina_control_8c_a2b1315d937fec51e6159b3a912ee7bdd}} 
+\index{maquinaControl.c@{maquinaControl.c}!limite@{limite}}
+\index{limite@{limite}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{limite}{limite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} limite = 5}
+
+\mbox{\Hypertarget{maquina_control_8c_a1084d7e47a5571b229a33ad347cc9453}\label{maquina_control_8c_a1084d7e47a5571b229a33ad347cc9453}} 
+\index{maquinaControl.c@{maquinaControl.c}!output@{output}}
+\index{output@{output}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{output}{output}}
+{\footnotesize\ttfamily float output = 0}
+
+
+
+Almacena el valor de salida del sistema. 
+
+none. \mbox{\Hypertarget{maquina_control_8c_a63d3c3044414027c2686db00ea9cca32}\label{maquina_control_8c_a63d3c3044414027c2686db00ea9cca32}} 
+\index{maquinaControl.c@{maquinaControl.c}!setPoint@{setPoint}}
+\index{setPoint@{setPoint}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{setPoint}{setPoint}}
+{\footnotesize\ttfamily float set\+Point = 0}
+
+
+
+Almacena el valor de setpoint deseado. 
+
+none. \mbox{\Hypertarget{maquina_control_8c_af722f732068042c996f055d5f76b4a46}\label{maquina_control_8c_af722f732068042c996f055d5f76b4a46}} 
+\index{maquinaControl.c@{maquinaControl.c}!timeBoton@{timeBoton}}
+\index{timeBoton@{timeBoton}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{timeBoton}{timeBoton}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} time\+Boton}
+
+\mbox{\Hypertarget{maquina_control_8c_af331e190943e574a764aca968c910789}\label{maquina_control_8c_af331e190943e574a764aca968c910789}} 
+\index{maquinaControl.c@{maquinaControl.c}!timeControl@{timeControl}}
+\index{timeControl@{timeControl}!maquinaControl.c@{maquinaControl.c}}
+\subsubsection{\texorpdfstring{timeControl}{timeControl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_regs___l_p_c176x_8h_a273cf69d639a59973b6019625df33e30}{uint16\+\_\+t}} time\+Control}
+

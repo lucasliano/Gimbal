@@ -1,0 +1,141 @@
+\hypertarget{src_2aplicacion_2maquina_general_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/\+Github/\+Gimbal/\+Codigo/src/aplicacion/maquina\+General.c File Reference}
+\label{src_2aplicacion_2maquina_general_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/src/aplicacion/maquinaGeneral.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/src/aplicacion/maquinaGeneral.c}}
+{\ttfamily \#include \char`\"{}headers/aplicacion/maquina\+General.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_ad3f7cbfa437b57f782e4f25235c4f483}{Inicializar}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de ejecutar inicializaciones tanto de funciones a nivel de aplicación como de funciones a nivel de hardware. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_a13c486c4fa5b18c144b61239a5a0a934}{Recalibrar\+\_\+\+Confirm}} ()
+\begin{DoxyCompactList}\small\item\em Se encarga de revisar si se esta solicitando la recalibración del dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_a3014ad06c2a83a10a215aa1b0c9c8f9d}{Maquina\+\_\+\+General}} ()
+\begin{DoxyCompactList}\small\item\em Es la maquina encargada del funcionamiento principal del dispositivo. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_a7d538ca3255649894e2723332eabb69f}{F\+\_\+\+Funcionando}} ()
+\begin{DoxyCompactList}\small\item\em Es la rutina que actualmente ejecuta todo aquello dentro del estado \char`\"{}\+Funcionando\char`\"{} en la maquina general. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_ab89fa5c0d2613096beaef358420c7ad4}{Maquina\+\_\+\+Control}} ()
+\begin{DoxyCompactList}\small\item\em Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_af331e190943e574a764aca968c910789}{time\+Control}}
+\begin{DoxyCompactList}\small\item\em Es el acumulador relacionado al T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_ae3c7ebbb0a24f103f572af04ff4bab83}{k\+Time}}
+\begin{DoxyCompactList}\small\item\em Almacena una constante de control. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} \mbox{\hyperlink{src_2aplicacion_2maquina_general_8c_ae9d6e92e1fde6e9046eb1e2c2b995c5e}{set\+Point}}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_a7d538ca3255649894e2723332eabb69f}\label{src_2aplicacion_2maquina_general_8c_a7d538ca3255649894e2723332eabb69f}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!F\_Funcionando@{F\_Funcionando}}
+\index{F\_Funcionando@{F\_Funcionando}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{F\_Funcionando()}{F\_Funcionando()}}
+{\footnotesize\ttfamily void F\+\_\+\+Funcionando (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la rutina que actualmente ejecuta todo aquello dentro del estado \char`\"{}\+Funcionando\char`\"{} en la maquina general. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_ad3f7cbfa437b57f782e4f25235c4f483}\label{src_2aplicacion_2maquina_general_8c_ad3f7cbfa437b57f782e4f25235c4f483}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Inicializar@{Inicializar}}
+\index{Inicializar@{Inicializar}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Inicializar()}{Inicializar()}}
+{\footnotesize\ttfamily void Inicializar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de ejecutar inicializaciones tanto de funciones a nivel de aplicación como de funciones a nivel de hardware. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_ab89fa5c0d2613096beaef358420c7ad4}\label{src_2aplicacion_2maquina_general_8c_ab89fa5c0d2613096beaef358420c7ad4}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Maquina\_Control@{Maquina\_Control}}
+\index{Maquina\_Control@{Maquina\_Control}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Maquina\_Control()}{Maquina\_Control()}}
+{\footnotesize\ttfamily void Maquina\+\_\+\+Control (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la máquina de estados que regula el correcto funcionamiento del sistema de control. Se ejecuta dentro de la máquina General. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_a3014ad06c2a83a10a215aa1b0c9c8f9d}\label{src_2aplicacion_2maquina_general_8c_a3014ad06c2a83a10a215aa1b0c9c8f9d}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Maquina\_General@{Maquina\_General}}
+\index{Maquina\_General@{Maquina\_General}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Maquina\_General()}{Maquina\_General()}}
+{\footnotesize\ttfamily void Maquina\+\_\+\+General (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Es la maquina encargada del funcionamiento principal del dispositivo. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_a13c486c4fa5b18c144b61239a5a0a934}\label{src_2aplicacion_2maquina_general_8c_a13c486c4fa5b18c144b61239a5a0a934}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!Recalibrar\_Confirm@{Recalibrar\_Confirm}}
+\index{Recalibrar\_Confirm@{Recalibrar\_Confirm}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{Recalibrar\_Confirm()}{Recalibrar\_Confirm()}}
+{\footnotesize\ttfamily int Recalibrar\+\_\+\+Confirm (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Se encarga de revisar si se esta solicitando la recalibración del dispositivo. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+07.\+23 
+\end{DoxyDate}
+\begin{DoxyReturn}{Returns}
+T\+R\+UE en caso de que se solicite. F\+A\+L\+SE en el caso contrario. 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_ae3c7ebbb0a24f103f572af04ff4bab83}\label{src_2aplicacion_2maquina_general_8c_ae3c7ebbb0a24f103f572af04ff4bab83}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!kTime@{kTime}}
+\index{kTime@{kTime}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{kTime}{kTime}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} k\+Time}
+
+
+
+Almacena una constante de control. 
+
+Esta constante permite variar cada cuanto quiero que se ejecute la rutina de control. \mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_ae9d6e92e1fde6e9046eb1e2c2b995c5e}\label{src_2aplicacion_2maquina_general_8c_ae9d6e92e1fde6e9046eb1e2c2b995c5e}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!setPoint@{setPoint}}
+\index{setPoint@{setPoint}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{setPoint}{setPoint}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} set\+Point}
+
+\mbox{\Hypertarget{src_2aplicacion_2maquina_general_8c_af331e190943e574a764aca968c910789}\label{src_2aplicacion_2maquina_general_8c_af331e190943e574a764aca968c910789}} 
+\index{maquinaGeneral.c@{maquinaGeneral.c}!timeControl@{timeControl}}
+\index{timeControl@{timeControl}!maquinaGeneral.c@{maquinaGeneral.c}}
+\subsubsection{\texorpdfstring{timeControl}{timeControl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_d_r__tipos_8h_ad097ffa75536dc17a0039dfb3781d705}{uint16\+\_\+t}} time\+Control}
+
+
+
+Es el acumulador relacionado al T\+I\+M\+E\+R\+\_\+\+C\+O\+N\+T\+R\+OL. 
+
+none. 

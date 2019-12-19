@@ -1,0 +1,263 @@
+\hypertarget{_d_r___i2_c_8c}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/workspace/\+Gimbal/src/\+Drivers/\+D\+R\+\_\+\+I2C.c File Reference}
+\label{_d_r___i2_c_8c}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Drivers/DR\_I2C.c@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/workspace/Gimbal/src/Drivers/DR\_I2C.c}}
+{\ttfamily \#include \char`\"{}all.\+h\char`\"{}}\newline
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_r___i2_c_8c_ac45e5675f6f4e6e1dee2273baf245219}{I2\+C1\+\_\+\+I\+R\+Q\+Handler}} (void)
+\begin{DoxyCompactList}\small\item\em Handler de la interrupcion para I2\+C1. Se encarga de generar la comunicación a partir de la información suminstrada por el registro I2\+C1\+S\+T\+AT. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_d_r___i2_c_8c_abe2a495f8fb12203f43fa52b6d012ed7}{init\+I2C}} (void)
+\begin{DoxyCompactList}\small\item\em Rutina a nivel de Drivers encargada de inicializar el periférico I2\+C1. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{_d_r___i2_c_8c_a22cfd01aae9c2ad303cd9b8743bbd37d}{write\+I2\+C\+\_\+driver}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} addr, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} modo, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$data, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} sizet, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} sizer)
+\begin{DoxyCompactList}\small\item\em Funcion a nivel de Primitiva encargada de escribir en el periférico de I2C. \end{DoxyCompactList}\item 
+int8\+\_\+t \mbox{\hyperlink{_d_r___i2_c_8c_a929dc3494210c7392a35f045a830ea22}{read\+I2\+C\+\_\+driver}} (\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$data, \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} size)
+\begin{DoxyCompactList}\small\item\em Funcion a nivel de Driver encargada de recoger todos datos del buffer\+Rx de I2C. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_a47cd77531e024311a3c45b07c2ac997b}{tx\+Buffer\+I2C}} \mbox{[}\mbox{\hyperlink{_d_r___i2_c_8h_ae1b27ed6175eaacaf96033cf29287ec3}{I2\+C\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Almacena los datos a enviar por el I2\+C1. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_a3523ff7a08dd6c3dbbbd18900b201d64}{rx\+Buff\+I2C}} \mbox{[}\mbox{\hyperlink{_d_r___i2_c_8h_aae0952b6ce081c9b0a95ac8e5a720d6f}{I2\+C\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Almacena los datos a recibidos por el I2\+C1.. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_ab6b2aa27fd4c6916bbaf9f81f6a9b048}{estado\+I2C}}
+\begin{DoxyCompactList}\small\item\em Almacena el estado actual del periférico I2\+C1. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_a9ecc3b3ea37416a9e0582d8cb5d427ea}{slave\+Addr}}
+\begin{DoxyCompactList}\small\item\em Almacena la dirección de slave I2C a la que se le va a hablar. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_ac4596a31aa6a8603908d37051b245a8c}{tx\+Buff\+I2\+C\+Size}}
+\begin{DoxyCompactList}\small\item\em Almacena el tamaño de datos a enviar por el módulo I2\+C1. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_a3c932d70ea98e2ed25d7b8d9257071b1}{rx\+Buff\+I2\+C\+Size}}
+\begin{DoxyCompactList}\small\item\em Almacena el tamaño de datos a recibir por el módulo I2\+C1. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_a79972c1eacdf509e97464766368f6c85}{current\+Adress}}
+\begin{DoxyCompactList}\small\item\em Almacena la última dirección con la que se hablo. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___i2_c_8c_aa3753550f105520736fc18bb995c8755}{is\+Dummy\+Write}}
+\begin{DoxyCompactList}\small\item\em Flag para indicar escritura y lectura simultanea del periférico I2\+C1. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_d_r___i2_c_8c_ac45e5675f6f4e6e1dee2273baf245219}\label{_d_r___i2_c_8c_ac45e5675f6f4e6e1dee2273baf245219}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!I2C1\_IRQHandler@{I2C1\_IRQHandler}}
+\index{I2C1\_IRQHandler@{I2C1\_IRQHandler}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{I2C1\_IRQHandler()}{I2C1\_IRQHandler()}}
+{\footnotesize\ttfamily void I2\+C1\+\_\+\+I\+R\+Q\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Handler de la interrupcion para I2\+C1. Se encarga de generar la comunicación a partir de la información suminstrada por el registro I2\+C1\+S\+T\+AT. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_abe2a495f8fb12203f43fa52b6d012ed7}\label{_d_r___i2_c_8c_abe2a495f8fb12203f43fa52b6d012ed7}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!initI2C@{initI2C}}
+\index{initI2C@{initI2C}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{initI2C()}{initI2C()}}
+{\footnotesize\ttfamily void init\+I2C (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Rutina a nivel de Drivers encargada de inicializar el periférico I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a929dc3494210c7392a35f045a830ea22}\label{_d_r___i2_c_8c_a929dc3494210c7392a35f045a830ea22}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!readI2C\_driver@{readI2C\_driver}}
+\index{readI2C\_driver@{readI2C\_driver}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{readI2C\_driver()}{readI2C\_driver()}}
+{\footnotesize\ttfamily int8\+\_\+t read\+I2\+C\+\_\+driver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{size }\end{DoxyParamCaption})}
+
+
+
+Funcion a nivel de Driver encargada de recoger todos datos del buffer\+Rx de I2C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8\+\_\+t$\ast$} & data -\/ Buffer en el que se van a guardar los datos. \\
+\hline
+{\em uint8\+\_\+t} & size -\/ Cantidad de elementos que se desean leer del buffer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Se devuelve el -\/1 en caso de error y 0 en caso de acierto. 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a22cfd01aae9c2ad303cd9b8743bbd37d}\label{_d_r___i2_c_8c_a22cfd01aae9c2ad303cd9b8743bbd37d}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!writeI2C\_driver@{writeI2C\_driver}}
+\index{writeI2C\_driver@{writeI2C\_driver}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{writeI2C\_driver()}{writeI2C\_driver()}}
+{\footnotesize\ttfamily int8\+\_\+t write\+I2\+C\+\_\+driver (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{addr,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{modo,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} $\ast$}]{data,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{sizet,  }\item[{\mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}}}]{sizer }\end{DoxyParamCaption})}
+
+
+
+Funcion a nivel de Primitiva encargada de escribir en el periférico de I2C. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em uint8\+\_\+t} & addr -\/ Dirrecion del Slave donde se quiere W/R. \\
+\hline
+{\em uint8\+\_\+t} & modo -\/ Se elige que se quiere hacer, si Write, Read o D\+M(dummy\+Read) que es equivalente a escribir y leer. \\
+\hline
+{\em uint8\+\_\+t$\ast$} & data -\/ Buffer que se va a enviar. En caso de Read, no influye en nada. \\
+\hline
+{\em uint8\+\_\+t} & sizet -\/ Cantidad de elementos que se desean escribir del buffer\+TX. \\
+\hline
+{\em uint8\+\_\+t} & sizer -\/ Cantidad de elementos que se desean leer del buffer\+Rx. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Se retorna 0 en caso de que se haya logrado la función. Se retorna -\/1 si (estado\+I2C == I2\+C\+\_\+\+B\+U\+SY $\vert$$\vert$ estado\+I2C == I2\+C\+\_\+\+D\+A\+T\+AV) 
+\end{DoxyReturn}
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+6 
+\end{DoxyDate}
+Depende del modo de uso\+:
+
+R\+: I\+M\+P\+O\+R\+T\+A\+N\+TE, S\+O\+LO F\+U\+N\+C\+I\+O\+NA SI A\+N\+T\+ES H\+I\+C\+I\+S\+TE W\+R\+I\+TE Carga la slave\+Addr y el tamaño del buffer de lectura y escritura. Pero no carga el buffer\+Tx. Genera S\+T\+A\+RT.
+
+W\+: Carga la slave\+Addr, el tamaño de los buffer y el buffer\+Tx. Genera S\+T\+A\+RT y aparte va a escribir el buffer\+Tx.
+
+DW\+: Hace lo mismo que Write, pero carga un flag para que cuando termine de recibir A\+CK (I2\+C1\+S\+T\+AT = 0x28) retrasnmita en modo lectura.
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a79972c1eacdf509e97464766368f6c85}\label{_d_r___i2_c_8c_a79972c1eacdf509e97464766368f6c85}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!currentAdress@{currentAdress}}
+\index{currentAdress@{currentAdress}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{currentAdress}{currentAdress}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} current\+Adress}
+
+
+
+Almacena la última dirección con la que se hablo. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_ab6b2aa27fd4c6916bbaf9f81f6a9b048}\label{_d_r___i2_c_8c_ab6b2aa27fd4c6916bbaf9f81f6a9b048}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!estadoI2C@{estadoI2C}}
+\index{estadoI2C@{estadoI2C}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{estadoI2C}{estadoI2C}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} estado\+I2C}
+
+
+
+Almacena el estado actual del periférico I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_aa3753550f105520736fc18bb995c8755}\label{_d_r___i2_c_8c_aa3753550f105520736fc18bb995c8755}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!isDummyWrite@{isDummyWrite}}
+\index{isDummyWrite@{isDummyWrite}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{isDummyWrite}{isDummyWrite}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} is\+Dummy\+Write}
+
+
+
+Flag para indicar escritura y lectura simultanea del periférico I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a3523ff7a08dd6c3dbbbd18900b201d64}\label{_d_r___i2_c_8c_a3523ff7a08dd6c3dbbbd18900b201d64}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!rxBuffI2C@{rxBuffI2C}}
+\index{rxBuffI2C@{rxBuffI2C}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{rxBuffI2C}{rxBuffI2C}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} rx\+Buff\+I2C\mbox{[}\mbox{\hyperlink{_d_r___i2_c_8h_aae0952b6ce081c9b0a95ac8e5a720d6f}{I2\+C\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}\mbox{]}}
+
+
+
+Almacena los datos a recibidos por el I2\+C1.. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a3c932d70ea98e2ed25d7b8d9257071b1}\label{_d_r___i2_c_8c_a3c932d70ea98e2ed25d7b8d9257071b1}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!rxBuffI2CSize@{rxBuffI2CSize}}
+\index{rxBuffI2CSize@{rxBuffI2CSize}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{rxBuffI2CSize}{rxBuffI2CSize}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} rx\+Buff\+I2\+C\+Size}
+
+
+
+Almacena el tamaño de datos a recibir por el módulo I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a9ecc3b3ea37416a9e0582d8cb5d427ea}\label{_d_r___i2_c_8c_a9ecc3b3ea37416a9e0582d8cb5d427ea}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!slaveAddr@{slaveAddr}}
+\index{slaveAddr@{slaveAddr}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{slaveAddr}{slaveAddr}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} slave\+Addr}
+
+
+
+Almacena la dirección de slave I2C a la que se le va a hablar. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_a47cd77531e024311a3c45b07c2ac997b}\label{_d_r___i2_c_8c_a47cd77531e024311a3c45b07c2ac997b}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!txBufferI2C@{txBufferI2C}}
+\index{txBufferI2C@{txBufferI2C}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{txBufferI2C}{txBufferI2C}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} tx\+Buffer\+I2C\mbox{[}\mbox{\hyperlink{_d_r___i2_c_8h_ae1b27ed6175eaacaf96033cf29287ec3}{I2\+C\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+\_\+\+S\+I\+ZE}}\mbox{]}}
+
+
+
+Almacena los datos a enviar por el I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}
+\mbox{\Hypertarget{_d_r___i2_c_8c_ac4596a31aa6a8603908d37051b245a8c}\label{_d_r___i2_c_8c_ac4596a31aa6a8603908d37051b245a8c}} 
+\index{DR\_I2C.c@{DR\_I2C.c}!txBuffI2CSize@{txBuffI2CSize}}
+\index{txBuffI2CSize@{txBuffI2CSize}!DR\_I2C.c@{DR\_I2C.c}}
+\subsubsection{\texorpdfstring{txBuffI2CSize}{txBuffI2CSize}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_regs___l_p_c176x_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} tx\+Buff\+I2\+C\+Size}
+
+
+
+Almacena el tamaño de datos a enviar por el módulo I2\+C1. 
+
+\begin{DoxyAuthor}{Author}
+Grupo 8 -\/ R2003 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019.\+11.\+06 
+\end{DoxyDate}

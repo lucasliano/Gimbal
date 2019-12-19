@@ -1,0 +1,116 @@
+\hypertarget{_d_r___timers_8h}{}\section{C\+:/\+Users/lucas/\+Desktop/\+Lucas/\+U\+T\+N/\+Informatica 2/\+T\+P\+O/\+Github/\+Gimbal/\+Codigo/gimbal\+\_\+workspace/\+Gimbal/\+Biblioteca Info 2/\+D\+R\+\_\+\+Timers.h File Reference}
+\label{_d_r___timers_8h}\index{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/Biblioteca Info 2/DR\_Timers.h@{C:/Users/lucas/Desktop/Lucas/UTN/Informatica 2/TPO/Github/Gimbal/Codigo/gimbal\_workspace/Gimbal/Biblioteca Info 2/DR\_Timers.h}}
+
+
+Breve descripción del objetivo del Módulo.  
+
+
+{\ttfamily \#include \char`\"{}D\+R\+\_\+tipos.\+h\char`\"{}}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}~30
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \mbox{\hyperlink{_d_r___timers_8h_ad8c2afd48cc8eb5c42aacf5d7b9f38dc}{Timer\+\_\+\+Handler}}) (void)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_d_r___timers_8h_ac9aaf3e46824bad7a167094cea2e9b00}{Analizar\+Timers}} (void)
+\item 
+void \mbox{\hyperlink{_d_r___timers_8h_a79b64ec3cf78a774b979907ac62df3ec}{Timer\+Event}} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile \mbox{\hyperlink{_d_r__tipos_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} \mbox{\hyperlink{_d_r___timers_8h_a5da2653ad7269bf85511e93c7835694a}{Tmr\+\_\+\+Run}} \mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}
+\item 
+volatile \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___timers_8h_a50c852270b12b2182b77c9b275113e48}{T\+M\+R\+\_\+\+Events}} \mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}
+\item 
+void($\ast$ \mbox{\hyperlink{_d_r___timers_8h_a121b560cdaae5a944826551009ba458e}{T\+M\+R\+\_\+handlers}} \mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]})(void)
+\item 
+volatile \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___timers_8h_a5069a3352bbb180fd657d97c9fc296e2}{T\+M\+R\+\_\+\+Stand\+By}} \mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}
+\item 
+volatile \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} \mbox{\hyperlink{_d_r___timers_8h_a59632921c5b50566b33a135322548fc7}{Tmr\+\_\+\+Base}} \mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Breve descripción del objetivo del Módulo. 
+
+\begin{DoxyDate}{Date}
+9 de jun. de 2017 
+\end{DoxyDate}
+\begin{DoxyAuthor}{Author}
+Ing. Marcelo Trujillo \begin{DoxyVerb}\end{DoxyVerb}
+ 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}\label{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!N\_TIMERS@{N\_TIMERS}}
+\index{N\_TIMERS@{N\_TIMERS}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{N\_TIMERS}{N\_TIMERS}}
+{\footnotesize\ttfamily \#define N\+\_\+\+T\+I\+M\+E\+RS~30}
+
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{_d_r___timers_8h_ad8c2afd48cc8eb5c42aacf5d7b9f38dc}\label{_d_r___timers_8h_ad8c2afd48cc8eb5c42aacf5d7b9f38dc}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!Timer\_Handler@{Timer\_Handler}}
+\index{Timer\_Handler@{Timer\_Handler}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{Timer\_Handler}{Timer\_Handler}}
+{\footnotesize\ttfamily typedef void($\ast$ Timer\+\_\+\+Handler) (void)}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_d_r___timers_8h_ac9aaf3e46824bad7a167094cea2e9b00}\label{_d_r___timers_8h_ac9aaf3e46824bad7a167094cea2e9b00}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!AnalizarTimers@{AnalizarTimers}}
+\index{AnalizarTimers@{AnalizarTimers}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{AnalizarTimers()}{AnalizarTimers()}}
+{\footnotesize\ttfamily void Analizar\+Timers (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{_d_r___timers_8h_a79b64ec3cf78a774b979907ac62df3ec}\label{_d_r___timers_8h_a79b64ec3cf78a774b979907ac62df3ec}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!TimerEvent@{TimerEvent}}
+\index{TimerEvent@{TimerEvent}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{TimerEvent()}{TimerEvent()}}
+{\footnotesize\ttfamily void Timer\+Event (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_d_r___timers_8h_a59632921c5b50566b33a135322548fc7}\label{_d_r___timers_8h_a59632921c5b50566b33a135322548fc7}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!Tmr\_Base@{Tmr\_Base}}
+\index{Tmr\_Base@{Tmr\_Base}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{Tmr\_Base}{Tmr\_Base}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} Tmr\+\_\+\+Base\mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___timers_8h_a50c852270b12b2182b77c9b275113e48}\label{_d_r___timers_8h_a50c852270b12b2182b77c9b275113e48}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!TMR\_Events@{TMR\_Events}}
+\index{TMR\_Events@{TMR\_Events}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{TMR\_Events}{TMR\_Events}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} T\+M\+R\+\_\+\+Events\mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___timers_8h_a121b560cdaae5a944826551009ba458e}\label{_d_r___timers_8h_a121b560cdaae5a944826551009ba458e}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!TMR\_handlers@{TMR\_handlers}}
+\index{TMR\_handlers@{TMR\_handlers}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{TMR\_handlers}{TMR\_handlers}}
+{\footnotesize\ttfamily void($\ast$  T\+M\+R\+\_\+handlers\mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]})(void)}
+
+\mbox{\Hypertarget{_d_r___timers_8h_a5da2653ad7269bf85511e93c7835694a}\label{_d_r___timers_8h_a5da2653ad7269bf85511e93c7835694a}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!Tmr\_Run@{Tmr\_Run}}
+\index{Tmr\_Run@{Tmr\_Run}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{Tmr\_Run}{Tmr\_Run}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_d_r__tipos_8h_a435d1572bf3f880d55459d9805097f62}{uint32\+\_\+t}} Tmr\+\_\+\+Run\mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}}
+
+\mbox{\Hypertarget{_d_r___timers_8h_a5069a3352bbb180fd657d97c9fc296e2}\label{_d_r___timers_8h_a5069a3352bbb180fd657d97c9fc296e2}} 
+\index{DR\_Timers.h@{DR\_Timers.h}!TMR\_StandBy@{TMR\_StandBy}}
+\index{TMR\_StandBy@{TMR\_StandBy}!DR\_Timers.h@{DR\_Timers.h}}
+\subsubsection{\texorpdfstring{TMR\_StandBy}{TMR\_StandBy}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{_d_r__tipos_8h_aba7bc1797add20fe3efdf37ced1182c5}{uint8\+\_\+t}} T\+M\+R\+\_\+\+Stand\+By\mbox{[}\mbox{\hyperlink{_d_r___timers_8h_a5d4e4a6f927115e8b06316cfdc29beba}{N\+\_\+\+T\+I\+M\+E\+RS}}\mbox{]}}
+
