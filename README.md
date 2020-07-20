@@ -1,5 +1,8 @@
 # Gimbal
-Projecto InfoII
+Projecto UTN FRBA Ing. Electrónica Informática II. 
+
+# Descripción
+Estabilizador de cámara go pro de tres ejes 
 
 # Autores
 
