@@ -1,7 +1,5 @@
 <!-- Badged -->
 [![forthebadge](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
-[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 [![forthebadge](https://forthebadge.com/images/badges/made-with-c.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/not-a-bug-a-feature.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/powered-by-coffee.svg)](https://forthebadge.com)
@@ -10,14 +8,14 @@
 <br />
 <p align="center">
   <a href="https://github.com/lucasliano/Gimbal">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="Fotos/logo.png" alt="Logo" width="80" height="80">
   </a>
 
-  <h3 align="center">Gimbal de 3 ejes</h3>
+  <h3 align="center">3-Axis Gimbal</h3>
 
   <p align="center">
-    El presente repositorio se corresponde con el proyecto integrador de la materia Informática II, correspondiente a la carrera en Ing. Electrónica de la Universidad Tecnológica Nacional - Facultad Regional de Buenos Aires. En este proyecto se desarrolló un estabilizador de cámara GoPro de tres ejes.
-
+    Proyecto integrador de la materia Informática II, correspondiente a la carrera en Ing. Electrónica de la UTN.BA.
+    En este proyecto se desarrolló un estabilizador de cámara GoPro de tres ejes.
     <br />
     <a href="https://github.com/lucasliano/Gimbal/blob/master/EntregaFinal/Gimbal%20Informe.pdf"><strong>Explore the docs »</strong></a>
     <br />
@@ -32,27 +30,13 @@
 
 
 
-<!-- TABLE OF CONTENTS -->
-<details open="open">
-  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
-  <ol>
-    <<li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#authors">Authors</a></li>
-        <li><a href="#images">Images</a></li>
-      </ul>
-    </li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
 
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+
+[![Documentation Status](https://readthedocs.org/projects/ansicolortags/badge/?version=latest)](http://ansicolortags.readthedocs.io/?badge=latest)
+[![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
 
 La idea fuerza del proyecto surgió gracias a las nuevas tecnologías utilizadas para la
 transmisión de espectáculos en grandes espacios abiertos, tales como recitales o encuentros
@@ -85,8 +69,8 @@ peso y el tamaño de la cámara.
 
 * Coiro, Mateo
 * Golob, Lautaro
-* Liaño, Lucas
-* Lovallo, Alejo
+* [Liaño, Lucas](https://github.com/lucasliano)
+* [Lovallo, Alejo](https://github.com/AlejoLovallo)
 * Repetto, Facundo
 
 
